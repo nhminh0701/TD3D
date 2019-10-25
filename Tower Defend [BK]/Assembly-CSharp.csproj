@@ -77,6 +77,7 @@
     <Compile Include="Assets\Scripts\UI\GameOver.cs" />
     <Compile Include="Assets\Scripts\UI\LivesUI.cs" />
     <Compile Include="Assets\Scripts\UI\MoneyUI.cs" />
+    <Compile Include="Assets\Scripts\UI\NodeUI.cs" />
     <Compile Include="Assets\Scripts\UI\Shop.cs" />
     <Compile Include="Assets\Scripts\Waypoints.cs" />
     <Reference Include="Unity.Timeline.Editor">

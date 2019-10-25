@@ -30,14 +30,15 @@ public class Node : MonoBehaviour
             return;
         }
 
-        if (!buildManager.CanBuild)
-            return;
-
+        // A turret already built in
         if (turret != null)
         {
-            Debug.LogError("Can't build there - TODO: Display on screen.");
+            buildManager.SelecteNode(this);
             return;
         }
+
+        if (!buildManager.CanBuild)
+            return;
 
         // Build a turret
         buildManager.BuildTurretOn(this);
