@@ -4,9 +4,7 @@
 public class TurretBlueprint : ScriptableObject
 {
     public GameObject prefab;
-
     public GameObject buildEffect;
-
     public int cost;
 
     public GameObject bulletPrefab { get
@@ -30,4 +28,32 @@ public class TurretBlueprint : ScriptableObject
             else return null;
         }
     }
+
+    #region update turret
+    public TurretBlueprint upgradedTurret = null;
+
+    public GameObject upgradedPrefab
+    {
+        get
+        {
+            return upgradedTurret.prefab;
+        }
+    }
+
+    public GameObject ugradedBuildEffect
+    {
+        get
+        {
+            return upgradedTurret.buildEffect;
+        }
+    }
+
+    public int upgradeCost
+    {
+        get
+        {
+            return upgradedTurret.cost;
+        }
+    }
+    #endregion
 }

@@ -1,13 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using System;
-
+/// <summary>
+/// Storing data to build turret
+/// and managing these data
+/// </summary>
 public class BuildManager: MonoBehaviour
 {
-    // Storing Turret To build and Build them
-    // Any thing dealing with build turret
+    // Storing Turret To build and Build themt
     public static BuildManager instance;
 
+    // Target reference, i.e the turret prefab
+    // and the position (node) to build the prefab
+    // are determined here and other script can
+    // manage these selections based on the available
+    // public function here
     TurretBlueprint turretToBuild;
     Node selectedNode;
 
@@ -30,25 +37,7 @@ public class BuildManager: MonoBehaviour
         // DontDestroyOnLoad(gameObject);
     }
 
-    public void BuildTurretOn(Node node)
-    {
-        if (PlayerStats.money < turretToBuild.cost)
-        {
-            Debug.Log("Not enoug money");
-            return;
-        }
 
-        PlayerStats.SpendMoney(turretToBuild.cost);
-
-        GameObject turret = (GameObject)Instantiate(turretToBuild.prefab, node.GetBuildPosition(), Quaternion.identity);
-        // Use for turret availability checking of the Node with Node component
-        node.turret = turret;
-
-        GameObject effect = (GameObject)Instantiate(turretToBuild.buildEffect, node.GetBuildPosition(), Quaternion.identity);
-        Destroy(effect, 5f);
-
-        Debug.Log("Turret build! Money left: " + PlayerStats.money);
-    }
 
 
     public void SelecteNode(Node node)
@@ -82,4 +71,6 @@ public class BuildManager: MonoBehaviour
         turretToBuild = turret;
         DeselectNode();
     }
+
+    public TurretBlueprint GetTurretToBuild() { return turretToBuild; }
 }
