@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50b7c15372d8f7348b0aafa4c0283b49, type: 3}
   m_Name: Laser Beamer 3
   m_EditorClassIdentifier: 
-  level: 3
+  level: 4
   prefab: {fileID: 7608260973000731591, guid: c583ef222686125439ef97ab9cb0db5a, type: 3}
   buildEffect: {fileID: 4079970260764637963, guid: 17e015123b442394d8a584a9304e28d6,
     type: 3}
   cost: 20
+  price: 25

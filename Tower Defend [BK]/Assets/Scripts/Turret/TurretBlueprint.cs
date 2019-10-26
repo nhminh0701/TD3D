@@ -7,6 +7,7 @@ public class TurretBlueprint : ScriptableObject
     public GameObject prefab;
     public GameObject buildEffect;
     public int cost;
+    public int price;
 
     public GameObject bulletPrefab { get
         {

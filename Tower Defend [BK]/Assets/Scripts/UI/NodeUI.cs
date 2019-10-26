@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 /// <summary>
 /// The Object relocate to the target Node position and switch on/off the world canvas
 /// Attach to the UI element which display the turret option when the node containing
@@ -10,20 +11,32 @@ public class NodeUI : MonoBehaviour
 {
     public GameObject ui;
     public GameObject upgradeButton;
+    public Text upgradeCost;
+    public Text price;
+
     Node target;
+
+
 
     public void SetTarget(Node _target)
     {
-        if (!_target.upgradable)
-        {
-            upgradeButton.SetActive(false);
-        }
-
         target = _target;
 
         transform.position = target.GetBuildPosition();
 
+        if (_target.upgradable)
+        {
+            upgradeCost.text = "UPGRADE\n$" + _target.turretBlueprintClass.turretList[_target.turretBlueprint.level].cost.ToString();
+        }
+        
+        price.text = "SELL\n$" + _target.turretBlueprint.price.ToString();
+
         ui.SetActive(true);
+
+        if (!_target.upgradable)
+        {
+            upgradeButton.SetActive(false);
+        }
     }
 
     public void Hide()
@@ -34,6 +47,7 @@ public class NodeUI : MonoBehaviour
 
     public void UpgradeTurret()
     {
+        if (target.reachMaxLV) upgradeButton.SetActive(false);
         target.UpgradeTurret();
     }
 }

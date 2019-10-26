@@ -16,7 +16,6 @@ public class BuildManager: MonoBehaviour
     // manage these selections based on the available
     // public function here
     TurretClass turretToBuildClass;
-    TurretBlueprint turretToBuild;
     Node selectedNode;
     
     public bool CanBuild { get { return turretToBuildClass != null; } }

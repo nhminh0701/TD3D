@@ -14,16 +14,18 @@ public class Node : MonoBehaviour
     [SerializeField] Color notEnoughMoneyColor;
     [SerializeField] Vector3 positionOffset;
 
-    //[HideInInspector]
+    [HideInInspector]
     public GameObject turret;
-    //[HideInInspector]
+    [HideInInspector]
     public TurretClass turretBlueprintClass;
     //[HideInInspector]
     public TurretBlueprint turretBlueprint;
-    //[HideInInspector][Tooltip("Is the level of the turret is maximized?")]
+    [HideInInspector][Tooltip("Is the level of the turret is maximized?")]
     public bool upgradable;
+    [HideInInspector]
+    public bool reachMaxLV = false;
     // This lv can be setup to increase game's difficulty via playerpref or json
-    //[HideInInspector]
+    [HideInInspector]
     public int maxLv;
 
 
@@ -63,6 +65,7 @@ public class Node : MonoBehaviour
     void BuildTurret(TurretClass turretClass)
     {
         upgradable = true;
+        reachMaxLV = false;
 
         turretBlueprintClass = turretClass;
 
@@ -94,8 +97,10 @@ public class Node : MonoBehaviour
             return;
         }
 
-        turretBlueprint = turretBlueprintClass.turretList[turretBlueprint.level + 1];
-        if (turretBlueprint.level + 1 >= maxLv)
+        turretBlueprint = turretBlueprintClass.turretList[turretBlueprint.level];
+
+        if (turretBlueprint.level == maxLv - 1) { reachMaxLV = true; }
+        if (turretBlueprint.level== maxLv)
         {
             upgradable = false;
         }
@@ -115,7 +120,7 @@ public class Node : MonoBehaviour
         GameObject _turret = (GameObject)Instantiate(turretBlueprint.prefab, GetBuildPosition(), Quaternion.identity);
         turret = _turret;
 
-        GameObject buildEffect = (GameObject)Instantiate(turretBlueprint.prefab, GetBuildPosition(), Quaternion.identity);
+        GameObject buildEffect = (GameObject)Instantiate(turretBlueprint.buildEffect, GetBuildPosition(), Quaternion.identity);
 
         Destroy(buildEffect, 5f);
     }

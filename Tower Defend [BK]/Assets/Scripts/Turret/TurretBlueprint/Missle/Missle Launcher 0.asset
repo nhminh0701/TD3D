@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50b7c15372d8f7348b0aafa4c0283b49, type: 3}
   m_Name: Missle Launcher 0
   m_EditorClassIdentifier: 
+  level: 1
   prefab: {fileID: 1297637452271815517, guid: dbd0cb0706009124a98a75bfbc617bf1, type: 3}
   buildEffect: {fileID: 4608559949470165840, guid: 8887c52eef6ffe544920ba4b6c08d6d0,
     type: 3}
   cost: 30
-  upgradedTurret: {fileID: 0}
+  price: 15

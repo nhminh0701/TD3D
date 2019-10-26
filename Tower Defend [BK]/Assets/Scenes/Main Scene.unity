@@ -1166,6 +1166,7 @@ GameObject:
   - component: {fileID: 173664665}
   - component: {fileID: 173664664}
   - component: {fileID: 173664663}
+  - component: {fileID: 173664666}
   m_Layer: 0
   m_Name: Upgrade Button
   m_TagString: Untagged
@@ -1283,6 +1284,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 173664661}
   m_CullTransparentMesh: 0
+--- !u!114 &173664666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 173664661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: 177.5
+  m_PreferredHeight: -1
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!1001 &192580250
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1530,6 +1551,7 @@ GameObject:
   - component: {fileID: 209977075}
   - component: {fileID: 209977074}
   - component: {fileID: 209977073}
+  - component: {fileID: 209977076}
   m_Layer: 0
   m_Name: Buttons
   m_TagString: Untagged
@@ -1577,10 +1599,10 @@ MonoBehaviour:
     m_Bottom: 5
   m_ChildAlignment: 0
   m_Spacing: 5
-  m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 1
-  m_ChildControlWidth: 1
-  m_ChildControlHeight: 1
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
 --- !u!114 &209977074
@@ -1619,6 +1641,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 209977071}
   m_CullTransparentMesh: 0
+--- !u!114 &209977076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 209977071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 2
+  m_VerticalFit: 0
 --- !u!4 &213531445 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2962773005300951601, guid: f4fb19282e82be84ea3b570c72016618,
@@ -3501,6 +3537,7 @@ GameObject:
   - component: {fileID: 490841657}
   - component: {fileID: 490841656}
   - component: {fileID: 490841655}
+  - component: {fileID: 490841658}
   m_Layer: 0
   m_Name: Sell Button
   m_TagString: Untagged
@@ -3607,6 +3644,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 490841653}
   m_CullTransparentMesh: 0
+--- !u!114 &490841658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 490841653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: 93.75
+  m_PreferredHeight: -1
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!1001 &505281359
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5317,6 +5374,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ui: {fileID: 530281175}
   upgradeButton: {fileID: 173664661}
+  upgradeCost: {fileID: 75071806}
+  price: {fileID: 766149531}
 --- !u!1001 &718361138
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10736,7 +10795,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54d3707ed9fb7df4d8dd6283d369db55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMoney: 50
+  startMoney: 500
   startLives: 100
 --- !u!114 &1587813788
 MonoBehaviour:

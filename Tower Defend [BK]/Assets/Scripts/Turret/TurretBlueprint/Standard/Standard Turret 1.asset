@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50b7c15372d8f7348b0aafa4c0283b49, type: 3}
   m_Name: Standard Turret 1
   m_EditorClassIdentifier: 
-  level: 1
+  level: 2
   prefab: {fileID: 8210848946410372827, guid: df6eaa6ceb3c9434a9cbcaa3052855af, type: 3}
   buildEffect: {fileID: 7547113409417214196, guid: a6f940f8e3240ce40baae3dc2b512b05,
     type: 3}
   cost: 10
+  price: 10
