@@ -9,12 +9,16 @@ using UnityEngine;
 public class NodeUI : MonoBehaviour
 {
     public GameObject ui;
+    public GameObject upgradeButton;
     Node target;
-
-
 
     public void SetTarget(Node _target)
     {
+        if (!_target.upgradable)
+        {
+            upgradeButton.SetActive(false);
+        }
+
         target = _target;
 
         transform.position = target.GetBuildPosition();
@@ -24,6 +28,12 @@ public class NodeUI : MonoBehaviour
 
     public void Hide()
     {
+        if (!upgradeButton.activeInHierarchy) { upgradeButton.SetActive(true); }
         ui.SetActive(false);
+    }
+
+    public void UpgradeTurret()
+    {
+        target.UpgradeTurret();
     }
 }

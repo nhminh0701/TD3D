@@ -74,6 +74,7 @@
     <Compile Include="Assets\Scripts\Turret\Bullet.cs" />
     <Compile Include="Assets\Scripts\Turret\Turret.cs" />
     <Compile Include="Assets\Scripts\Turret\TurretBlueprint.cs" />
+    <Compile Include="Assets\Scripts\Turret\TurretClass.cs" />
     <Compile Include="Assets\Scripts\UI\GameOver.cs" />
     <Compile Include="Assets\Scripts\UI\LivesUI.cs" />
     <Compile Include="Assets\Scripts\UI\MoneyUI.cs" />

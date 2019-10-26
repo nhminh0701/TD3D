@@ -15,16 +15,14 @@ public class BuildManager: MonoBehaviour
     // are determined here and other script can
     // manage these selections based on the available
     // public function here
+    TurretClass turretToBuildClass;
     TurretBlueprint turretToBuild;
     Node selectedNode;
-
-    [SerializeField] List<GameObject> standardTurretPrefabs;
     
-    public bool CanBuild { get { return turretToBuild != null; } }
-
-    public bool HasEnoughMoney { get { return PlayerStats.money >= turretToBuild.cost; } }
+    public bool CanBuild { get { return turretToBuildClass != null; } }
 
     public NodeUI nodeUI;
+    public bool hasEnoughMoney { get { return  PlayerStats.money >= turretToBuildClass.turretList[0].cost; } }
 
     private void Awake()
     {
@@ -37,9 +35,6 @@ public class BuildManager: MonoBehaviour
         // DontDestroyOnLoad(gameObject);
     }
 
-
-
-
     public void SelecteNode(Node node)
     {
         if (selectedNode == node)
@@ -49,7 +44,7 @@ public class BuildManager: MonoBehaviour
         }
 
         selectedNode = node;
-        turretToBuild = null;
+        turretToBuildClass = null;
 
         nodeUI.SetTarget(node);
     }
@@ -61,16 +56,16 @@ public class BuildManager: MonoBehaviour
     }
 
     /// <summary>
-    /// The function to be called in the Shop.cs.
+    /// Called from Shop.cs.
     /// The Shop.cs handle buying the set turret in this script
     /// Also we reset the node selection with this function
     /// </summary>
     /// <param name="turret"></param>
-    public void SelectTurretToBuild(TurretBlueprint turret)
+    public void SelectTurretToBuild(TurretClass turret)
     {
-        turretToBuild = turret;
+        turretToBuildClass = turret;
         DeselectNode();
     }
 
-    public TurretBlueprint GetTurretToBuild() { return turretToBuild; }
+    public TurretClass GetTurretToBuild() { return turretToBuildClass; }
 }

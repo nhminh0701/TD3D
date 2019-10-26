@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "Turret Blueprint")]
+[CreateAssetMenu(fileName = "Turret Blueprint", menuName = "Turret/Turret Blueprint")]
 public class TurretBlueprint : ScriptableObject
 {
+    public int level;
     public GameObject prefab;
     public GameObject buildEffect;
     public int cost;
@@ -29,31 +30,5 @@ public class TurretBlueprint : ScriptableObject
         }
     }
 
-    #region update turret
-    public TurretBlueprint upgradedTurret = null;
-
-    public GameObject upgradedPrefab
-    {
-        get
-        {
-            return upgradedTurret.prefab;
-        }
-    }
-
-    public GameObject ugradedBuildEffect
-    {
-        get
-        {
-            return upgradedTurret.buildEffect;
-        }
-    }
-
-    public int upgradeCost
-    {
-        get
-        {
-            return upgradedTurret.cost;
-        }
-    }
-    #endregion
+   
 }

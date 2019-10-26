@@ -1235,7 +1235,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 173664664}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 714314254}
+        m_MethodName: UpgradeTurret
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &173664664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5305,6 +5316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ui: {fileID: 530281175}
+  upgradeButton: {fileID: 173664661}
 --- !u!1001 &718361138
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10094,9 +10106,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turrets:
-  - {fileID: 11400000, guid: 4efc9d05968ee804c993afa76ce26c1b, type: 2}
-  - {fileID: 11400000, guid: b9a4ddeb1a218324caff2f3c7370e559, type: 2}
-  - {fileID: 11400000, guid: 97816828be0cd9445b5db5c31770368a, type: 2}
+  - {fileID: 11400000, guid: 4d7662d819db03d4086feb32e48885d7, type: 2}
+  - {fileID: 11400000, guid: 93e24b1fdbe28024d901063541b7ad6a, type: 2}
+  - {fileID: 11400000, guid: e286ca68b9d87be45bacb7850688a04c, type: 2}
 --- !u!1001 &1459720372
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10711,9 +10723,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be365b21442c07245b6e79d65f669c18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  standardTurretPrefabs:
-  - {fileID: 8210848946410372827, guid: df6eaa6ceb3c9434a9cbcaa3052855af, type: 3}
-  - {fileID: 1297637452271815517, guid: dbd0cb0706009124a98a75bfbc617bf1, type: 3}
   nodeUI: {fileID: 714314254}
 --- !u!114 &1587813787
 MonoBehaviour:
@@ -10727,8 +10736,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54d3707ed9fb7df4d8dd6283d369db55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMoney: 60
-  startLives: 0
+  startMoney: 50
+  startLives: 100
 --- !u!114 &1587813788
 MonoBehaviour:
   m_ObjectHideFlags: 0

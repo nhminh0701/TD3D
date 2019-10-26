@@ -1,6 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
+
+/// <summary>
+/// TurretClass: core data storage of current turret (GO)
+/// current blueprint (for cost/level) 
+/// list of higher blueprint (for update)
+/// </summary>
 public class Node : MonoBehaviour
 {
     // Keep track contructs built on and user input
@@ -8,12 +14,18 @@ public class Node : MonoBehaviour
     [SerializeField] Color notEnoughMoneyColor;
     [SerializeField] Vector3 positionOffset;
 
-    [HideInInspector]
+    //[HideInInspector]
     public GameObject turret;
-    [HideInInspector]
+    //[HideInInspector]
+    public TurretClass turretBlueprintClass;
+    //[HideInInspector]
     public TurretBlueprint turretBlueprint;
-    [HideInInspector]
-    public bool isUpgraded = false;
+    //[HideInInspector][Tooltip("Is the level of the turret is maximized?")]
+    public bool upgradable;
+    // This lv can be setup to increase game's difficulty via playerpref or json
+    //[HideInInspector]
+    public int maxLv;
+
 
     Renderer rend;
     Color startColor;
@@ -48,46 +60,64 @@ public class Node : MonoBehaviour
         BuildTurret(buildManager.GetTurretToBuild());
     }
 
-    void BuildTurret(TurretBlueprint blueprintTurret)
+    void BuildTurret(TurretClass turretClass)
     {
-        if (PlayerStats.money < blueprintTurret.cost)
+        upgradable = true;
+
+        turretBlueprintClass = turretClass;
+
+        turretBlueprint = turretClass.turretList[0];
+
+        if (PlayerStats.money < turretBlueprint.cost)
         {
             Debug.Log("Not enoug money");
             return;
         }
 
-        PlayerStats.SpendMoney(blueprintTurret.cost);
+        PlayerStats.SpendMoney(turretBlueprint.cost);
 
-        GameObject _turret = (GameObject)Instantiate(blueprintTurret.prefab, GetBuildPosition(), Quaternion.identity);
+        GameObject _turret = (GameObject)Instantiate(turretBlueprint.prefab, GetBuildPosition(), Quaternion.identity);
         turret = _turret;
 
-        GameObject buildEffect = (GameObject)Instantiate(blueprintTurret.buildEffect, GetBuildPosition(), Quaternion.identity);
+        GameObject buildEffect = (GameObject)Instantiate(turretBlueprint.buildEffect, GetBuildPosition(), Quaternion.identity);
 
         Destroy(buildEffect, 5f);
+
+        maxLv = turretBlueprintClass.turretList.Count;
     }
 
     public void UpgradeTurret()
     {
-        if (PlayerStats.money < turretBlueprint.upgradeCost)
+        if (!upgradable)
+        {
+            Debug.LogError("Maximized level or wrong design");
+            return;
+        }
+
+        turretBlueprint = turretBlueprintClass.turretList[turretBlueprint.level + 1];
+        if (turretBlueprint.level + 1 >= maxLv)
+        {
+            upgradable = false;
+        }
+
+        if (PlayerStats.money < turretBlueprint.cost)
         {
             Debug.Log("Not enoug money");
             return;
         }
 
-        PlayerStats.SpendMoney(turretBlueprint.upgradeCost);
+        PlayerStats.SpendMoney(turretBlueprint.cost);
 
         // Destroy old turret
         Destroy(turret);
 
         // Building new turret
-        GameObject _turret = (GameObject)Instantiate(turretBlueprint.upgradedPrefab, GetBuildPosition(), Quaternion.identity);
+        GameObject _turret = (GameObject)Instantiate(turretBlueprint.prefab, GetBuildPosition(), Quaternion.identity);
         turret = _turret;
 
-        GameObject buildEffect = (GameObject)Instantiate(turretBlueprint.ugradedBuildEffect, GetBuildPosition(), Quaternion.identity);
+        GameObject buildEffect = (GameObject)Instantiate(turretBlueprint.prefab, GetBuildPosition(), Quaternion.identity);
 
         Destroy(buildEffect, 5f);
-
-        isUpgraded = true;
     }
 
     private void OnMouseEnter()
@@ -100,11 +130,12 @@ public class Node : MonoBehaviour
         }
 
         if (!buildManager.CanBuild) return;
-        
-        if(buildManager.HasEnoughMoney)
+
+        if (buildManager.hasEnoughMoney)
         {
             rend.material.color = hoverColor;
-        } else
+        }
+        else
         {
             rend.material.color = notEnoughMoneyColor;
         }

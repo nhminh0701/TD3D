@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9fc4914ba2f76b418577e2afe9df1eb, type: 3}
+  m_Name: Missle Class
+  m_EditorClassIdentifier: 
+  className: missle
+  turretList:
+  - {fileID: 11400000, guid: b9a4ddeb1a218324caff2f3c7370e559, type: 2}
+  - {fileID: 11400000, guid: dc3b22dd17ac17d4da98da44000c2d99, type: 2}
+  - {fileID: 11400000, guid: f384a78dd3b1daf499d50e78b45ff203, type: 2}
+  - {fileID: 11400000, guid: 96246a87bccdb744baed7c18ea0f031e, type: 2}

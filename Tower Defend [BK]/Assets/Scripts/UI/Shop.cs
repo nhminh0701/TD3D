@@ -10,7 +10,7 @@ public class Shop : MonoBehaviour
 
     BuildManager buildManager;
 
-    public List<TurretBlueprint> turrets;
+    public List<TurretClass> turrets;
 
     private void Start()
     {

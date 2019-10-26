@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 50b7c15372d8f7348b0aafa4c0283b49, type: 3}
-  m_Name: Laser Beamer
+  m_Name: Laser Beamer 0
   m_EditorClassIdentifier: 
   prefab: {fileID: 7608260973000731591, guid: c583ef222686125439ef97ab9cb0db5a, type: 3}
   buildEffect: {fileID: 4079970260764637963, guid: 17e015123b442394d8a584a9304e28d6,
     type: 3}
   cost: 20
+  upgradedTurret: {fileID: 0}
