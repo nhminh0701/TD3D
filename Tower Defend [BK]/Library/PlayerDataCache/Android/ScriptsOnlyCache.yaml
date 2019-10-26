@@ -7,9 +7,11 @@ ScriptsOnlyBuild:
     - Enemy
     - EnemyMovement
     - GameManager
+    - GameOver
     - LivesUI
     - MoneyUI
     - Node
+    - NodeUI
     - PlayerStats
     - Shop
     - Turret
@@ -19,10 +21,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -85,45 +85,49 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9806}
     - Class: 114
-      Script: {instanceID: 9816}
+      Script: {instanceID: 9812}
     - Class: 114
-      Script: {instanceID: 9856}
+      Script: {instanceID: 9818}
     - Class: 114
-      Script: {instanceID: 9970}
+      Script: {instanceID: 9858}
     - Class: 114
-      Script: {instanceID: 10024}
+      Script: {instanceID: 9972}
     - Class: 114
-      Script: {instanceID: 10032}
+      Script: {instanceID: 10026}
     - Class: 114
-      Script: {instanceID: 10164}
+      Script: {instanceID: 10034}
     - Class: 114
-      Script: {instanceID: 10226}
+      Script: {instanceID: 10166}
     - Class: 114
-      Script: {instanceID: 10258}
+      Script: {instanceID: 10182}
     - Class: 114
-      Script: {instanceID: 10562}
+      Script: {instanceID: 10230}
     - Class: 114
-      Script: {instanceID: 10710}
+      Script: {instanceID: 10262}
     - Class: 114
-      Script: {instanceID: 10768}
+      Script: {instanceID: 10566}
     - Class: 114
-      Script: {instanceID: 10798}
+      Script: {instanceID: 10638}
     - Class: 114
-      Script: {instanceID: 11004}
+      Script: {instanceID: 10716}
     - Class: 114
-      Script: {instanceID: 11258}
+      Script: {instanceID: 10774}
     - Class: 114
-      Script: {instanceID: 11286}
+      Script: {instanceID: 10804}
     - Class: 114
-      Script: {instanceID: 11308}
+      Script: {instanceID: 11010}
     - Class: 114
-      Script: {instanceID: 11352}
+      Script: {instanceID: 11264}
     - Class: 114
-      Script: {instanceID: 11410}
+      Script: {instanceID: 11292}
     - Class: 114
-      Script: {instanceID: 11412}
+      Script: {instanceID: 11314}
     - Class: 114
-      Script: {instanceID: 57038}
+      Script: {instanceID: 11358}
+    - Class: 114
+      Script: {instanceID: 11416}
+    - Class: 114
+      Script: {instanceID: 11418}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -147,6 +151,8 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
+      Script: {instanceID: 0}
+    - Class: 225
       Script: {instanceID: 0}
     - Class: 258
       Script: {instanceID: 0}
@@ -183,7 +189,7 @@ ScriptsOnlyBuild:
     className: TMP_ScrollbarEventHandler
   - hash:
       serializedVersion: 2
-      Hash: 50b283560963b64bca8afd8a0aa8aef3
+      Hash: a725325e896a7fd93a7640d91012492b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: BuildManager
@@ -217,6 +223,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Shop
+  - hash:
+      serializedVersion: 2
+      Hash: e7a3cda12954090dfba95ac2f618b1e8
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GameOver
   - hash:
       serializedVersion: 2
       Hash: 72712369a7c681ad84fc255a5ec0b333
@@ -297,7 +309,7 @@ ScriptsOnlyBuild:
     className: AnimationTrack
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: c98d5c8f7d5d06127c3d0a8cd7e6e90b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameManager
@@ -343,6 +355,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Shadow
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: EnemyMovement
   - hash:
       serializedVersion: 2
       Hash: cc4274b586df3c02688bac01b88bd16c
@@ -427,6 +445,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: RawImage
+  - hash:
+      serializedVersion: 2
+      Hash: 2e0cb2f372fbf5db3d383eba48214992
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: NodeUI
   - hash:
       serializedVersion: 2
       Hash: 5ad4aa237d47ac2bab17bacb672edf7a
@@ -649,12 +673,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: EnemyMovement
   platform: 13
   scenePathNames:
   - Assets/Scenes/Main Scene.unity

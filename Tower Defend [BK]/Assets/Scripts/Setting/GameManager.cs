@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
 
         //DontDestroyOnLoad(gameObject);
 
+        // Reset status OnLoad so DontDestroyOnLoad may not be a good idea
         gameOverUI.SetActive(false);
         gameIsEnded = false;
     }

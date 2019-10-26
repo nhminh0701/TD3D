@@ -16,6 +16,8 @@ public class GameOver : MonoBehaviour
     public void Retry()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        // GameManager.gameIsEnded = false;
+        // FindObjectOfType<CameraController>().enabled = true;
     }
 
     public void Menu()
