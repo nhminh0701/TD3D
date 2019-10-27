@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Laser Beamer 2
   m_EditorClassIdentifier: 
   level: 3
-  prefab: {fileID: 7608260973000731591, guid: c583ef222686125439ef97ab9cb0db5a, type: 3}
-  buildEffect: {fileID: 4079970260764637963, guid: 17e015123b442394d8a584a9304e28d6,
+  prefab: {fileID: 7608260973000731591, guid: c41c568d3b9443d41afd2d92ab33bb51, type: 3}
+  buildEffect: {fileID: 4079970260764637963, guid: 1b5772e26f0cf3e43b8d5623c487cd6f,
     type: 3}
   cost: 20
   price: 20

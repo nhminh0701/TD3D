@@ -1,0 +1,4 @@
+#Mon Oct 28 00:09:18 ICT 2019
+base.0=D\:\\Unity_Project\\Youtube test\\Brackey\\Tower Defend [BK]\\Temp\\gradleOut\\build\\intermediates\\transforms\\dexMerger\\release\\0
+path.0=classes.dex
+renamed.0=classes.dex
