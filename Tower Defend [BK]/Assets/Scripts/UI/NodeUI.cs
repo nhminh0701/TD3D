@@ -49,5 +49,13 @@ public class NodeUI : MonoBehaviour
     {
         if (target.reachMaxLV) upgradeButton.SetActive(false);
         target.UpgradeTurret();
+
+        price.text = "SELL\n$" + target.turretBlueprint.price.ToString();
+    }
+
+    public void SellTurret()
+    {
+        target.SellTurret();
+        Hide();
     }
 }

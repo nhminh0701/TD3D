@@ -125,6 +125,16 @@ public class Node : MonoBehaviour
         Destroy(buildEffect, 5f);
     }
 
+    public void SellTurret()
+    {
+        PlayerStats.EarnMoney(turretBlueprint.price);
+
+        // Reset turret data
+        Destroy(turret);
+        turretBlueprint = null;
+        turretBlueprintClass = null;
+    }
+
     private void OnMouseEnter()
     {
         if (EventSystem.current.IsPointerOverGameObject())

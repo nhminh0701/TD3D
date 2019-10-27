@@ -16,6 +16,7 @@ ScriptsOnlyBuild:
     - Shop
     - Turret
     - TurretBlueprint
+    - TurretClass
     - WaveSpawner
     - Waypoints
     UnityEditor.Graphs.dll:
@@ -32,6 +33,7 @@ ScriptsOnlyBuild:
     - UnityEngine.EventSystems.StandaloneInputModule
     - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
+    - UnityEngine.UI.ContentSizeFitter
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.HorizontalLayoutGroup
     - UnityEngine.UI.Image
@@ -91,6 +93,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9858}
     - Class: 114
+      Script: {instanceID: 9956}
+    - Class: 114
       Script: {instanceID: 9972}
     - Class: 114
       Script: {instanceID: 10026}
@@ -128,6 +132,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 11416}
     - Class: 114
       Script: {instanceID: 11418}
+    - Class: 114
+      Script: {instanceID: 13850}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -189,7 +195,7 @@ ScriptsOnlyBuild:
     className: TMP_ScrollbarEventHandler
   - hash:
       serializedVersion: 2
-      Hash: a725325e896a7fd93a7640d91012492b
+      Hash: 87c44898a1587310670a82c990738e3b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: BuildManager
@@ -219,7 +225,7 @@ ScriptsOnlyBuild:
     className: ActivationTrack
   - hash:
       serializedVersion: 2
-      Hash: 6b5d13594489ab40e9bfc572bc78523e
+      Hash: dcd0d2bcaea94f5bf67e256766cd3618
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Shop
@@ -321,7 +327,7 @@ ScriptsOnlyBuild:
     className: AspectRatioFitter
   - hash:
       serializedVersion: 2
-      Hash: 8901a622b195c80c02c39b769ce357d7
+      Hash: 5bf7c2f5269f69fe9f0359224aa1dfe7
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: TurretBlueprint
@@ -447,7 +453,7 @@ ScriptsOnlyBuild:
     className: RawImage
   - hash:
       serializedVersion: 2
-      Hash: 2e0cb2f372fbf5db3d383eba48214992
+      Hash: ef9249eaa089523aceb7329816b367d4
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: NodeUI
@@ -657,7 +663,7 @@ ScriptsOnlyBuild:
     className: ToggleGroup
   - hash:
       serializedVersion: 2
-      Hash: 3eaa51625c0c21fc4e174c7c02907b7c
+      Hash: 77ab7142b4e0a35867f91e9178c4f258
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Node
@@ -673,6 +679,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 294501753de275960a810435461cc1fa
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TurretClass
   platform: 13
   scenePathNames:
   - Assets/Scenes/Main Scene.unity

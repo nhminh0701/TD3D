@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50b7c15372d8f7348b0aafa4c0283b49, type: 3}
+  m_Name: Standard Turret 3
+  m_EditorClassIdentifier: 
+  level: 4
+  prefab: {fileID: 8991028768295872411, guid: b0b3305a0a14c5745ba6557fda8da30a, type: 3}
+  buildEffect: {fileID: 7547113409417214196, guid: c216f37adb4f2c74c924f61475842101,
+    type: 3}
+  cost: 10
+  price: 20
