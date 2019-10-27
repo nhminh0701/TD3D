@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50b7c15372d8f7348b0aafa4c0283b49, type: 3}
   m_Name: Missle Launcher 3
   m_EditorClassIdentifier: 
-  level: 3
-  prefab: {fileID: 1297637452271815517, guid: dbd0cb0706009124a98a75bfbc617bf1, type: 3}
-  buildEffect: {fileID: 4608559949470165840, guid: 8887c52eef6ffe544920ba4b6c08d6d0,
+  level: 4
+  prefab: {fileID: 1297637452271815517, guid: 8a4b5799e01e9f2468bbaecc01d1a75b, type: 3}
+  buildEffect: {fileID: 4608559949470165840, guid: bffa569a43422f149ad4b8240d4037c3,
     type: 3}
   cost: 30
   price: 30

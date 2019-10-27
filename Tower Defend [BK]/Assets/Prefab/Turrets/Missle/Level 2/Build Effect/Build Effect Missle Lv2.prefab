@@ -50,7 +50,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2916004b44d3a9145bab79f35b65323e, type: 2}
+  - {fileID: 2100000, guid: c84444a65140889449257f7fe4d7e33e, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -347,8 +347,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.7
-      minScalar: 0.5
+      scalar: 0.75
+      minScalar: 0.55
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -809,7 +809,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1.25
+      value: 1.75
       mode: 0
       spread: 0
       speed:
@@ -1038,8 +1038,8 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 3
-        scalar: 17
-        minScalar: 10
+        scalar: 19
+        minScalar: 15
         maxCurve:
           serializedVersion: 2
           m_Curve:
@@ -4821,7 +4821,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4608559949470165845}
   m_Layer: 0
-  m_Name: Build Effect Missle
+  m_Name: Build Effect Missle Lv2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
