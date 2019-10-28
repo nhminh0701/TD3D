@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class GameOver : MonoBehaviour
 {
     public Text roundsText;
+    [SerializeField] SceneFader sceneFader;
+    public string menuSceneName = "Main Menu";
 
     private void OnEnable()
     {
@@ -22,6 +24,6 @@ public class GameOver : MonoBehaviour
 
     public void Menu()
     {
-        Debug.Log("Go to Menu");
+        sceneFader.FadeTo(menuSceneName);
     }
 }

@@ -1,0 +1,2 @@
+D:\Unity_Project\Youtube test\Brackey\Tower Defend [BK]\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
+D:\Unity_Project\Youtube test\Brackey\Tower Defend [BK]\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache

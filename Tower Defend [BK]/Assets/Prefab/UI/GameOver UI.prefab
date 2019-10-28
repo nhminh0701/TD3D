@@ -117,7 +117,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2352017433889206572}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1311647963}
+        m_MethodName: Menu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Main Menu
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2352017434905046134
 GameObject:
   m_ObjectHideFlags: 0
@@ -569,7 +580,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2352017435639548368
 RectTransform:
   m_ObjectHideFlags: 0
@@ -606,6 +617,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roundsText: {fileID: 2352017435409498139}
+  sceneFader: {fileID: 0}
+  menuSceneName: Main Menu
 --- !u!95 &1311647964
 Animator:
   serializedVersion: 3

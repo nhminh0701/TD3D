@@ -62,6 +62,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\SceneFader.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\EnemyMovement.cs" />
     <Compile Include="Assets\Scripts\Node.cs" />
@@ -79,6 +80,7 @@
     <Compile Include="Assets\Scripts\UI\LivesUI.cs" />
     <Compile Include="Assets\Scripts\UI\MoneyUI.cs" />
     <Compile Include="Assets\Scripts\UI\NodeUI.cs" />
+    <Compile Include="Assets\Scripts\UI\PauseUI.cs" />
     <Compile Include="Assets\Scripts\UI\Shop.cs" />
     <Compile Include="Assets\Scripts\Waypoints.cs" />
     <Reference Include="Unity.Timeline.Editor">

@@ -26,6 +26,7 @@ public class NodeUI : MonoBehaviour
 
         if (_target.upgradable)
         {
+            if (!upgradeButton.activeInHierarchy) { upgradeButton.SetActive(true); }
             upgradeCost.text = "UPGRADE\n$" + _target.turretBlueprintClass.turretList[_target.turretBlueprint.level].cost.ToString();
         }
         
