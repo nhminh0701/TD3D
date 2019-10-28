@@ -26,6 +26,7 @@ public class EnemyMovement : MonoBehaviour
             GetNextWayPoint();
         }
 
+        // Reset Speed so after slow effect the speed remained
         enemy.speed = enemy.startSpeed;
     }
     #region Movement 

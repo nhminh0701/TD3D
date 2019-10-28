@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2619260704912406862}
   - component: {fileID: 3578558772398073164}
   m_Layer: 0
-  m_Name: Missile Launcher
+  m_Name: Missile Launcher Lv 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  range: 11
+  range: 12
   bulletPrefab: {fileID: 5386082533749060023, guid: 6e3553324007ee04cb7052a1b163c85f,
     type: 3}
   fireRate: 0.4

@@ -222,7 +222,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.69888806, g: 1, b: 0, a: 1}
+      maxColor: {r: 0.81283957, g: 0.13679248, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -284,7 +284,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3.5
+      scalar: 4
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -4794,7 +4794,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 9
   m_Type: 2
-  m_Color: {r: 0.36658788, g: 1, b: 0, a: 1}
+  m_Color: {r: 0.8509927, g: 0, b: 1, a: 1}
   m_Intensity: 4
   m_Range: 10
   m_SpotAngle: 30
@@ -9905,7 +9905,7 @@ Transform:
   m_GameObject: {fileID: 7608260973000731591}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.65, y: 0.65, z: 0.65}
   m_Children:
   - {fileID: 5564042894496000423}
   - {fileID: 5086274283779063656}
@@ -9930,8 +9930,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 0}
   fireRate: 1
   useLaser: 1
-  slowPct: 0.5
-  damageOverTime: 3
+  slowPct: 0.675
+  damageOverTime: 8
   lineRenderer: {fileID: 289103196643837151}
   impactEffect: {fileID: 3604815703625107264}
   impactLight: {fileID: 897628111}
@@ -9982,7 +9982,7 @@ LineRenderer:
   - {x: 0, y: 3, z: 5}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.3
+    widthMultiplier: 0.5
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -10009,7 +10009,7 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.9779967, g: 1, b: 0.5424528, a: 1}
+      key0: {r: 0.6901961, g: 0, b: 1, a: 1}
       key1: {r: 0.17647058, g: 1, b: 0.32606503, a: 0.9647059}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}

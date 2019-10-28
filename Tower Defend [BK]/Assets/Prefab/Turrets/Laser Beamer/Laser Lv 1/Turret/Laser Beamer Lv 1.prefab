@@ -9890,7 +9890,7 @@ GameObject:
   - component: {fileID: 8358904979227958285}
   - component: {fileID: 289103196643837151}
   m_Layer: 0
-  m_Name: Laser Beamer
+  m_Name: Laser Beamer Lv 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9931,7 +9931,7 @@ MonoBehaviour:
   fireRate: 1
   useLaser: 1
   slowPct: 0.5
-  damageOverTime: 3
+  damageOverTime: 4
   lineRenderer: {fileID: 289103196643837151}
   impactEffect: {fileID: 3604815703625107264}
   impactLight: {fileID: 897628111}
@@ -9987,8 +9987,8 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.78419805
-        value: 1
+        time: 0
+        value: 0.91666603
         inSlope: 0
         outSlope: 0
         tangentMode: 0
