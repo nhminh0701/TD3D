@@ -7,7 +7,9 @@ public class GameManager : MonoBehaviour
 {
     public static bool gameIsEnded = false;
     public static GameManager instance;
+    public int stageLevel;
     [SerializeField] GameObject gameOverUI;
+    [SerializeField] GameObject stageCompleteCanvas;
 
     private void Awake()
     {
@@ -35,5 +37,11 @@ public class GameManager : MonoBehaviour
     {
         gameIsEnded = true;
         gameOverUI.SetActive(true);
+    }
+
+    public void ClearStage()
+    {
+        stageCompleteCanvas.SetActive(true);
+        GameManager.gameIsEnded = true;
     }
 }
