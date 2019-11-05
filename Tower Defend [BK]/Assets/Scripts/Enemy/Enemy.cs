@@ -8,15 +8,17 @@ public class Enemy : MonoBehaviour
     public float startSpeed = 12f;
 
     [HideInInspector] public float speed;
-    public float health = 150;
+
     public int worth = 5;
     [SerializeField] GameObject deathEffectPrefab;
-    [SerializeField] HealthUI healthUI;
+
+    //[SerializeField] float startHealth = 100;
+    [SerializeField] Health health;
 
     private void Start()
     {
+        //health.SetmaxHealth(startHealth);
         speed = startSpeed;
-        if (healthUI!=null) { healthUI.AssignMaxBarVal(health); }
     }
 
     private void OnDestroy()
@@ -27,11 +29,9 @@ public class Enemy : MonoBehaviour
     #region Health
     public void TakeDamage(float damageAmount)
     {
-        health -= damageAmount;
+        health.ChangeHealthValue(-damageAmount);
 
-        if (healthUI != null) { healthUI.ChangeBarVal(-damageAmount); }
-
-        if (health <= 0 ) { Die(); }
+        if (health.isDeath ) { Die(); }
     }
 
     private void Die()

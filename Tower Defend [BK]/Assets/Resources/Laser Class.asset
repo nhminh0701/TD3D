@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9fc4914ba2f76b418577e2afe9df1eb, type: 3}
+  m_Name: Laser Class
+  m_EditorClassIdentifier: 
+  className: Laser Beamer
+  avatar: {fileID: 21300000, guid: 72a3cedab1c8d024c97ae48f4fb8da92, type: 3}
+  turretList:
+  - {fileID: 11400000, guid: 97816828be0cd9445b5db5c31770368a, type: 2}
+  - {fileID: 11400000, guid: 2ab84ad708353634ea665668f19f66cb, type: 2}
+  - {fileID: 11400000, guid: 28b837de3d5ea064f874b9d6059512d1, type: 2}
+  - {fileID: 11400000, guid: 084fa21ad43de91469d52b16cf4c0137, type: 2}
