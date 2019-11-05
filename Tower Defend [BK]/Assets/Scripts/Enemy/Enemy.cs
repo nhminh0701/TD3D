@@ -12,12 +12,13 @@ public class Enemy : MonoBehaviour
     public int worth = 5;
     [SerializeField] GameObject deathEffectPrefab;
 
-    //[SerializeField] float startHealth = 100;
+    [SerializeField] float startHealth = 100;
     [SerializeField] Health health;
 
     private void Start()
     {
-        //health.SetmaxHealth(startHealth);
+        health.SetmaxHealth(startHealth);
+        health.enabled = true;
         speed = startSpeed;
     }
 

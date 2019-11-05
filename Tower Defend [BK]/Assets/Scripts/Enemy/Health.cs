@@ -7,15 +7,20 @@ public class Health : MonoBehaviour
     [SerializeField] GameObject healthUIPrefab;
     HealthUI thisHealthUI;
 
-    [SerializeField] float maxHealth;
+    float maxHealth;
     float currentHealth;
 
     public bool isDeath;
 
-    //public void SetmaxHealth(float value)
-    //{
-    //    maxHealth = value;
-    //}
+    public void SetmaxHealth(float value)
+    {
+        maxHealth = value;
+    }
+
+    private void Awake()
+    {
+        this.enabled = false;
+    }
 
     private void OnEnable()
     {
