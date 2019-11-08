@@ -105,6 +105,8 @@ public class DataManager : MonoBehaviour
     public void ClearSaveData()
     {
         File.Delete(fileDestination);
+        currentData = defaultSaveGame;
+        ExtractGameData();
     }
     #endregion
 

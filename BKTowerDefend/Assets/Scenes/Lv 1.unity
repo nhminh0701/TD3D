@@ -11109,7 +11109,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waveTemplates:
   - {fileID: 11400000, guid: 947ad3868b9b02e42a929b4ce98da5d2, type: 2}
-  spawnPoint: {fileID: 0}
+  - {fileID: 11400000, guid: 947ad3868b9b02e42a929b4ce98da5d2, type: 2}
+  - {fileID: 11400000, guid: 947ad3868b9b02e42a929b4ce98da5d2, type: 2}
+  - {fileID: 11400000, guid: 947ad3868b9b02e42a929b4ce98da5d2, type: 2}
+  - {fileID: 11400000, guid: 947ad3868b9b02e42a929b4ce98da5d2, type: 2}
+  spawnPoint: {fileID: 1825400549}
   timeBtwnWave: 5
   waveCountdownText: {fileID: 1797515523}
 --- !u!114 &1587813786

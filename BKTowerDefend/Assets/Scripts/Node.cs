@@ -79,7 +79,8 @@ public class Node : MonoBehaviour
 
         PlayerStats.SpendMoney(turretBlueprint.cost);
 
-        GameObject _turret = (GameObject)Instantiate(turretBlueprint.prefab, GetBuildPosition(), Quaternion.identity);
+        //GameObject _turret = (GameObject)Instantiate(turretBlueprint.prefab, GetBuildPosition(), Quaternion.identity);
+        GameObject _turret = (GameObject)SimplePool.Spawn(turretBlueprint.prefab, GetBuildPosition(), Quaternion.identity);
         turret = _turret;
 
         GameObject buildEffect = (GameObject)Instantiate(turretBlueprint.buildEffect, GetBuildPosition(), Quaternion.identity);
@@ -114,10 +115,12 @@ public class Node : MonoBehaviour
         PlayerStats.SpendMoney(turretBlueprint.cost);
 
         // Destroy old turret
-        Destroy(turret);
+        //Destroy(turret);
+        SimplePool.Despawn(turret);
 
         // Building new turret
-        GameObject _turret = (GameObject)Instantiate(turretBlueprint.prefab, GetBuildPosition(), Quaternion.identity);
+        //GameObject _turret = (GameObject)Instantiate(turretBlueprint.prefab, GetBuildPosition(), Quaternion.identity);
+        GameObject _turret = (GameObject)SimplePool.Spawn(turretBlueprint.prefab, GetBuildPosition(), Quaternion.identity);
         turret = _turret;
 
         GameObject buildEffect = (GameObject)Instantiate(turretBlueprint.buildEffect, GetBuildPosition(), Quaternion.identity);

@@ -46,7 +46,15 @@ public class EnemyMovement : MonoBehaviour
     private void EndPath()
     {
         PlayerStats.LoseLives(1);
-        Destroy(gameObject);
+        //Destroy(gameObject);
+        SimplePool.Despawn(gameObject);
+    }
+
+    // Use with 
+    public void ResetPath()
+    {
+        wayPointIndex = 0;
+        target = Waypoints.wayPoints[wayPointIndex];
     }
     #endregion
 }

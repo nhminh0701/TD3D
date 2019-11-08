@@ -19,6 +19,7 @@ public class WaveSpawner : MonoBehaviour
 
     private void Start()
     {
+        numberAliveEnemies = 0;
         countdown = timeBtwnWave;
         gameManager = GameManager.instance;
     }
@@ -34,6 +35,7 @@ public class WaveSpawner : MonoBehaviour
         if (waveIndex == waveTemplates.Length)
         {
             ClearStage();
+            return;
         }
 
         if (countdown <= 0f)
@@ -58,6 +60,7 @@ public class WaveSpawner : MonoBehaviour
 
     IEnumerator SpawnWave()
     {
+        Debug.Log(numberAliveEnemies);
         currentWave = waveTemplates[waveIndex];
         numberAliveEnemies += currentWave.amountOfEnemies;
 
@@ -69,12 +72,14 @@ public class WaveSpawner : MonoBehaviour
             SpawnEnemy();
             yield return new WaitForSeconds(1/currentWave.spawnRate);
         }
+        Debug.Log(numberAliveEnemies);
     }
 
 
 
     private void SpawnEnemy()
     {
-        Instantiate(currentWave.enemiesPrefab[Random.Range(0, currentWave.enemiesPrefab.Length - 1)], spawnPoint);
+        SimplePool.Spawn(currentWave.enemiesPrefab[Random.Range(0, currentWave.enemiesPrefab.Length - 1)], spawnPoint.position, Quaternion.identity);
+        //Instantiate(currentWave.enemiesPrefab[Random.Range(0, currentWave.enemiesPrefab.Length - 1)], spawnPoint.position, Quaternion.identity);
     }
 }

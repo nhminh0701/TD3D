@@ -10,10 +10,9 @@ public class Enemy : MonoBehaviour
     [HideInInspector] public float speed;
 
     public int worth = 5;
-    [SerializeField] GameObject deathEffectPrefab;
 
     [SerializeField] float startHealth = 100;
-    [SerializeField] Health health;
+    public Health health;
 
     private void Start()
     {
@@ -27,26 +26,22 @@ public class Enemy : MonoBehaviour
         WaveSpawner.numberAliveEnemies--;
     }
 
-    #region Health
-    public void TakeDamage(float damageAmount)
+    private void OnDisable()
     {
-        health.ChangeHealthValue(-damageAmount);
-
-        if (health.isDeath ) { Die(); }
-    }
-
-    private void Die()
-    {
-        GameObject destroyEffect = (GameObject)Instantiate(deathEffectPrefab, transform.position, Quaternion.identity);
-        Destroy(destroyEffect, 4f);
-
         PlayerStats.EarnMoney(worth);
-        Destroy(gameObject);
+        WaveSpawner.numberAliveEnemies--;
+        EnemyMovement enemyMovement = gameObject.GetComponent<EnemyMovement>();
+        if (enemyMovement != null)
+        {
+            enemyMovement.ResetPath();
+        }
     }
+
+    
 
     public void Slow(float percentage)
     {
         speed = startSpeed * (1 - percentage);
     }
-    #endregion
+
 }

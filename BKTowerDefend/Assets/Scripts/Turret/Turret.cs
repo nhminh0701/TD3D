@@ -113,7 +113,7 @@ public class Turret : MonoBehaviour
 
     private void Laser()
     {
-        targetEnemy.TakeDamage(damageOverTime * Time.deltaTime);
+        targetEnemy.health.TakeDamage(damageOverTime * Time.deltaTime);
         targetEnemy.Slow(slowPct);
 
         if (!lineRenderer.enabled)
@@ -147,7 +147,8 @@ public class Turret : MonoBehaviour
 
     private void Shoot()
     {
-        GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        //GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        GameObject bulletGO = (GameObject)SimplePool.Spawn(bulletPrefab, firePoint.position, Quaternion.identity);
         Bullet bullet = bulletGO.GetComponent<Bullet>();
 
         bullet.Seek(target);

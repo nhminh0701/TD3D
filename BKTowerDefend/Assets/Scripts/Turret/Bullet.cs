@@ -51,15 +51,16 @@ public class Bullet : MonoBehaviour
             Damage(target);
         }
 
-        Destroy(gameObject);
-        
+        //Destroy(gameObject);
+        SimplePool.Despawn(gameObject);
     }
 
     void Damage(Transform enemy)
     {
-        Enemy e = enemy.GetComponent<Enemy>();
 
-        if (e) { e.TakeDamage(damage); }
+        IHealth e = enemy.GetComponent<IHealth>();
+
+        if (e != null) { e.TakeDamage(damage); }
 
         
     }
