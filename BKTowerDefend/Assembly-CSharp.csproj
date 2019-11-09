@@ -62,6 +62,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\DynamicFog\Scripts\DynamicFog.cs" />
+    <Compile Include="Assets\DynamicFog\Scripts\DynamicFogManager.cs" />
+    <Compile Include="Assets\DynamicFog\Scripts\DynamicFogOfWar.cs" />
+    <Compile Include="Assets\DynamicFog\Scripts\DynamicFogProfile.cs" />
+    <Compile Include="Assets\DynamicFog\Scripts\FogVolume.cs" />
     <Compile Include="Assets\RainMaker\Demo\DemoScript.cs" />
     <Compile Include="Assets\RainMaker\Demo\DemoScript2D.cs" />
     <Compile Include="Assets\RainMaker\Demo\DemoScriptStartRainOnSpaceBar.cs" />
@@ -76,7 +81,6 @@
     <Compile Include="Assets\Scripts\Enemy\IHealth.cs" />
     <Compile Include="Assets\Scripts\Enemy\Wave.cs" />
     <Compile Include="Assets\Scripts\Enemy\WaveSpawner.cs" />
-    <Compile Include="Assets\Scripts\Enemy\Waypoints.cs" />
     <Compile Include="Assets\Scripts\Node.cs" />
     <Compile Include="Assets\Scripts\PlayerStats.cs" />
     <Compile Include="Assets\Scripts\Setting\BuildManager.cs" />
@@ -101,9 +105,44 @@
     <Compile Include="Assets\Scripts\UI\SceneFader.cs" />
     <Compile Include="Assets\Scripts\UI\Shop.cs" />
     <Compile Include="Assets\Scripts\UI\StageClearUI.cs" />
+    <None Include="Assets\DynamicFog\Resources\Shaders\DFOOrthogonal.shader" />
+    <None Include="Assets\DynamicFog\Resources\Shaders\DFMUnlit.shader" />
+    <None Include="Assets\DynamicFog\Resources\Shaders\FogOfWar.shader" />
+    <None Include="Assets\DynamicFog\Resources\Shaders\DFMStandardShader.shader" />
+    <None Include="Assets\DynamicFog\Resources\Shaders\DFRUnlit.shader" />
+    <None Include="Assets\DynamicFog\Resources\Shaders\DFOWithSky.shader" />
+    <None Include="Assets\DynamicFog\Resources\Shaders\DFMSurfaceShaderCommon.cginc" />
+    <None Include="Assets\DynamicFog\Resources\Shaders\DynamicFogCommon.cginc" />
+    <None Include="Assets\DynamicFog\Resources\Shaders\DFRStandardShaderSolid.shader" />
+    <None Include="Assets\DynamicFog\Resources\Shaders\DFMLambertSolidColor.shader" />
+    <None Include="Assets\DynamicFog\Resources\Shaders\DFGOnlyFog.shader" />
+    <None Include="Assets\DynamicFog\README.txt" />
+    <None Include="Assets\DynamicFog\Resources\Shaders\DFOBasic.shader" />
+    <None Include="Assets\DynamicFog\Resources\Shaders\DFGSimple.shader" />
+    <None Include="Assets\DynamicFog\Resources\Shaders\DFGDesktopPlusOrthogonal.shader" />
+    <None Include="Assets\DynamicFog\Resources\Shaders\DFRLambert.shader" />
+    <None Include="Assets\DynamicFog\Resources\Shaders\DFRUnlitSolidColor.shader" />
     <None Include="Assets\RainMaker\Prefab\RainShader.shader" />
+    <None Include="Assets\DynamicFog\Resources\Shaders\DFMUnlitSolidColor.shader" />
+    <None Include="Assets\DynamicFog\Resources\Shaders\DFODesktop.shader" />
+    <None Include="Assets\DynamicFog\Resources\Shaders\DFRLambertSolidColor.shader" />
+    <None Include="Assets\DynamicFog\Resources\Shaders\DFOOnlyFog.shader" />
+    <None Include="Assets\DynamicFog\Resources\Shaders\DFGOrthogonal.shader" />
+    <None Include="Assets\DynamicFog\Resources\Shaders\DFGBasic.shader" />
+    <None Include="Assets\DynamicFog\Resources\Shaders\DFODesktopPlusOrthogonal.shader" />
     <None Include="Assets\JsonDotNet\link.xml" />
+    <None Include="Assets\DynamicFog\Resources\Shaders\DFODesktopPlus.shader" />
+    <None Include="Assets\DynamicFog\Resources\Shaders\DFGWithSky.shader" />
+    <None Include="Assets\DynamicFog\Resources\Shaders\DFGDesktop.shader" />
     <None Include="Assets\RainMaker\Readme.txt" />
+    <None Include="Assets\DynamicFog\Demos\How to install demo scenes.txt" />
+    <None Include="Assets\DynamicFog\Resources\Shaders\DFMVertexFragmentShaderCommon.cginc" />
+    <None Include="Assets\DynamicFog\Resources\Shaders\DFGDesktopPlus.shader" />
+    <None Include="Assets\DynamicFog\Resources\Shaders\DFOSimple.shader" />
+    <None Include="Assets\DynamicFog\Resources\Shaders\DynamicFogDither.cginc" />
+    <None Include="Assets\DynamicFog\Resources\Shaders\DFMStandardShaderSolid.shader" />
+    <None Include="Assets\DynamicFog\Resources\Shaders\DFRStandardShader.shader" />
+    <None Include="Assets\DynamicFog\Resources\Shaders\DFMLambert.shader" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:/Unity_Project/Youtube test/Brackey/BKTowerDefend/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

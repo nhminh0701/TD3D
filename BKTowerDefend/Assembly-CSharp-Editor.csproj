@@ -62,6 +62,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\DynamicFog\Editor\DynamicFogEditor.cs" />
+    <Compile Include="Assets\DynamicFog\Editor\DynamicFogGaiaExtension.cs" />
+    <Compile Include="Assets\DynamicFog\Editor\DynamicFogManagerEditor.cs" />
+    <Compile Include="Assets\DynamicFog\Editor\DynamicFogProfileEditor.cs" />
+    <Compile Include="Assets\DynamicFog\Editor\FogVolumeExtensions.cs" />
     <Compile Include="Assets\RainMaker\Editor\RainMakerEditor.cs" />
     <Reference Include="UnityEditor.TestRunner">
       <HintPath>D:/Unity_Project/Youtube test/Brackey/BKTowerDefend/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>

@@ -5,6 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(Enemy))]
 public class EnemyMovement : MonoBehaviour
 {
+    [HideInInspector]
+    public Transform[] movePath;
     Transform target;
     int wayPointIndex = 0;
     Enemy enemy;
@@ -13,7 +15,8 @@ public class EnemyMovement : MonoBehaviour
     void Start()
     {
         enemy = GetComponent<Enemy>();
-        target = Waypoints.wayPoints[0];
+
+        target = movePath[0];
     }
 
     // Update is called once per frame
@@ -32,14 +35,14 @@ public class EnemyMovement : MonoBehaviour
     #region Movement 
     private void GetNextWayPoint()
     {
-        if (wayPointIndex >= Waypoints.wayPoints.Length - 1)
+        if (wayPointIndex >= movePath.Length - 1)
         {
             EndPath();
         }
         else
         {
             wayPointIndex++;
-            target = Waypoints.wayPoints[wayPointIndex];
+            target = movePath[wayPointIndex];
         }
     }
 
@@ -54,7 +57,7 @@ public class EnemyMovement : MonoBehaviour
     public void ResetPath()
     {
         wayPointIndex = 0;
-        target = Waypoints.wayPoints[wayPointIndex];
+        target = movePath[wayPointIndex];
     }
     #endregion
 }
