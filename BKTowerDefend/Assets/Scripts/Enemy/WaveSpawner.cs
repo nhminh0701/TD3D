@@ -83,6 +83,13 @@ public class WaveSpawner : MonoBehaviour
     private void SetupWavePath()
     {
         GameObject wavePathGO = GameObject.Find(currentWave.waveName);
+
+        if (!wavePathGO)
+        {
+            Debug.LogError("Please create wavePath with name " + currentWave.waveName);
+            return;
+        }
+
         currentWavePath = new Transform[wavePathGO.transform.childCount];
 
         for (var i = 0; i < currentWavePath.Length; i++)
@@ -95,6 +102,11 @@ public class WaveSpawner : MonoBehaviour
     {
         Transform newEnemy = SimplePool.Spawn(currentWave.enemiesPrefab[UnityEngine.Random.Range(0, currentWave.enemiesPrefab.Length - 1)], spawnPoint.position, Quaternion.identity);
         //Instantiate(currentWave.enemiesPrefab[Random.Range(0, currentWave.enemiesPrefab.Length - 1)], spawnPoint.position, Quaternion.identity);
+        WayPointEffector wpEffector = spawnPoint.GetComponentInChildren<WayPointEffector>();
+        if (wpEffector)
+        {
+            wpEffector.ObjectStateChange();
+        }
 
         newEnemy.GetComponent<EnemyMovement>().movePath = currentWavePath;
     }

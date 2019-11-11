@@ -48,6 +48,12 @@ public class EnemyMovement : MonoBehaviour
 
     private void EndPath()
     {
+        WayPointEffector wpEffector = target.GetComponentInChildren<WayPointEffector>();
+        if (wpEffector)
+        {
+            wpEffector.ObjectStateChange();
+        }
+
         PlayerStats.LoseLives(1);
         //Destroy(gameObject);
         SimplePool.Despawn(gameObject);

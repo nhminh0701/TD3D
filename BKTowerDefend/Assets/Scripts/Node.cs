@@ -20,12 +20,12 @@ public class Node : MonoBehaviour
     public TurretClass turretBlueprintClass;
     //[HideInInspector]
     public TurretBlueprint turretBlueprint;
-    [HideInInspector][Tooltip("Is the level of the turret is maximized?")]
+    //[HideInInspector][Tooltip("Is the level of the turret is maximized?")]
     public bool upgradable;
-    [HideInInspector]
+    //[HideInInspector]
     public bool reachMaxLV = false;
     // This lv can be setup to increase game's difficulty via playerpref or json
-    [HideInInspector]
+    //[HideInInspector]
     public int maxLv;
 
 
@@ -35,6 +35,7 @@ public class Node : MonoBehaviour
 
     private void Start()
     {
+        // reachMaxLV = turretBlueprint.level == maxLv - 1;
         rend = GetComponent<Renderer>();
         startColor = rend.material.color;
 
@@ -64,9 +65,6 @@ public class Node : MonoBehaviour
 
     void BuildTurret(TurretClass turretClass)
     {
-        upgradable = true;
-        reachMaxLV = false;
-
         turretBlueprintClass = turretClass;
 
         turretBlueprint = turretClass.turretList[0];
@@ -87,7 +85,10 @@ public class Node : MonoBehaviour
 
         Destroy(buildEffect, 5f);
 
-        maxLv = turretBlueprintClass.maxLv;
+        maxLv = turretBlueprintClass.reachableLv;
+
+        upgradable = !(turretBlueprint.level == maxLv);
+        reachMaxLV = turretBlueprint.level == maxLv - 1;
     }
 
     public void UpgradeTurret()
@@ -100,7 +101,9 @@ public class Node : MonoBehaviour
 
         turretBlueprint = turretBlueprintClass.turretList[turretBlueprint.level];
 
-        if (turretBlueprint.level == maxLv - 1) { reachMaxLV = true; }
+        if (turretBlueprint.level == maxLv - 1) {
+            Debug.Log("Max Cmm r");
+            reachMaxLV = true; }
         if (turretBlueprint.level== maxLv)
         {
             upgradable = false;

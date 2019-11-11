@@ -18,10 +18,10 @@ public class DataManager : MonoBehaviour
     #region Data access member
     [Header("Real-time data")]
     public int rtStageData;
-    public List<TurretData> rtTurretData;
-    [HideInInspector]
+    public List<TurretClass> rtTurretData;
+
     [Tooltip("Assigned based on rtTurretData")]
-    public List<TurretClass> availableTurretClasses;
+    public List<TurretClass> allTurretClasses;
     #endregion
 
 
@@ -36,6 +36,7 @@ public class DataManager : MonoBehaviour
 
         DontDestroyOnLoad(this);
 
+        currentData = new GameData();
         fileDestination = Path.Combine(Application.persistentDataPath, "GameData.json");
     }
 
@@ -116,7 +117,7 @@ public class DataManager : MonoBehaviour
     {
         // Extract currentData to accessable components
         rtStageData = currentData.maxStagesReached;
-        rtTurretData = currentData.turretDataList;
+        rtTurretData = currentData.turretsData.GetTurretClasses(allTurretClasses);
     }
 
     public void UpdateProgress()
@@ -124,7 +125,7 @@ public class DataManager : MonoBehaviour
         // Write current status back to currentData
         // currentData is to be saved 
         currentData.maxStagesReached = rtStageData;
-        currentData.turretDataList = rtTurretData;
+        currentData.turretsData.UpdateTurretDataFromRT(rtTurretData);
     }
     #endregion
 
