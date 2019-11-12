@@ -832,13 +832,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultSaveGame: {fileID: 11400000, guid: f9bca405ffaf580478c3c07e6f40ac8e, type: 2}
+  currentData: {fileID: 11400000, guid: 1e0e6a1fb9c742848a1f4631a726e3a0, type: 2}
   saveGameName: GameData
   rtStageData: 0
-  rtTurretData: []
-  allTurretClasses:
-  - {fileID: 11400000, guid: e286ca68b9d87be45bacb7850688a04c, type: 2}
-  - {fileID: 11400000, guid: 93e24b1fdbe28024d901063541b7ad6a, type: 2}
-  - {fileID: 11400000, guid: 4d7662d819db03d4086feb32e48885d7, type: 2}
+  turretDB: {fileID: 11400000, guid: 9019701c842158141b0f504f705ae237, type: 2}
 --- !u!1 &1689026703
 GameObject:
   m_ObjectHideFlags: 0

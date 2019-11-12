@@ -19,3 +19,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 40ca0a4494f4dec44b1d0fc0879c482d, type: 2}
   - {fileID: 11400000, guid: 749c2ecb9d36ca345bdb24fd1b134e81, type: 2}
   - {fileID: 11400000, guid: 88470ab708a45af47917ed2cc534154c, type: 2}
+  reachableLv: 4

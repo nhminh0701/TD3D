@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a5463bc9fbd5a740b76f229d102866b, type: 3}
   m_Name: Default Save Game
   m_EditorClassIdentifier: 
-  maxStagesReached: 1
-  turretsData: {fileID: 11400000, guid: 8a5863e1e8cc97449b223efb96ce0617, type: 2}
+  maxStagesReached: 2
+  turretNameList:
+  - MissleTurret
+  - StandardTurret

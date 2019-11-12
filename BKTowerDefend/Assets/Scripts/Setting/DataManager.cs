@@ -11,17 +11,16 @@ public class DataManager : MonoBehaviour
     public static DataManager instance;
     [Header("Default data")]
     [SerializeField] GameData defaultSaveGame;
+    [SerializeField] GameData currentData;
     [SerializeField] string saveGameName = "GameData";
 
-    GameData currentData;
     List<GameData> loadedSaveGameList;
     #region Data access member
     [Header("Real-time data")]
     public int rtStageData;
-    public List<TurretClass> rtTurretData;
 
-    [Tooltip("Assigned based on rtTurretData")]
-    public List<TurretClass> allTurretClasses;
+    [Tooltip("Store all system Turrets and have access to all available turret")]
+    [SerializeField] TurretDB turretDB;
     #endregion
 
 
@@ -36,7 +35,6 @@ public class DataManager : MonoBehaviour
 
         DontDestroyOnLoad(this);
 
-        currentData = new GameData();
         fileDestination = Path.Combine(Application.persistentDataPath, "GameData.json");
     }
 
@@ -78,6 +76,7 @@ public class DataManager : MonoBehaviour
         string serializedData = File.ReadAllText(fileDestination);
         loadedSaveGameList = JsonConvert.DeserializeObject< List<GameData>>(serializedData);
         currentData = loadedSaveGameList[dataIndex];
+        
         ExtractGameData();
     }
 
@@ -116,8 +115,8 @@ public class DataManager : MonoBehaviour
     private void ExtractGameData()
     {
         // Extract currentData to accessable components
+        turretDB.GetTurrets(currentData.turretNameList);
         rtStageData = currentData.maxStagesReached;
-        rtTurretData = currentData.turretsData.GetTurretClasses(allTurretClasses);
     }
 
     public void UpdateProgress()
@@ -125,7 +124,7 @@ public class DataManager : MonoBehaviour
         // Write current status back to currentData
         // currentData is to be saved 
         currentData.maxStagesReached = rtStageData;
-        currentData.turretsData.UpdateTurretDataFromRT(rtTurretData);
+        currentData.UpdateTurretDataFromRT(turretDB.availableClasses);
     }
     #endregion
 
