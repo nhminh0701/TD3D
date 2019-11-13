@@ -41,10 +41,10 @@ public class GameManager : MonoBehaviour
 
     public void ClearStage()
     {
-        int limitLv = DataManager.instance.rtStageData;
+        int limitLv = DataManager.instance.gameData.currentState.reachableLv;
         stageCompleteCanvas.SetActive(true);
         GameManager.gameIsEnded = true;
         if (stageLevel == limitLv)
-        DataManager.instance.rtStageData = stageLevel+ 1;
+            DataManager.instance.gameData.currentState.reachableLv = stageLevel+ 1;
     }
 }

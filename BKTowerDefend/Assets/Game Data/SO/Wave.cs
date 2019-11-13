@@ -8,7 +8,7 @@ public class Wave : ScriptableObject
     // To register Transform[] movePath of EnemyMovement via WaveSpawner
     public string waveName;
 
-    public Transform[] enemiesPrefab;
+    public Enemy[] enemiesPrefab;
 
     public int amountOfEnemies;
 

@@ -18,7 +18,7 @@ public class StageSelector : MonoBehaviour
 
         sceneFader = FindObjectOfType<SceneFader>();
 
-        reachedLv = dataManager.rtStageData;
+        reachedLv = dataManager.gameData.currentState.reachableLv;
 
         stageButtonList = new Button[transform.childCount];
 

@@ -13,6 +13,7 @@ public class TurretDB : ScriptableObject
     /// <summary>
     /// Storing current available turret classes
     /// </summary>
+    [Tooltip("Debug purpose")]
     public List<TurretClass> availableClasses;
 
     /// <summary>
@@ -28,7 +29,7 @@ public class TurretDB : ScriptableObject
         {
             for (var j = 0; j < allTurretClasses.Count; j++)
             {
-                if (allTurretClasses[j].className == nameList[i] )
+                if (allTurretClasses[j].classID == nameList[i] )
                 {
                     newClassList.Add(allTurretClasses[j]);
                     allTurretClasses[j].UnlockNewTurret();

@@ -7,7 +7,12 @@ public class TurretClass : ScriptableObject
 {
     public const int defaultMaxlv = 2;
 
-    public string className;
+    public string classID;
+
+    [TextArea(2,7)]
+    [SerializeField] string description;
+
+    public AttackType attackType;
 
     public Sprite avatar;
 
@@ -35,4 +40,11 @@ public class TurretClass : ScriptableObject
         reachableLv = Mathf.Clamp(reachableLv, defaultMaxlv, maxLv);
     }
     #endregion
+}
+
+public enum AttackType
+{
+    BulletSingle,
+    BulletAOE,
+    Beam,
 }

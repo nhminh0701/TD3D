@@ -10,9 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a5463bc9fbd5a740b76f229d102866b, type: 3}
-  m_Name: Default Save Game
+  m_Name: Game Data
   m_EditorClassIdentifier: 
-  maxStagesReached: 2
-  turretNameList:
-  - MissleTurret
-  - StandardTurret
+  defaultState:
+    reachableLv: 3
+    turretState:
+      turretIdList:
+      - StandardTurret
+      - MissleTurret
+  currentState:
+    reachableLv: 3
+    turretState:
+      turretIdList:
+      - StandardTurret
+      - MissleTurret
+  fileName: SaveGame

@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: TurretDB
   m_EditorClassIdentifier: 
   allTurretClasses:
+  - {fileID: 11400000, guid: 4d7662d819db03d4086feb32e48885d7, type: 2}
   - {fileID: 11400000, guid: e286ca68b9d87be45bacb7850688a04c, type: 2}
   - {fileID: 11400000, guid: 93e24b1fdbe28024d901063541b7ad6a, type: 2}
-  - {fileID: 11400000, guid: 4d7662d819db03d4086feb32e48885d7, type: 2}
   availableClasses:
+  - {fileID: 11400000, guid: 4d7662d819db03d4086feb32e48885d7, type: 2}
   - {fileID: 11400000, guid: 93e24b1fdbe28024d901063541b7ad6a, type: 2}
