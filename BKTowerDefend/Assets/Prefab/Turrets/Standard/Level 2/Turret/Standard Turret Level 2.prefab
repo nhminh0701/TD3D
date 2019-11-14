@@ -231,6 +231,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5708407054702883707}
   - component: {fileID: 8746848233523822953}
+  - component: {fileID: 6676699913704460585}
+  - component: {fileID: 200503772625498669}
+  - component: {fileID: 7184971970525541227}
   m_Layer: 0
   m_Name: Standard Turret Level 2
   m_TagString: Untagged
@@ -266,18 +269,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c9590b98a5d0634a9480366efae26e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  range: 8
+  turretAttackStyle: 0
+--- !u!114 &6676699913704460585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8746848233523822952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cbf06750459fd747bbc9aa0af9c65d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 7024651964832807871}
   bulletPrefab: {fileID: 358721016313062420, guid: 5aeb1f7a538df8a45a22f771d2a7dccd,
     type: 3}
-  fireRate: 0.75
-  useLaser: 0
-  slowPct: 0.5
-  damageOverTime: 1
-  lineRenderer: {fileID: 0}
-  impactEffect: {fileID: 0}
-  impactLight: {fileID: 0}
+  fireRate: 1
+--- !u!114 &200503772625498669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8746848233523822952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b5d5197f50c9034e8147d0ffc1e3dd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  range: 15
   enemyTag: Enemy
-  turnSpeed: 4.05
+  turnSpeed: 4
   partToRotate: {fileID: 7024651963681817285}
-  firePoint: {fileID: 7024651964832807871}
+--- !u!114 &7184971970525541227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8746848233523822952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cbf06750459fd747bbc9aa0af9c65d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 0}
+  bulletPrefab: {fileID: 358721016313062420, guid: 5aeb1f7a538df8a45a22f771d2a7dccd,
+    type: 3}
+  fireRate: 1

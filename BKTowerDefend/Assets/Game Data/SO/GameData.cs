@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
 using UnityEngine;
+using System;
 
 [CreateAssetMenu(fileName = "Game Data", menuName = "Game Setup/Game Data")]
 public class GameData : ScriptableObject
@@ -10,7 +11,7 @@ public class GameData : ScriptableObject
     [SerializeField] GameState defaultState;
     [Tooltip("State to Save, Debug Purpose")]
     public GameState currentState = new GameState();
-
+    GameState tempState;
     [SerializeField] string fileName;
 
     string destination;
@@ -26,18 +27,21 @@ public class GameData : ScriptableObject
 
     public void LoadSaveGame()
     {
+        tempState = new GameState(defaultState.reachableLv, defaultState.turretState);
+
         string destination = Path.Combine(Application.persistentDataPath, fileName + ".json");
         if (File.Exists(destination))
         {
             string serializedObject = File.ReadAllText(destination);
             currentState = JsonConvert.DeserializeObject<GameState>(serializedObject);
         }
-        else currentState = defaultState;
+        else currentState = tempState;
     }
 
     public void ClearData()
     {
-        currentState = defaultState;
+        tempState = new GameState(defaultState.reachableLv, defaultState.turretState);
+        currentState = tempState;
     }
 }
 

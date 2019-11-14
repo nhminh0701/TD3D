@@ -124,6 +124,7 @@ public class Node : MonoBehaviour
         // Building new turret
         //GameObject _turret = (GameObject)Instantiate(turretBlueprint.prefab, GetBuildPosition(), Quaternion.identity);
         GameObject _turret = (GameObject)SimplePool.Spawn(turretBlueprint.prefab, GetBuildPosition(), Quaternion.identity);
+        turret.GetComponent<Turret>().turretAttackStyle = turretBlueprintClass.attackType;
         turret = _turret;
 
         GameObject buildEffect = (GameObject)Instantiate(turretBlueprint.buildEffect, GetBuildPosition(), Quaternion.identity);

@@ -231,6 +231,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5376687587949876616}
   - component: {fileID: 8991028768295872410}
+  - component: {fileID: 5126174269247366543}
+  - component: {fileID: 958268524815248798}
   m_Layer: 0
   m_Name: Standard TurretLv4
   m_TagString: Untagged
@@ -266,18 +268,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c9590b98a5d0634a9480366efae26e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turretAttackStyle: 0
+--- !u!114 &5126174269247366543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8991028768295872411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b5d5197f50c9034e8147d0ffc1e3dd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   target: {fileID: 0}
-  range: 8
+  range: 15
+  enemyTag: Enemy
+  turnSpeed: 4
+  partToRotate: {fileID: 7266859923066479670}
+--- !u!114 &958268524815248798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8991028768295872411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cbf06750459fd747bbc9aa0af9c65d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 7266859924066196812}
   bulletPrefab: {fileID: 358721016313062420, guid: a37e6b16367d9824b84b457586b008b7,
     type: 3}
-  fireRate: 0.8
-  useLaser: 0
-  slowPct: 0.5
-  damageOverTime: 1
-  lineRenderer: {fileID: 0}
-  impactEffect: {fileID: 0}
-  impactLight: {fileID: 0}
-  enemyTag: Enemy
-  turnSpeed: 4.15
-  partToRotate: {fileID: 7266859923066479670}
-  firePoint: {fileID: 7266859924066196812}
+  fireRate: 1

@@ -11,6 +11,8 @@ public class Bullet : MonoBehaviour
     [SerializeField] int damage = 20;
     Transform target;
 
+    EffectAsigner effectAsigner;
+
     public void Seek(Transform _target)
     {
         target = _target;
@@ -57,6 +59,7 @@ public class Bullet : MonoBehaviour
 
     void Damage(Transform enemy)
     {
+
 
         IHealth e = enemy.GetComponent<IHealth>();
 

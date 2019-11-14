@@ -86,7 +86,8 @@
     <Compile Include="Assets\Scripts\Enemy\IHealth.cs" />
     <Compile Include="Assets\Scripts\Enemy\WaveSpawner.cs" />
     <Compile Include="Assets\Scripts\Enemy\WayPointEffector.cs" />
-    <Compile Include="Assets\Scripts\Node.cs" />
+    <Compile Include="Assets\Scripts\Observer Pattern Test\EffectAsginee.cs" />
+    <Compile Include="Assets\Scripts\Observer Pattern Test\EffectAsigner.cs" />
     <Compile Include="Assets\Scripts\PlayerStats.cs" />
     <Compile Include="Assets\Scripts\Setting\BuildManager.cs" />
     <Compile Include="Assets\Scripts\Setting\CameraController.cs" />
@@ -95,8 +96,13 @@
     <Compile Include="Assets\Scripts\Setting\SimplePool.cs" />
     <Compile Include="Assets\Scripts\Setting\Singleton.cs" />
     <Compile Include="Assets\Scripts\StageSelector.cs" />
-    <Compile Include="Assets\Scripts\Turret\Bullet.cs" />
+    <Compile Include="Assets\Scripts\Turret\Node.cs" />
     <Compile Include="Assets\Scripts\Turret\Turret.cs" />
+    <Compile Include="Assets\Scripts\Turret\TurretAttack\Bullet.cs" />
+    <Compile Include="Assets\Scripts\Turret\TurretAttack\TurretAttack.cs" />
+    <Compile Include="Assets\Scripts\Turret\TurretAttack\TurretAttackLaser.cs" />
+    <Compile Include="Assets\Scripts\Turret\TurretAttack\TurretAttackShootBullet.cs" />
+    <Compile Include="Assets\Scripts\Turret\TurretMovement.cs" />
     <Compile Include="Assets\Scripts\UI\GameOver.cs" />
     <Compile Include="Assets\Scripts\UI\HealthUI.cs" />
     <Compile Include="Assets\Scripts\UI\LivesUI.cs" />

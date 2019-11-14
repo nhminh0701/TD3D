@@ -12,7 +12,7 @@ public class TurretClass : ScriptableObject
     [TextArea(2,7)]
     [SerializeField] string description;
 
-    public AttackType attackType;
+    public AttackStyle attackType;
 
     public Sprite avatar;
 
@@ -42,7 +42,7 @@ public class TurretClass : ScriptableObject
     #endregion
 }
 
-public enum AttackType
+public enum AttackStyle
 {
     BulletSingle,
     BulletAOE,

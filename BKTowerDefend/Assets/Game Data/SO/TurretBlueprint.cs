@@ -11,9 +11,10 @@ public class TurretBlueprint : ScriptableObject
 
     public GameObject bulletPrefab { get
         {
-            if (prefab)
+            TurretAttackShootBullet turret = prefab.GetComponent<TurretAttackShootBullet>();
+            if (turret!= null)
             {
-                return prefab.GetComponent<Turret>().bulletPrefab;
+                return turret.bulletPrefab;
             }
             else return null;
         }

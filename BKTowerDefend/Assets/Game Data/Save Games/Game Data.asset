@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Game Data
   m_EditorClassIdentifier: 
   defaultState:
-    reachableLv: 3
+    reachableLv: 2
     turretState:
       turretIdList:
       - StandardTurret
       - MissleTurret
   currentState:
-    reachableLv: 3
+    reachableLv: 2
     turretState:
       turretIdList:
       - StandardTurret
