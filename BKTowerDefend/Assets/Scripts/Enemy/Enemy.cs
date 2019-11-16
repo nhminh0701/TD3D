@@ -30,11 +30,11 @@ public class Enemy : MonoBehaviour
     {
         PlayerStats.EarnMoney(worth);
         WaveSpawner.numberAliveEnemies--;
-        EnemyMovement enemyMovement = gameObject.GetComponent<EnemyMovement>();
-        if (enemyMovement != null)
-        {
-            enemyMovement.ResetPath();
-        }
+        //EnemyMovement enemyMovement = gameObject.GetComponent<EnemyMovement>();
+        //if (enemyMovement != null)
+        //{
+        //    enemyMovement.ResetPath();
+        //}
     }
 
     

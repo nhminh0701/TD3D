@@ -100,6 +100,8 @@ public class WaveSpawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
+        spawnPoint = currentWavePath[0];
+
         Enemy newEnemy = SimplePool.Spawn(currentWave.enemiesPrefab[UnityEngine.Random.Range(0, currentWave.enemiesPrefab.Length - 1)], spawnPoint.position, Quaternion.identity);
         //Instantiate(currentWave.enemiesPrefab[Random.Range(0, currentWave.enemiesPrefab.Length - 1)], spawnPoint.position, Quaternion.identity);
         WayPointEffector wpEffector = spawnPoint.GetComponentInChildren<WayPointEffector>();
@@ -108,6 +110,6 @@ public class WaveSpawner : MonoBehaviour
             wpEffector.ObjectStateChange();
         }
 
-        newEnemy.GetComponent<EnemyMovement>().movePath = currentWavePath;
+        newEnemy.GetComponent<EnemyMovement>().GetNewWave(currentWavePath);
     }
 }

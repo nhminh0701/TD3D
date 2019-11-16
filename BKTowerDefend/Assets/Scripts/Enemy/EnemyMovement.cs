@@ -15,13 +15,14 @@ public class EnemyMovement : MonoBehaviour
     void Start()
     {
         enemy = GetComponent<Enemy>();
-
-        target = movePath[0];
     }
+
 
     // Update is called once per frame
     void Update()
     {
+        // Rotation
+
         Vector3 dir = target.position - transform.position;
         transform.Translate(dir.normalized * enemy.speed * Time.deltaTime);
 
@@ -60,10 +61,11 @@ public class EnemyMovement : MonoBehaviour
     }
 
     // Use with 
-    public void ResetPath()
+    public void GetNewWave(Transform[] _movePath)
     {
-        wayPointIndex = 0;
-        target = movePath[wayPointIndex];
+        wayPointIndex = 1;
+        movePath = _movePath;
+        target = _movePath[wayPointIndex];
     }
     #endregion
 }
