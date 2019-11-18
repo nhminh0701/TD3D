@@ -20,7 +20,7 @@ public class BuildManager: MonoBehaviour
     
     public bool CanBuild { get { return turretToBuildClass != null; } }
 
-    public NodeUI nodeUI;
+    NodeUI nodeUI;
     public bool hasEnoughMoney { get { return  PlayerStats.money >= turretToBuildClass.turretList[0].cost; } }
 
     private void Awake()
@@ -32,6 +32,11 @@ public class BuildManager: MonoBehaviour
         else Destroy(gameObject);
 
         // DontDestroyOnLoad(gameObject);
+    }
+
+    private void Start()
+    {
+        nodeUI = NodeUI.instance;
     }
 
     public void SelecteNode(Node node)

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using DG.Tweening;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -19,7 +17,6 @@ public class GameManager : MonoBehaviour
         //DontDestroyOnLoad(gameObject);
 
         // Reset status OnLoad so DontDestroyOnLoad may not be a good idea
-        gameOverUI.SetActive(false);
         gameIsEnded = false;
     }
 
@@ -36,13 +33,14 @@ public class GameManager : MonoBehaviour
     void EndGame()
     {
         gameIsEnded = true;
-        gameOverUI.SetActive(true);
+        gameOverUI.transform.DOMoveY(Screen.height / 2, 1);
     }
 
     public void ClearStage()
     {
         int limitLv = DataManager.instance.gameData.currentState.reachableLv;
-        stageCompleteCanvas.SetActive(true);
+        // stageCompleteCanvas.SetActive(true);
+        stageCompleteCanvas.transform.DOMoveY(Screen.height/2, 1);
         GameManager.gameIsEnded = true;
         if (stageLevel == limitLv)
             DataManager.instance.gameData.currentState.reachableLv = stageLevel+ 1;

@@ -32,6 +32,8 @@ public class WaveSpawner : MonoBehaviour
     /// </summary>
     private void Update()
     {
+        if (GameManager.gameIsEnded) return;
+
         if (numberAliveEnemies > 0 ) { return; }
 
         if (waveIndex == waveTemplates.Length)

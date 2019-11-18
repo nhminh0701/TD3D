@@ -11,7 +11,7 @@ public class StageClearUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameObject.SetActive(false);
+        // gameObject.SetActive(false);
         sceneFader = FindObjectOfType<SceneFader>();
     }
 
@@ -23,6 +23,5 @@ public class StageClearUI : MonoBehaviour
     public void MoveToNextScene(string sceneName)
     {
         sceneFader.FadeTo(sceneName);
-        Debug.Log(PlayerPrefs.GetInt("levelReached", 1));
     }
 }
