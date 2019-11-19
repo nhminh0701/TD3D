@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5021923007587595625}
   - component: {fileID: 5962216269207312038}
   - component: {fileID: 6806508560135569443}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Brust Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4764,7 +4764,7 @@ GameObject:
   - component: {fileID: 8620482597746531551}
   - component: {fileID: 8167937126298520064}
   - component: {fileID: 1667207948264165972}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4841,7 +4841,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3133283177526402369}
   - component: {fileID: 5335389995080502737}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Missle Lv4
   m_TagString: Untagged
   m_Icon: {fileID: 0}

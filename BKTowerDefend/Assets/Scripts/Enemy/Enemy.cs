@@ -21,14 +21,8 @@ public class Enemy : MonoBehaviour
         speed = startSpeed;
     }
 
-    private void OnDestroy()
-    {
-        WaveSpawner.numberAliveEnemies--;
-    }
-
     private void OnDisable()
     {
-        PlayerStats.EarnMoney(worth);
         WaveSpawner.numberAliveEnemies--;
         //EnemyMovement enemyMovement = gameObject.GetComponent<EnemyMovement>();
         //if (enemyMovement != null)

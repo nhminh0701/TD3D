@@ -29,11 +29,11 @@ public class TurretMovement : MonoBehaviour
     void UpdateTarget()
     {
         // Get all existed enemies and look for the nearest one in range, store it to the target var
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        Enemy[] enemies = FindObjectsOfType<Enemy>();
         float shortestDistance = Mathf.Infinity;
-        GameObject nearestEnemy = null;
+        Enemy nearestEnemy = null;
 
-        foreach (GameObject enemy in enemies)
+        foreach (Enemy enemy in enemies)
         {
             float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
             if (shortestDistance >= distanceToEnemy)

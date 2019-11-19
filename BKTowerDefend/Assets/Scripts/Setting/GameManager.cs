@@ -20,11 +20,14 @@ public class GameManager : MonoBehaviour
         gameIsEnded = false;
     }
 
-    private void Update()
+    private void Start()
     {
-        if (gameIsEnded) { return; }
+        PlayerStats.OnGetDamaged += CheckGameOver;
+    }
 
-        if (PlayerStats.lives < 0)
+    void CheckGameOver()
+    {
+        if (PlayerStats.lives <= 0)
         {
             EndGame();
         }
@@ -33,6 +36,7 @@ public class GameManager : MonoBehaviour
     void EndGame()
     {
         gameIsEnded = true;
+        Debug.Log("Lost");
         gameOverUI.transform.DOMoveY(Screen.height / 2, 1);
     }
 
@@ -44,5 +48,10 @@ public class GameManager : MonoBehaviour
         GameManager.gameIsEnded = true;
         if (stageLevel == limitLv)
             DataManager.instance.gameData.currentState.reachableLv = stageLevel+ 1;
+    }
+
+    private void OnDestroy()
+    {
+        PlayerStats.OnGetDamaged -= CheckGameOver;
     }
 }

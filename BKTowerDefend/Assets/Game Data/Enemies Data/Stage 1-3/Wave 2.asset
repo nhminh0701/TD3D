@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waveName: Wave 2
   enemiesPrefab:
-  - {fileID: -8256593854793247712, guid: fc216f07fe3ffa44085a61c80c80df67, type: 3}
+  - {fileID: 6463580614880008271, guid: 7f35345eb3601634c98ce26c47732a86, type: 3}
   amountOfEnemies: 3
   spawnRate: 2
