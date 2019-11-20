@@ -11802,7 +11802,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18d4149521456498592a8e5f7798456e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _effectType: 3
+  _effectType: 2
   _preset: 7
   _profile: {fileID: 0}
   _useFogVolumes: 0

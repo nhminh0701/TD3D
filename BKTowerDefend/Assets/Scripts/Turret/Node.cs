@@ -75,7 +75,7 @@ public class Node : MonoBehaviour
             return;
         }
 
-        PlayerStats.SpendMoney(turretBlueprint.cost);
+        EventManager.ChangePlayerInStageMoney(-turretBlueprint.cost);
 
         //GameObject _turret = (GameObject)Instantiate(turretBlueprint.prefab, GetBuildPosition(), Quaternion.identity);
         GameObject _turret = (GameObject)SimplePool.Spawn(turretBlueprint.prefab, GetBuildPosition(), Quaternion.identity);
@@ -115,7 +115,7 @@ public class Node : MonoBehaviour
             return;
         }
 
-        PlayerStats.SpendMoney(turretBlueprint.cost);
+        EventManager.ChangePlayerInStageMoney(-turretBlueprint.cost);
 
         // Destroy old turret
         //Destroy(turret);
@@ -134,7 +134,7 @@ public class Node : MonoBehaviour
 
     public void SellTurret()
     {
-        PlayerStats.EarnMoney(turretBlueprint.price);
+        EventManager.ChangePlayerInStageMoney(turretBlueprint.price);
 
         // Reset turret data
         Destroy(turret);

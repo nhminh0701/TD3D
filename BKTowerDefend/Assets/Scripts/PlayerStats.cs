@@ -4,17 +4,6 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-
-    #region Events
-    public delegate void OnEventEnter();
-    public static event OnEventEnter OnGetDamaged;
-    public static event OnEventEnter OnEnemyKilled;
-    public static event OnEventEnter OnEarnLives;
-
-    public static event OnEventEnter OnSpendMoney;
-    public static event OnEventEnter OnEarnMoney;
-    #endregion
-
     // Money across scene
     public static int money { get; private set; }
     public int startMoney = 50;
@@ -32,35 +21,30 @@ public class PlayerStats : MonoBehaviour
         rounds = 0;
     }
 
-    public static void SpendMoney(int spendAmount)
+    private void Start()
     {
-        money -= spendAmount;
+        EventManager.changePlayerHP += ChangeHP;
+        EventManager.changePlayerInStageMoney += ChangeInStageMoney;
+    }
+
+    private void OnDestroy()
+    {
+        EventManager.changePlayerHP -= ChangeHP;
+        EventManager.changePlayerInStageMoney -= ChangeInStageMoney;
+    }
+
+    void ChangeInStageMoney(int changeAmount)
+    {
+        money += changeAmount;
 
         if (money < 0) money = 0;
-
-        OnSpendMoney();
     }
 
-    public static void EarnMoney(int earnAmount)
+    void ChangeHP(int changeAmount)
     {
-        money += earnAmount;
-        OnEarnMoney();
-    }
-
-    public static void LoseLives(int loseAmount)
-    {
-        lives -= loseAmount;
-
+        lives += changeAmount;
         if (lives < 0) lives = 0;
 
-        OnGetDamaged();
+        GameManager.instance.CheckGameOver();
     }
-
-    public static void IncreaseLives(int loseAmount)
-    {
-        lives += loseAmount;
-        OnEarnMoney();
-    }
-
-
 }

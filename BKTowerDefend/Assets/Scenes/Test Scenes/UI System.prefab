@@ -523,10 +523,10 @@ RectTransform:
   m_Father: {fileID: 2921041464675283621}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0.0075683594}
+  m_SizeDelta: {x: 0, y: -0.019989014}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2921041463446552211
 GameObject:
@@ -2488,8 +2488,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 783}
-  m_SizeDelta: {x: 699.99994, y: 349.99997}
+  m_AnchoredPosition: {x: 0, y: 1835}
+  m_SizeDelta: {x: -0.000061035156, y: 0.019958496}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &589290787936722647
 MonoBehaviour:
@@ -2504,7 +2504,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roundsText: {fileID: 2921041464829228567}
-  sceneFader: {fileID: 0}
   menuSceneName: Main Menu
 --- !u!95 &589290787936722640
 Animator:
@@ -3378,6 +3377,7 @@ GameObject:
   - component: {fileID: 2921041464928694220}
   - component: {fileID: 2921041464928694221}
   - component: {fileID: 2921041464928694218}
+  - component: {fileID: 6252386465864613480}
   m_Layer: 0
   m_Name: UI System
   m_TagString: Untagged
@@ -3443,6 +3443,18 @@ MonoBehaviour:
   upgradeCost: {fileID: 2921041463612233272}
   price: {fileID: 2921041464019932317}
   targetTransform: {fileID: 2921041465054710237}
+--- !u!114 &6252386465864613480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2921041464928694222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c317348d6f0e737499d589ef856d8a17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2921041464949339731
 GameObject:
   m_ObjectHideFlags: 0
@@ -4178,8 +4190,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -682}
-  m_SizeDelta: {x: 699.99994, y: 349.99997}
+  m_AnchoredPosition: {x: 0, y: -1838}
+  m_SizeDelta: {x: -0.000061035156, y: 0.019958496}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &591263751785460991
 Animator:
@@ -4461,7 +4473,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Lv 3
+          m_StringArgument: 2-2
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &2923008072257952553
@@ -5911,8 +5923,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.015136719}
-  m_SizeDelta: {x: 699.99994, y: 349.99997}
+  m_AnchoredPosition: {x: 0, y: 0.0075683594}
+  m_SizeDelta: {x: -0.000061035156, y: 0.019958496}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5546916150985405035
 MonoBehaviour:

@@ -10,6 +10,7 @@ public class Health : MonoBehaviour, IHealth
 
     float maxHealth;
     float currentHealth;
+    Enemy enemyComponent;
 
     public bool isDeath;
 
@@ -29,6 +30,7 @@ public class Health : MonoBehaviour, IHealth
         thisHealthUI = healthUIObject.GetComponentInChildren<HealthUI>();
         thisHealthUI.AssignMaxBarVal(maxHealth);
         currentHealth = maxHealth;
+        enemyComponent = GetComponent<Enemy>();
     }
 
     //public void ChangeHealthValue(float value)
@@ -49,6 +51,9 @@ public class Health : MonoBehaviour, IHealth
 
     public void Die()
     {
+        
+        if (enemyComponent != null) EventManager.ChangePlayerInStageMoney(enemyComponent.worth);
+
         if (deathEffectPrefab != null)
         {
             GameObject destroyEffect = (GameObject)Instantiate(deathEffectPrefab, transform.position, Quaternion.identity);

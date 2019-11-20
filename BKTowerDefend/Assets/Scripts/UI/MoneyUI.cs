@@ -8,19 +8,26 @@ public class MoneyUI : MonoBehaviour
     private void Start()
     {
         UpdateMoneyUI();
-        PlayerStats.OnSpendMoney += UpdateMoneyUI;
-        PlayerStats.OnEarnMoney += UpdateMoneyUI;
+
+        EventManager.changePlayerInStageMoney += OnInStageMoneyChange;
     }
 
     // Update is called once per frame
-    public void UpdateMoneyUI()
+
+    void OnInStageMoneyChange(int changeAmount) {
+        UpdateMoneyUI(changeAmount);
+    }
+
+    public void UpdateMoneyUI(int changeAmount = 0)
     {
-        moneyText.text = PlayerStats.money.ToString();
+        int newCurrent = PlayerStats.money + changeAmount;
+        if (newCurrent < 0) newCurrent = 0;
+
+        moneyText.text = newCurrent.ToString();
     }
 
     private void OnDestroy()
     {
-        PlayerStats.OnSpendMoney -= UpdateMoneyUI;
-        PlayerStats.OnEarnMoney -= UpdateMoneyUI;
+        EventManager.changePlayerInStageMoney -= OnInStageMoneyChange;
     }
 }

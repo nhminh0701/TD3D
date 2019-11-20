@@ -55,7 +55,8 @@ public class EnemyMovement : MonoBehaviour
             wpEffector.ObjectStateChange();
         }
 
-        PlayerStats.LoseLives(1);
+        EventManager.ChangePlayerHP(-enemy.damage);
+
         //Destroy(gameObject);
         SimplePool.Despawn(gameObject);
     }

@@ -93,6 +93,7 @@
     <Compile Include="Assets\Scripts\Enemy\IHealth.cs" />
     <Compile Include="Assets\Scripts\Enemy\WaveSpawner.cs" />
     <Compile Include="Assets\Scripts\Enemy\WayPointEffector.cs" />
+    <Compile Include="Assets\Scripts\EventManager.cs" />
     <Compile Include="Assets\Scripts\Observer Pattern Test\EffectAsginee.cs" />
     <Compile Include="Assets\Scripts\Observer Pattern Test\EffectAsigner.cs" />
     <Compile Include="Assets\Scripts\PlayerStats.cs" />
@@ -101,7 +102,6 @@
     <Compile Include="Assets\Scripts\Setting\DataManager.cs" />
     <Compile Include="Assets\Scripts\Setting\GameManager.cs" />
     <Compile Include="Assets\Scripts\Setting\SimplePool.cs" />
-    <Compile Include="Assets\Scripts\Setting\Singleton.cs" />
     <Compile Include="Assets\Scripts\StageSelector.cs" />
     <Compile Include="Assets\Scripts\Turret\Node.cs" />
     <Compile Include="Assets\Scripts\Turret\Turret.cs" />
@@ -120,6 +120,7 @@
     <Compile Include="Assets\Scripts\UI\SceneFader.cs" />
     <Compile Include="Assets\Scripts\UI\Shop.cs" />
     <Compile Include="Assets\Scripts\UI\StageClearUI.cs" />
+    <Compile Include="Assets\Scripts\UI\UIManager.cs" />
     <None Include="Assets\DynamicFog\Resources\Shaders\DFOOrthogonal.shader" />
     <None Include="Assets\DynamicFog\Resources\Shaders\DFMUnlit.shader" />
     <None Include="Assets\DynamicFog\Resources\Shaders\FogOfWar.shader" />

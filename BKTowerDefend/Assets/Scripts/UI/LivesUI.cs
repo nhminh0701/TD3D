@@ -15,18 +15,24 @@ public class LivesUI : MonoBehaviour
     private void Start()
     {
         UpdateLiveText();
-        PlayerStats.OnEarnLives += UpdateLiveText;
-        PlayerStats.OnGetDamaged += UpdateLiveText;
-    }
-
-    void UpdateLiveText()
-    {
-        livesText.text = PlayerStats.lives.ToString();
+        EventManager.changePlayerHP += OnHPChange;
     }
 
     private void OnDestroy()
     {
-        PlayerStats.OnEarnLives -= UpdateLiveText;
-        PlayerStats.OnGetDamaged -= UpdateLiveText;
+        EventManager.changePlayerHP -= OnHPChange;
+    }
+
+    void OnHPChange(int changeAmount)
+    {
+        UpdateLiveText(changeAmount);
+    }
+
+
+    void UpdateLiveText(int changeAmount = 0)
+    {
+        int newHp = PlayerStats.lives + changeAmount;
+        if (newHp < 0) newHp = 0;
+        livesText.text = newHp.ToString();
     }
 }

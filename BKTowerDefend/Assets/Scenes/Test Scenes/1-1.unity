@@ -11167,11 +11167,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI System
       objectReference: {fileID: 0}
-    - target: {fileID: 2921041464928694222, guid: fb70fb3c528dee049b8f92939668bc95,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2921041464928694223, guid: fb70fb3c528dee049b8f92939668bc95,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11227,11 +11222,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2921041464675283621, guid: fb70fb3c528dee049b8f92939668bc95,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2921041464453882979, guid: fb70fb3c528dee049b8f92939668bc95,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -11671,11 +11661,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2923008072091602275, guid: fb70fb3c528dee049b8f92939668bc95,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: 1-2
       objectReference: {fileID: 0}
     - target: {fileID: 589290787936722647, guid: fb70fb3c528dee049b8f92939668bc95,
         type: 3}

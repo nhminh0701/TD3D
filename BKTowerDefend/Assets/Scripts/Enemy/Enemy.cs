@@ -11,6 +11,8 @@ public class Enemy : MonoBehaviour
 
     public int worth = 5;
 
+    public int damage = 3;
+
     [SerializeField] float startHealth = 100;
     public Health health;
 
