@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aefbf7244e230a548be8ff9d9e86387e, type: 3}
+  m_Name: Standard Turret
+  m_EditorClassIdentifier: 
+  turretID: StandardTurret
+  reachableLv: 4
+  turretStyle: 0
+  description: 
+  appShopPurchasePrice: 0
+  listTurretLV:
+  - attackParams:
+      damage: 40
+      fireRate: 2
+    range: 120
+    health: 100
+    inGamePurchasePrice: 30
+    sellPrice: 30
+  - attackParams:
+      damage: 40
+      fireRate: 2
+    range: 120
+    health: 100
+    inGamePurchasePrice: 30
+    sellPrice: 30
+  - attackParams:
+      damage: 40
+      fireRate: 2
+    range: 120
+    health: 100
+    inGamePurchasePrice: 30
+    sellPrice: 30
+  - attackParams:
+      damage: 40
+      fireRate: 2
+    range: 120
+    health: 100
+    inGamePurchasePrice: 30
+    sellPrice: 30
+  equipedDebuff: {fileID: 0}

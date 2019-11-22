@@ -4,16 +4,14 @@ using UnityEngine.UI;
 
 public class Shop : MonoBehaviour
 {
-    // TODO after finishing the game:
-    // Create [turret], instantiate the turret type depend on
-    // index int input
-
     BuildManager buildManager;
 
-    public List<TurretClass> turrets;
+    // Or selected turret by player
+    public List<TurretAsset> usingTurretAssets;
 
     private void Start()
     {
+        usingTurretAssets = DataGlobal.instance.dataAsset.GetAvailableTurrets();
         buildManager = BuildManager.instance;
     }
 
@@ -21,6 +19,6 @@ public class Shop : MonoBehaviour
     {
         // Call from UI Element (Button) communicate with BuildManager
         // communicate with money, handle UI i.e open close shop
-        buildManager.SelectTurretToBuild(turrets[index]);
+        buildManager.SelectTurretToBuild(usingTurretAssets[index]);
     }
 }

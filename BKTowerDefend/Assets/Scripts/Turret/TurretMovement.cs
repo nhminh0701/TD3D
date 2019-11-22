@@ -9,7 +9,7 @@ public class TurretMovement : MonoBehaviour
     public Transform target;  // At the same time, every turret is supposed to have only one target
 
     [Tooltip("Range of Turret")]
-    [SerializeField] float range = 15f;
+    public float range = 15f;
 
     [Header("Unity Attributes")]
     [Tooltip("Enemy Mark")]

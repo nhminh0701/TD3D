@@ -15,13 +15,13 @@ public class BuildManager: MonoBehaviour
     // are determined here and other script can
     // manage these selections based on the available
     // public function here
-    TurretClass turretToBuildClass;
+    TurretAsset thisTurretAsset;
     Node selectedNode;
     
-    public bool CanBuild { get { return turretToBuildClass != null; } }
+    public bool CanBuild { get { return thisTurretAsset != null; } }
 
     NodeUI nodeUI;
-    public bool hasEnoughMoney { get { return  PlayerStats.money >= turretToBuildClass.turretList[0].cost; } }
+    public bool hasEnoughMoney { get { return  PlayerStats.money >= thisTurretAsset.listTurretLV[0].inGamePurchasePrice; } }
 
     private void Awake()
     {
@@ -48,7 +48,7 @@ public class BuildManager: MonoBehaviour
         }
 
         selectedNode = node;
-        turretToBuildClass = null;
+        thisTurretAsset = null;
 
         nodeUI.SetTarget(node);
     }
@@ -65,11 +65,11 @@ public class BuildManager: MonoBehaviour
     /// Also we reset the node selection with this function
     /// </summary>
     /// <param name="turret"></param>
-    public void SelectTurretToBuild(TurretClass turret)
+    public void SelectTurretToBuild(TurretAsset turret)
     {
-        turretToBuildClass = turret;
+        thisTurretAsset = turret;
         DeselectNode();
     }
 
-    public TurretClass GetTurretToBuild() { return turretToBuildClass; }
+    public TurretAsset GetTurretToBuild() { return thisTurretAsset; }
 }

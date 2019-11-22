@@ -1,17 +1,17 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
     [SerializeField] float speed = 70f;
     public GameObject impactEffect;
     [SerializeField] float explosionRadius;
-    [SerializeField] int damage = 20;
+    float damage = 20;
     Transform target;
 
-    EffectAsigner effectAsigner;
+    public void SetBulletDamage(float value = 20)
+    {
+        damage = value;
+    }
 
     public void Seek(Transform _target)
     {

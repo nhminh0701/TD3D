@@ -1,11 +1,12 @@
-﻿using DG.Tweening;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public static bool gameIsEnded = false;
     public static GameManager instance;
     public int stageLevel;
+
+    DataGlobal dataGlobal;
 
     private void Awake()
     {
@@ -18,6 +19,10 @@ public class GameManager : MonoBehaviour
         gameIsEnded = false;
     }
 
+    private void Start()
+    {
+        dataGlobal = DataGlobal.instance;
+    }
 
     public void CheckGameOver()
     {
@@ -35,11 +40,10 @@ public class GameManager : MonoBehaviour
 
     public void ClearStage()
     {
-        int limitLv = DataManager.instance.gameData.currentState.reachableLv;
-        // stageCompleteCanvas.SetActive(true);
+        int limitLv = dataGlobal.userData.reachableLv;
         UIManager.instance.SummonWindow(UIManager.instance.stageClearUI.transform);
         GameManager.gameIsEnded = true;
         if (stageLevel == limitLv)
-            DataManager.instance.gameData.currentState.reachableLv = stageLevel+ 1;
+            dataGlobal.userData.UnLockNewLevel();
     }
 }

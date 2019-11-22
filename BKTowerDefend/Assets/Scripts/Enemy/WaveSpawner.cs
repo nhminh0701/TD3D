@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -11,7 +11,7 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] Transform spawnPoint;
 
     [SerializeField] float timeBtwnWave = 5f;
-    [SerializeField] Text waveCountdownText;
+    [SerializeField] TextMeshProUGUI waveCountdownText;
     float countdown;
 
     Wave currentWave;
@@ -79,7 +79,6 @@ public class WaveSpawner : MonoBehaviour
             SpawnEnemy();
             yield return new WaitForSeconds(1/currentWave.spawnRate);
         }
-        Debug.Log(numberAliveEnemies);
     }
 
     private void SetupWavePath()

@@ -1,6 +1,6 @@
 ﻿using DG.Tweening;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 /// <summary>
 /// The Object relocate to the target Node position and switch on/off the world canvas
 /// Attach to the UI element which display the turret option when the node containing
@@ -12,13 +12,15 @@ public class NodeUI : MonoBehaviour
 
     public GameObject ui;
     public GameObject upgradeButton;
-    public Text upgradeCost;
-    public Text price;
+    //public Text upgradeCost;
+
+    [SerializeField] TextMeshProUGUI upgradeCost;
+    [SerializeField] TextMeshProUGUI price;
+
     
     [SerializeField] Transform targetTransform;
     Vector3 targetPos;
     Vector3 defaultPos;
-
     Node target;
 
     private void Awake()
@@ -28,19 +30,20 @@ public class NodeUI : MonoBehaviour
         targetPos = targetTransform.position;
     }
 
+
     public void SetTarget(Node _target)
     {
         target = _target;
 
-        
+        // if (target.currentTurretClass == null) return;
 
         if (_target.upgradable)
         {
             if (!upgradeButton.activeInHierarchy) { upgradeButton.SetActive(true); }
-            upgradeCost.text = "UPGRADE\n$" + _target.turretBlueprintClass.turretList[_target.turretBlueprint.level].cost.ToString();
+            upgradeCost.text = "UPGRADE\n$" + _target.currentTurretClass.listTurretLV[_target.currentLv].inGamePurchasePrice.ToString();
         }
         
-        price.text = "SELL\n$" + _target.turretBlueprint.price.ToString();
+        price.text = "SELL\n$" + _target.currentTurretLv.sellPrice.ToString();
 
         if (!_target.upgradable)
         {
@@ -61,7 +64,7 @@ public class NodeUI : MonoBehaviour
         if (target.reachMaxLV) upgradeButton.SetActive(false);
         target.UpgradeTurret();
 
-        price.text = "SELL\n$" + target.turretBlueprint.price.ToString();
+        price.text = "SELL\n$" + target.currentTurretLv.sellPrice.ToString();
     }
 
     public void SellTurret()

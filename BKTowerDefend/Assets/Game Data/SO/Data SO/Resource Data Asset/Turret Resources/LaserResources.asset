@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a92d06248fb062649a0e7725232bf416, type: 3}
+  m_Name: LaserResources
+  m_EditorClassIdentifier: 
+  turretID: LaserTurret
+  listTurretsAvatar:
+  - {fileID: 21300000, guid: 72a3cedab1c8d024c97ae48f4fb8da92, type: 3}
+  listTurretPrefabs:
+  - {fileID: 7608260973000731591, guid: c583ef222686125439ef97ab9cb0db5a, type: 3}
+  - {fileID: 7608260973000731591, guid: 775edb6880949e1449e124d81fdba7cb, type: 3}
+  - {fileID: 7608260973000731591, guid: c41c568d3b9443d41afd2d92ab33bb51, type: 3}
+  - {fileID: 7608260973000731591, guid: b4d5137a13f8d6c4ab3dd63fe8ab4ebc, type: 3}
+  listTurretBuildEffect:
+  - {fileID: 4079970260764637963, guid: 17e015123b442394d8a584a9304e28d6, type: 3}
+  - {fileID: 4079970260764637963, guid: ca8e73fd202fd574f8191070e220d58c, type: 3}
+  - {fileID: 4079970260764637963, guid: 1b5772e26f0cf3e43b8d5623c487cd6f, type: 3}
+  - {fileID: 4079970260764637963, guid: 070ee8195d5533c48ba00fe3c8778960, type: 3}

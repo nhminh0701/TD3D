@@ -6,7 +6,6 @@ using UnityEngine;
 public class TurretAttackLaser : TurretAttack
 {
     [Range(0, 1)] public float slowPct = .5f;
-    public int damageOverTime = 1;
     [SerializeField] LineRenderer lineRenderer;
     [SerializeField] ParticleSystem impactEffect;
     [SerializeField] Light impactLight;
@@ -24,7 +23,7 @@ public class TurretAttackLaser : TurretAttack
             TurnOnLaser();
         }
 
-        targetEnemy.health.TakeDamage(damageOverTime * Time.deltaTime);
+        targetEnemy.health.TakeDamage(damage * Time.deltaTime);
         targetEnemy.Slow(slowPct);
 
         lineRenderer.SetPosition(0, firePoint.position);

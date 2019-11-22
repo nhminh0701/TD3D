@@ -62,6 +62,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\AdvancedPlayerPrefsWindow\DemoScene\GUIView.cs" />
     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleAudio.cs" />
     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModulePhysics.cs" />
     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModulePhysics2D.cs" />
@@ -74,11 +75,14 @@
     <Compile Include="Assets\DynamicFog\Scripts\DynamicFogOfWar.cs" />
     <Compile Include="Assets\DynamicFog\Scripts\DynamicFogProfile.cs" />
     <Compile Include="Assets\DynamicFog\Scripts\FogVolume.cs" />
-    <Compile Include="Assets\Game Data\SO\GameData.cs" />
-    <Compile Include="Assets\Game Data\SO\GameDatabase.cs" />
-    <Compile Include="Assets\Game Data\SO\TurretBlueprint.cs" />
-    <Compile Include="Assets\Game Data\SO\TurretClass.cs" />
-    <Compile Include="Assets\Game Data\SO\TurretDB.cs" />
+    <Compile Include="Assets\Game Data\SO\Data Script\DataAsset\DataAsset.cs" />
+    <Compile Include="Assets\Game Data\SO\Data Script\DataAsset\DebuffHolderAsset.cs" />
+    <Compile Include="Assets\Game Data\SO\Data Script\DataAsset\TurretAsset.cs" />
+    <Compile Include="Assets\Game Data\SO\Data Script\DataGlobal.cs" />
+    <Compile Include="Assets\Game Data\SO\Data Script\Resource Data Asset\DBHResourceAsset.cs" />
+    <Compile Include="Assets\Game Data\SO\Data Script\Resource Data Asset\ResourceDataAsset.cs" />
+    <Compile Include="Assets\Game Data\SO\Data Script\Resource Data Asset\TurretResourceAsset.cs" />
+    <Compile Include="Assets\Game Data\SO\Data Script\UserData.cs" />
     <Compile Include="Assets\Game Data\SO\Wave.cs" />
     <Compile Include="Assets\RainMaker\Demo\DemoScript.cs" />
     <Compile Include="Assets\RainMaker\Demo\DemoScript2D.cs" />
@@ -94,12 +98,9 @@
     <Compile Include="Assets\Scripts\Enemy\WaveSpawner.cs" />
     <Compile Include="Assets\Scripts\Enemy\WayPointEffector.cs" />
     <Compile Include="Assets\Scripts\EventManager.cs" />
-    <Compile Include="Assets\Scripts\Observer Pattern Test\EffectAsginee.cs" />
-    <Compile Include="Assets\Scripts\Observer Pattern Test\EffectAsigner.cs" />
     <Compile Include="Assets\Scripts\PlayerStats.cs" />
     <Compile Include="Assets\Scripts\Setting\BuildManager.cs" />
     <Compile Include="Assets\Scripts\Setting\CameraController.cs" />
-    <Compile Include="Assets\Scripts\Setting\DataManager.cs" />
     <Compile Include="Assets\Scripts\Setting\GameManager.cs" />
     <Compile Include="Assets\Scripts\Setting\SimplePool.cs" />
     <Compile Include="Assets\Scripts\StageSelector.cs" />
@@ -123,6 +124,8 @@
     <Compile Include="Assets\Scripts\UI\UIManager.cs" />
     <None Include="Assets\DynamicFog\Resources\Shaders\DFOOrthogonal.shader" />
     <None Include="Assets\DynamicFog\Resources\Shaders\DFMUnlit.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\DynamicFog\Resources\Shaders\FogOfWar.shader" />
     <None Include="Assets\DynamicFog\Resources\Shaders\DFMStandardShader.shader" />
     <None Include="Assets\DynamicFog\Resources\Shaders\DFRUnlit.shader" />
@@ -130,8 +133,10 @@
     <None Include="Assets\DynamicFog\Resources\Shaders\DFMSurfaceShaderCommon.cginc" />
     <None Include="Assets\DynamicFog\Resources\Shaders\DynamicFogCommon.cginc" />
     <None Include="Assets\DynamicFog\Resources\Shaders\DFRStandardShaderSolid.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\DynamicFog\Resources\Shaders\DFMLambertSolidColor.shader" />
     <None Include="Assets\DynamicFog\Resources\Shaders\DFGOnlyFog.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
     <None Include="Assets\DynamicFog\README.txt" />
     <None Include="Assets\DynamicFog\Resources\Shaders\DFOBasic.shader" />
     <None Include="Assets\DynamicFog\Resources\Shaders\DFGSimple.shader" />
@@ -144,19 +149,33 @@
     <None Include="Assets\DynamicFog\Resources\Shaders\DFRLambertSolidColor.shader" />
     <None Include="Assets\DynamicFog\Resources\Shaders\DFOOnlyFog.shader" />
     <None Include="Assets\DynamicFog\Resources\Shaders\DFGOrthogonal.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\DynamicFog\Resources\Shaders\DFGBasic.shader" />
+    <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\DynamicFog\Resources\Shaders\DFODesktopPlusOrthogonal.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\JsonDotNet\link.xml" />
     <None Include="Assets\Demigiant\DOTween\readme.txt" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\DynamicFog\Resources\Shaders\DFODesktopPlus.shader" />
     <None Include="Assets\DynamicFog\Resources\Shaders\DFGWithSky.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
+    <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\DynamicFog\Resources\Shaders\DFGDesktop.shader" />
     <None Include="Assets\RainMaker\Readme.txt" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
     <None Include="Assets\DynamicFog\Demos\How to install demo scenes.txt" />
     <None Include="Assets\DynamicFog\Resources\Shaders\DFMVertexFragmentShaderCommon.cginc" />
     <None Include="Assets\DynamicFog\Resources\Shaders\DFGDesktopPlus.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
     <None Include="Assets\DynamicFog\Resources\Shaders\DFOSimple.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\DynamicFog\Resources\Shaders\DynamicFogDither.cginc" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\DynamicFog\Resources\Shaders\DFMStandardShaderSolid.shader" />
     <None Include="Assets\DynamicFog\Resources\Shaders\DFRStandardShader.shader" />
     <None Include="Assets\DynamicFog\Resources\Shaders\DFMLambert.shader" />

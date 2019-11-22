@@ -5,7 +5,7 @@ using UnityEngine;
 public class Turret : MonoBehaviour
 {
 
-    public AttackStyle turretAttackStyle;
+    public TurretStyle turretAttackStyle;
 
 
 

@@ -1,9 +1,9 @@
-﻿using UnityEngine.UI;
+﻿using TMPro;
 using UnityEngine;
 
 public class LivesUI : MonoBehaviour
 {
-    [SerializeField] Text livesText;
+    [SerializeField] TextMeshProUGUI livesText;
     public static LivesUI instance;
 
     private void Awake()

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d26185cc0a8967845aed59691c4a22f5, type: 3}
+  m_Name: DataAssetController
+  m_EditorClassIdentifier: 
+  listTurretAsset:
+  - {fileID: 11400000, guid: c0c5737985961c240ad814828295faba, type: 2}
+  - {fileID: 11400000, guid: 16b6eaec2ffbc9240908f6b31e354481, type: 2}
+  - {fileID: 11400000, guid: c0c5737985961c240ad814828295faba, type: 2}
+  defaultNumberOfTurrets: 3
+  listDebuffHolderAssets:
+  - {fileID: 11400000, guid: fdb79c22931c81b48ab37e28d666b864, type: 2}

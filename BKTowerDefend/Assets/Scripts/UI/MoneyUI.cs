@@ -1,9 +1,9 @@
-﻿using UnityEngine.UI;
-using UnityEngine;
+﻿using UnityEngine;
+using TMPro;
 
 public class MoneyUI : MonoBehaviour
 {
-    [SerializeField] Text moneyText;
+    [SerializeField] TextMeshProUGUI moneyText;
 
     private void Start()
     {

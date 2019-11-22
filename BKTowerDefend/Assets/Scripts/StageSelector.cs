@@ -1,24 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class StageSelector : MonoBehaviour
 {
     Button[] stageButtonList;
-    DataManager dataManager;
+    
     SceneFader sceneFader;
 
-    int reachedLv;
+    UserData userData;
+    DataGlobal dataGlobal;
 
-    // Start is called before the first frame update
     void Start()
     {
-        dataManager = DataManager.instance;
+        dataGlobal = DataGlobal.instance;
+        userData = dataGlobal.userData;
 
         sceneFader = FindObjectOfType<SceneFader>();
-
-        reachedLv = dataManager.gameData.currentState.reachableLv;
 
         stageButtonList = new Button[transform.childCount];
 
@@ -29,7 +26,7 @@ public class StageSelector : MonoBehaviour
             stageButtonList[index].onClick.AddListener(() => sceneFader.FadeTo("Lv " + fadeLv));
             stageButtonList[index].GetComponentInChildren<Text>().text = "Lv " + fadeLv;
 
-            if (index >= reachedLv)
+            if (index >= userData.reachableLv)
             {
                 stageButtonList[index].interactable = false;
             }

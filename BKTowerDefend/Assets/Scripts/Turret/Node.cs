@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 
@@ -17,9 +19,9 @@ public class Node : MonoBehaviour
     [HideInInspector]
     public GameObject turret;
     [HideInInspector]
-    public TurretClass turretBlueprintClass;
+    public TurretAsset currentTurretClass;
     //[HideInInspector]
-    public TurretBlueprint turretBlueprint;
+    public TurretDataPerLV currentTurretLv;
     //[HideInInspector][Tooltip("Is the level of the turret is maximized?")]
     public bool upgradable;
     //[HideInInspector]
@@ -27,14 +29,17 @@ public class Node : MonoBehaviour
     // This lv can be setup to increase game's difficulty via playerpref or json
     //[HideInInspector]
     public int maxLv;
+    public int currentLv;
 
-
+    ResourceDataAsset resourceDataAssetController;
+    TurretResourceAsset currentTurretResource;
     Renderer rend;
     Color startColor;
     BuildManager buildManager;
 
     private void Start()
     {
+        resourceDataAssetController = DataGlobal.instance.resourceDataAsset;
         // reachMaxLV = turretBlueprint.level == maxLv - 1;
         rend = GetComponent<Renderer>();
         startColor = rend.material.color;
@@ -63,32 +68,42 @@ public class Node : MonoBehaviour
         BuildTurret(buildManager.GetTurretToBuild());
     }
 
-    void BuildTurret(TurretClass turretClass)
+    void BuildTurret(TurretAsset turretAsset)
     {
-        turretBlueprintClass = turretClass;
+        currentTurretClass = turretAsset;
 
-        turretBlueprint = turretClass.turretList[0];
+        currentTurretLv = turretAsset.listTurretLV[0];
+        currentLv = 1;
 
-        if (PlayerStats.money < turretBlueprint.cost)
+        if (PlayerStats.money < currentTurretLv.inGamePurchasePrice)
         {
             Debug.Log("Not enoug money");
             return;
         }
 
-        EventManager.ChangePlayerInStageMoney(-turretBlueprint.cost);
+        GetTurretResources(turretAsset.turretID);
 
-        //GameObject _turret = (GameObject)Instantiate(turretBlueprint.prefab, GetBuildPosition(), Quaternion.identity);
-        GameObject _turret = (GameObject)SimplePool.Spawn(turretBlueprint.prefab, GetBuildPosition(), Quaternion.identity);
-        turret = _turret;
+        EventManager.ChangePlayerInStageMoney(-currentTurretLv.inGamePurchasePrice);
 
-        GameObject buildEffect = (GameObject)Instantiate(turretBlueprint.buildEffect, GetBuildPosition(), Quaternion.identity);
+        InstantiateNewTurret();
 
-        Destroy(buildEffect, 5f);
+        maxLv = currentTurretClass.reachableLv;
 
-        maxLv = turretBlueprintClass.reachableLv;
+        upgradable = !(currentLv == maxLv);
+        reachMaxLV = currentLv == maxLv - 1;
+    }
 
-        upgradable = !(turretBlueprint.level == maxLv);
-        reachMaxLV = turretBlueprint.level == maxLv - 1;
+    private void GetTurretResources(string turretId)
+    {
+        List<TurretResourceAsset> listTurretResources = resourceDataAssetController.listTurretResourceAsset;
+        foreach(TurretResourceAsset turretResource in listTurretResources)
+        {
+            if (turretResource.turretID == turretId)
+            {
+                currentTurretResource = turretResource;
+                return;
+            }
+        }
     }
 
     public void UpgradeTurret()
@@ -99,47 +114,43 @@ public class Node : MonoBehaviour
             return;
         }
 
-        turretBlueprint = turretBlueprintClass.turretList[turretBlueprint.level];
+        currentTurretLv = currentTurretClass.listTurretLV[currentLv];
+        currentLv++;
 
-        if (turretBlueprint.level == maxLv - 1) {
+        if (currentLv == maxLv - 1) {
             Debug.Log("Max Cmm r");
             reachMaxLV = true; }
-        if (turretBlueprint.level== maxLv)
+        if (currentLv == maxLv)
         {
             upgradable = false;
         }
 
-        if (PlayerStats.money < turretBlueprint.cost)
+        if (PlayerStats.money < currentTurretLv.inGamePurchasePrice)
         {
             Debug.Log("Not enoug money");
             return;
         }
 
-        EventManager.ChangePlayerInStageMoney(-turretBlueprint.cost);
+        EventManager.ChangePlayerInStageMoney(-currentTurretLv.inGamePurchasePrice);
 
         // Destroy old turret
         //Destroy(turret);
         SimplePool.Despawn(turret);
 
         // Building new turret
-        //GameObject _turret = (GameObject)Instantiate(turretBlueprint.prefab, GetBuildPosition(), Quaternion.identity);
-        GameObject _turret = (GameObject)SimplePool.Spawn(turretBlueprint.prefab, GetBuildPosition(), Quaternion.identity);
-        turret.GetComponent<Turret>().turretAttackStyle = turretBlueprintClass.attackType;
-        turret = _turret;
-
-        GameObject buildEffect = (GameObject)Instantiate(turretBlueprint.buildEffect, GetBuildPosition(), Quaternion.identity);
-
-        Destroy(buildEffect, 5f);
+        InstantiateNewTurret();
     }
 
     public void SellTurret()
     {
-        EventManager.ChangePlayerInStageMoney(turretBlueprint.price);
+        EventManager.ChangePlayerInStageMoney(currentTurretLv.sellPrice);
 
         // Reset turret data
-        Destroy(turret);
-        turretBlueprint = null;
-        turretBlueprintClass = null;
+        SimplePool.Despawn(turret);
+        currentTurretLv = null;
+        currentTurretClass = null;
+        currentTurretResource = null;
+        turret = null;
     }
 
     private void OnMouseEnter()
@@ -172,5 +183,28 @@ public class Node : MonoBehaviour
     public Vector3 GetBuildPosition()
     {
         return transform.position + positionOffset;
+    }
+
+    void InstantiateNewTurret()
+    {
+        GameObject _turret = (GameObject)SimplePool.Spawn(currentTurretResource.listTurretPrefabs[currentLv - 1], GetBuildPosition(), Quaternion.identity);
+
+        _turret.GetComponent<Turret>().turretAttackStyle = currentTurretClass.turretStyle;
+
+        TurretAttack turretAttack = _turret.GetComponent<TurretAttack>();
+        if (turretAttack != null)
+        {
+            turretAttack.attackParams = currentTurretLv.attackParams;
+            turretAttack.InitiateTurret();
+        }
+
+        TurretMovement turretMovement = _turret.GetComponent<TurretMovement>();
+        if (turretMovement != null) turretMovement.range = currentTurretLv.range;
+
+        turret = _turret;
+
+        GameObject buildEffect = (GameObject)Instantiate(currentTurretResource.listTurretBuildEffect[currentLv - 1], GetBuildPosition(), Quaternion.identity);
+
+        Destroy(buildEffect, 3f);
     }
 }
