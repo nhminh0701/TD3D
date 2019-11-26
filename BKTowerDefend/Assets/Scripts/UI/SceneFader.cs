@@ -6,11 +6,17 @@ using UnityEngine.SceneManagement;
 
 public class SceneFader : MonoBehaviour
 {
+    public static SceneFader instance;
     [SerializeField] Image backgroundImage;
     [SerializeField] float fadeDuration = 1f;
     [SerializeField] AnimationCurve animationCurve;
 
-    // Start is called before the first frame update
+    private void Awake()
+    {
+        if (instance == null) instance = this;
+        else Destroy(gameObject);
+    }
+
     void Start()
     {
         StartCoroutine(FadeIn());

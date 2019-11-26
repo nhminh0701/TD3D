@@ -15,12 +15,12 @@ public class LivesUI : MonoBehaviour
     private void Start()
     {
         UpdateLiveText();
-        EventManager.changePlayerHP += OnHPChange;
+        EventManager.OnChangePlayerHP += OnHPChange;
     }
 
     private void OnDestroy()
     {
-        EventManager.changePlayerHP -= OnHPChange;
+        EventManager.OnChangePlayerHP -= OnHPChange;
     }
 
     void OnHPChange(int changeAmount)

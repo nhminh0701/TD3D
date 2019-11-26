@@ -15,7 +15,7 @@ public class BuildManager: MonoBehaviour
     // are determined here and other script can
     // manage these selections based on the available
     // public function here
-    TurretAsset thisTurretAsset;
+    TurretData thisTurretAsset;
     Node selectedNode;
     
     public bool CanBuild { get { return thisTurretAsset != null; } }
@@ -65,11 +65,11 @@ public class BuildManager: MonoBehaviour
     /// Also we reset the node selection with this function
     /// </summary>
     /// <param name="turret"></param>
-    public void SelectTurretToBuild(TurretAsset turret)
+    public void SelectTurretToBuild(TurretData turret)
     {
         thisTurretAsset = turret;
         DeselectNode();
     }
 
-    public TurretAsset GetTurretToBuild() { return thisTurretAsset; }
+    public TurretData GetTurretToBuild() { return thisTurretAsset; }
 }

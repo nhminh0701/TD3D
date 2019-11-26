@@ -4,7 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Turret Resources", menuName = "Data/Resource Data Asset/Resource Turret Asset")]
 public class TurretResourceAsset : ScriptableObject
 {
-    public string turretID;
+    public string itemName;
 
     public List<Sprite> listTurretsAvatar;
 

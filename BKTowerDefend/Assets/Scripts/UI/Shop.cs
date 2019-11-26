@@ -7,7 +7,7 @@ public class Shop : MonoBehaviour
     BuildManager buildManager;
 
     // Or selected turret by player
-    public List<TurretAsset> usingTurretAssets;
+    public List<TurretData> usingTurretAssets;
 
     private void Start()
     {

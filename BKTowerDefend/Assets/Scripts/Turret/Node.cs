@@ -19,7 +19,7 @@ public class Node : MonoBehaviour
     [HideInInspector]
     public GameObject turret;
     [HideInInspector]
-    public TurretAsset currentTurretClass;
+    public TurretData currentTurretClass;
     //[HideInInspector]
     public TurretDataPerLV currentTurretLv;
     //[HideInInspector][Tooltip("Is the level of the turret is maximized?")]
@@ -68,7 +68,7 @@ public class Node : MonoBehaviour
         BuildTurret(buildManager.GetTurretToBuild());
     }
 
-    void BuildTurret(TurretAsset turretAsset)
+    void BuildTurret(TurretData turretAsset)
     {
         currentTurretClass = turretAsset;
 
@@ -81,13 +81,13 @@ public class Node : MonoBehaviour
             return;
         }
 
-        GetTurretResources(turretAsset.turretID);
+        GetTurretResources(turretAsset.itemName);
 
         EventManager.ChangePlayerInStageMoney(-currentTurretLv.inGamePurchasePrice);
 
         InstantiateNewTurret();
 
-        maxLv = currentTurretClass.reachableLv;
+        maxLv = currentTurretClass.unlockStatusCode;
 
         upgradable = !(currentLv == maxLv);
         reachMaxLV = currentLv == maxLv - 1;
@@ -98,7 +98,7 @@ public class Node : MonoBehaviour
         List<TurretResourceAsset> listTurretResources = resourceDataAssetController.listTurretResourceAsset;
         foreach(TurretResourceAsset turretResource in listTurretResources)
         {
-            if (turretResource.turretID == turretId)
+            if (turretResource.itemName == turretId)
             {
                 currentTurretResource = turretResource;
                 return;

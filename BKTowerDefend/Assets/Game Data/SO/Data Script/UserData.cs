@@ -1,10 +1,20 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 public class UserData : MonoBehaviour
 {
     public int coin;
     public int gold;
     public int reachableLv;
+
+    public string[] listTurretIds;
+    public string[] listSkillIds;
+
+    public void Awake()
+    {
+        listTurretIds = new string[3];
+        listSkillIds = new string[3];
+    }
 
     public void LoadData()
     {

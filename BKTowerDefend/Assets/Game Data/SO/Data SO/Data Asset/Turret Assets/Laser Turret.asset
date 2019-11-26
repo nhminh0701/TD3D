@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aefbf7244e230a548be8ff9d9e86387e, type: 3}
   m_Name: Laser Turret
   m_EditorClassIdentifier: 
-  turretID: LaserTurret
-  reachableLv: 4
-  turretStyle: 0
+  itemName: LaserTurret
+  unlockStatusCode: 4
+  turretStyle: 1
   description: 
-  appShopPurchasePrice: 0
+  appShopPurchasePrice: 100
   listTurretLV:
   - attackParams:
       damage: 10
@@ -46,4 +46,4 @@ MonoBehaviour:
     health: 100
     inGamePurchasePrice: 20
     sellPrice: 20
-  equipedDebuff: {fileID: 0}
+  equipedDebuffId: 

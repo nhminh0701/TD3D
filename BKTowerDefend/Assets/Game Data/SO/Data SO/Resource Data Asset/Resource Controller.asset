@@ -15,6 +15,18 @@ MonoBehaviour:
   listTurretResourceAsset:
   - {fileID: 11400000, guid: 277cafc8f0cff364a99789821bcdf12e, type: 2}
   - {fileID: 11400000, guid: a194ed0ea4321ee4d9b7a408841f50cc, type: 2}
-  - {fileID: 11400000, guid: 277cafc8f0cff364a99789821bcdf12e, type: 2}
+  - {fileID: 11400000, guid: d636dd99c6d4c55439dc3ebfcebbb8a1, type: 2}
+  listPlayerSkillResourceAsset:
+  - {fileID: 11400000, guid: a67c8cf24720e5445a0350b8aee3190a, type: 2}
   listDBHResourceAssets:
   - {fileID: 11400000, guid: f527154d2a6993045bf97fdd414f94fc, type: 2}
+  listUIPrefabAssets:
+  - itemName: InAppDataDisplayer
+    prefab: {fileID: 8675262588592856351, guid: ea33f679b63c7f745a67057da80b4c03,
+      type: 3}
+  - itemName: StageDataDisplayer
+    prefab: {fileID: 6103472573614818877, guid: b6f680db92ad8b849bd2182dc87b494d,
+      type: 3}
+  listOtherSpriteAssets:
+  - itemName: Empy Icon
+    sprite: {fileID: 21300000, guid: 27bd1b2ed94f720429b8696c9bca0655, type: 3}

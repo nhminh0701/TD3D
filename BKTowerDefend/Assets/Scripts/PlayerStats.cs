@@ -23,14 +23,14 @@ public class PlayerStats : MonoBehaviour
 
     private void Start()
     {
-        EventManager.changePlayerHP += ChangeHP;
-        EventManager.changePlayerInStageMoney += ChangeInStageMoney;
+        EventManager.OnChangePlayerHP += ChangeHP;
+        EventManager.OnChangePlayerInStageMoney += ChangeInStageMoney;
     }
 
     private void OnDestroy()
     {
-        EventManager.changePlayerHP -= ChangeHP;
-        EventManager.changePlayerInStageMoney -= ChangeInStageMoney;
+        EventManager.OnChangePlayerHP -= ChangeHP;
+        EventManager.OnChangePlayerInStageMoney -= ChangeInStageMoney;
     }
 
     void ChangeInStageMoney(int changeAmount)

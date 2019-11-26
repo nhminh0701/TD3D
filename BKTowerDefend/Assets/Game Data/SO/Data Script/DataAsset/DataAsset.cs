@@ -5,24 +5,41 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Data Asset", menuName = "Data/Data Asset/Data Asset Controller")]
 public class DataAsset : ScriptableObject
 {
-    public void LoadData()
+    #region Game Data Manager
+    #region Stage Assets
+    public List<StageData> listStageData;
+
+    void LoadStages()
     {
-        LoadTurrets();
-        LoadDBHs();
+        if (listStageData.Count == 0) return;
+        listStageData[0].stageUnlockStatus = PlayerPrefs.GetInt(listStageData[0].stageId, 1);
+
+        for (var i = 1; i < listStageData.Count; i++)
+        {
+            listStageData[i].stageUnlockStatus = PlayerPrefs.GetInt(listStageData[i].stageId, 0);
+        }
     }
 
-    public void ResetData()
+    void ResetStages()
     {
-        ResetDBHs();
-        ResetTurrets();
+        if (listStageData.Count == 0) return;
+        PlayerPrefs.SetInt(listStageData[0].stageId, 1);
+
+        for (var i = 1; i < listStageData.Count; i++)
+        {
+            PlayerPrefs.SetInt(listStageData[i].stageId, 0);
+        }
     }
+    #endregion
 
     #region Turret Assets
-    public List<TurretAsset> listTurretAsset;
+    public List<TurretData> listTurretAsset;
     public int defaultNumberOfTurrets;
 
     void LoadTurrets()
     {
+        if (listTurretAsset.Count == 0) return;
+
         PreLoadTurretData();
 
         if (listTurretAsset.Count == 0) Debug.LogError("Empty List");
@@ -30,9 +47,9 @@ public class DataAsset : ScriptableObject
         {
             if (i < defaultNumberOfTurrets)
             {
-                listTurretAsset[i].reachableLv = PlayerPrefs.GetInt(listTurretAsset[i].turretID + "LV", 4);
+                listTurretAsset[i].unlockStatusCode = PlayerPrefs.GetInt(listTurretAsset[i].itemName + "LV", 4);
             }
-            else listTurretAsset[i].reachableLv = PlayerPrefs.GetInt(listTurretAsset[i].turretID + "LV", 0);
+            else listTurretAsset[i].unlockStatusCode = PlayerPrefs.GetInt(listTurretAsset[i].itemName + "LV", 0);
         }
     }
 
@@ -41,63 +58,114 @@ public class DataAsset : ScriptableObject
         if (listTurretAsset.Count == 0) Debug.LogError("Empty List");
         for (var i = 0; i < listTurretAsset.Count; i++)
         {
-            if (PlayerPrefs.GetInt(listTurretAsset[i].turretID + "LV", 0) == 0)
+            if (PlayerPrefs.GetInt(listTurretAsset[i].itemName + "LV", 0) == 0)
             {
                 if (i < defaultNumberOfTurrets)
                 {
-                    listTurretAsset[i].reachableLv = PlayerPrefs.GetInt(listTurretAsset[i].turretID + "LV", 4);
+                    listTurretAsset[i].unlockStatusCode = PlayerPrefs.GetInt(listTurretAsset[i].itemName + "LV", 4);
                 }
-                else listTurretAsset[i].reachableLv = PlayerPrefs.GetInt(listTurretAsset[i].turretID + "LV", 0);
+                else listTurretAsset[i].unlockStatusCode = PlayerPrefs.GetInt(listTurretAsset[i].itemName + "LV", 0);
             }
         }
     }
 
     void ResetTurrets()
     {
+        if (listTurretAsset.Count == 0) return;
         if (listTurretAsset.Count == 0) Debug.LogError("Empty List");
         for (var i = 0; i < listTurretAsset.Count; i++)
         {
             if (i < defaultNumberOfTurrets)
             {
-                PlayerPrefs.SetInt(listTurretAsset[i].turretID + "LV", 4);
+                PlayerPrefs.SetInt(listTurretAsset[i].itemName + "LV", 4);
             }
-            else PlayerPrefs.SetInt(listTurretAsset[i].turretID + "LV", 0);
+            else PlayerPrefs.SetInt(listTurretAsset[i].itemName + "LV", 0);
         }
     }
 
-    public List<TurretAsset> GetAvailableTurrets()
+    public List<TurretData> GetAvailableTurrets()
     {
-        List<TurretAsset> listToreturn = new List<TurretAsset>();
+        List<TurretData> listToreturn = new List<TurretData>();
         Debug.Log("Start Scaning");
 
         for (var i = 0; i < listTurretAsset.Count; i++)
         {
-            if (PlayerPrefs.GetInt(listTurretAsset[i].turretID + "LV") != 0) listToreturn.Add(listTurretAsset[i]);
+            if (PlayerPrefs.GetInt(listTurretAsset[i].itemName + "LV") != 0) listToreturn.Add(listTurretAsset[i]);
         }
 
         return listToreturn;
     }
     #endregion
 
-
-
     #region DBH Assets
-    public List<DebuffHolderAsset> listDebuffHolderAssets;
+    public List<DebuffHolderData> listDebuffHolderAssets;
 
     void LoadDBHs()
     {
+        if (listDebuffHolderAssets.Count == 0) return;
+
         for (var i = 0; i < listDebuffHolderAssets.Count; i++)
         {
-            listDebuffHolderAssets[i].unLockDecode = PlayerPrefs.GetInt(listDebuffHolderAssets[i].debuffHolderID, 0);
+            listDebuffHolderAssets[i].unlockStatusCode = PlayerPrefs.GetInt(listDebuffHolderAssets[i].itemName, 0);
         }
     }
 
     void ResetDBHs()
     {
+        if (listDebuffHolderAssets.Count == 0) return;
         for (var i = 0; i < listDebuffHolderAssets.Count; i++)
         {
-            PlayerPrefs.SetInt(listDebuffHolderAssets[i].debuffHolderID, 0);
+            PlayerPrefs.SetInt(listDebuffHolderAssets[i].itemName, 0);
         }
     }
     #endregion
+
+    #region PlayerSkill Assets
+    public List<PlayerSkillData> listPlayerSkill;
+
+    void LoadPlayerSKills()
+    {
+        if (listPlayerSkill.Count == 0) return;
+        for (var i = 0; i < listPlayerSkill.Count; i++)
+        {
+            listPlayerSkill[i].unlockStatusCode = PlayerPrefs.GetInt(listDebuffHolderAssets[i].itemName, 0);
+        }
+    }
+
+    void ResetPlayerSkills()
+    {
+        if (listPlayerSkill.Count == 0) return;
+        for (var i = 0; i < listDebuffHolderAssets.Count; i++)
+        {
+            PlayerPrefs.SetInt(listPlayerSkill[i].itemName, 0);
+        }
+    }
+    #endregion
+    #endregion
+
+
+
+    #region public Methods
+    public void LoadData()
+    {
+        LoadStages();
+        LoadTurrets();
+        LoadDBHs();
+        LoadPlayerSKills();
+    }
+
+    public void ResetData()
+    {
+        ResetStages();
+        ResetDBHs();
+        ResetTurrets();
+        ResetPlayerSkills();
+    }
+    #endregion
+}
+
+public enum PurchaseType
+{
+    Coin,
+    Gold,
 }

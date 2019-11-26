@@ -9,7 +9,7 @@ public class MoneyUI : MonoBehaviour
     {
         UpdateMoneyUI();
 
-        EventManager.changePlayerInStageMoney += OnInStageMoneyChange;
+        EventManager.OnChangePlayerInStageMoney += OnInStageMoneyChange;
     }
 
     // Update is called once per frame
@@ -28,6 +28,6 @@ public class MoneyUI : MonoBehaviour
 
     private void OnDestroy()
     {
-        EventManager.changePlayerInStageMoney -= OnInStageMoneyChange;
+        EventManager.OnChangePlayerInStageMoney -= OnInStageMoneyChange;
     }
 }

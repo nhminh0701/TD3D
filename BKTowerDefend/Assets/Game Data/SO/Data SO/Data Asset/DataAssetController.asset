@@ -12,10 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d26185cc0a8967845aed59691c4a22f5, type: 3}
   m_Name: DataAssetController
   m_EditorClassIdentifier: 
+  listStageData:
+  - {fileID: 11400000, guid: 0e1dbc13f3fa2a841ae342f6992521fb, type: 2}
+  - {fileID: 11400000, guid: 586b48f6c4e82ea4186d2242b7968b37, type: 2}
+  - {fileID: 11400000, guid: 76aeac180e540e54191dad4a8fc59745, type: 2}
+  - {fileID: 11400000, guid: 4fd7b99faf8dd07469252a7a11dc245a, type: 2}
+  - {fileID: 11400000, guid: 503ab350cc5de3844997669a9c108c2a, type: 2}
+  - {fileID: 11400000, guid: 04fa4a5165a146046bc1832c90e19f00, type: 2}
+  - {fileID: 11400000, guid: f9d2bbd15cb07e043a8df0c9f66a45be, type: 2}
+  - {fileID: 11400000, guid: f8072f6d5ffab5147b1f682ede62fb2b, type: 2}
+  - {fileID: 11400000, guid: 218b9f1d4ec78c143a186f91cd40da1f, type: 2}
   listTurretAsset:
   - {fileID: 11400000, guid: c0c5737985961c240ad814828295faba, type: 2}
   - {fileID: 11400000, guid: 16b6eaec2ffbc9240908f6b31e354481, type: 2}
-  - {fileID: 11400000, guid: c0c5737985961c240ad814828295faba, type: 2}
+  - {fileID: 11400000, guid: c82eb14980af88a4f95ae59aebcf374a, type: 2}
   defaultNumberOfTurrets: 3
   listDebuffHolderAssets:
   - {fileID: 11400000, guid: fdb79c22931c81b48ab37e28d666b864, type: 2}
+  listPlayerSkill:
+  - {fileID: 11400000, guid: 58e6f2017af53c44ca8047e310131f24, type: 2}
