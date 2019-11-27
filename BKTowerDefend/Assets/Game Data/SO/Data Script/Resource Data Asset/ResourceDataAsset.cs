@@ -9,7 +9,8 @@ public class ResourceDataAsset : ScriptableObject
     public List<TurretResourceAsset> listTurretResourceAsset;
     public TurretResourceAsset GetTurretResourceAsset(string itemName)
     {
-        TurretResourceAsset itemToReturn = new TurretResourceAsset();
+        //TurretResourceAsset itemToReturn = new TurretResourceAsset();
+        TurretResourceAsset itemToReturn = (TurretResourceAsset)CreateInstance("TurretResourceAsset");
 
         for (var i = 0; i < listTurretResourceAsset.Count; i ++)
         {
@@ -29,7 +30,7 @@ public class ResourceDataAsset : ScriptableObject
     public List<PlayerSkillResourceAsset> listPlayerSkillResourceAsset;
     public PlayerSkillResourceAsset GetPlayerSkillResourceAsset(string itemName)
     {
-        PlayerSkillResourceAsset itemToReturn = new PlayerSkillResourceAsset();
+        PlayerSkillResourceAsset itemToReturn = (PlayerSkillResourceAsset)CreateInstance("PlayerSkillResourceAsset");
 
         for (var i = 0; i < listPlayerSkillResourceAsset.Count; i++)
         {
@@ -48,7 +49,7 @@ public class ResourceDataAsset : ScriptableObject
     public List<DBHResourceAsset> listDBHResourceAssets;
     public DBHResourceAsset GetDBHResourceAsset(string itemName)
     {
-        DBHResourceAsset itemToReturn = new DBHResourceAsset();
+        DBHResourceAsset itemToReturn = (DBHResourceAsset)CreateInstance("GetDBHResourceAsset");
 
         for (var i = 0; i < listDBHResourceAssets.Count; i++)
         {

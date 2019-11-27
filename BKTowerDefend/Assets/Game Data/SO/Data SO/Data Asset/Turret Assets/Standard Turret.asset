@@ -16,7 +16,7 @@ MonoBehaviour:
   unlockStatusCode: 4
   turretStyle: 0
   description: This is a turret
-  appShopPurchasePrice: 100
+  appShopPurchasePrice: 50
   listTurretLV:
   - attackParams:
       damage: 40

@@ -16,7 +16,7 @@ public class DBHDataDisplayer : DataDsiplayer
         for (var i = 0; i < listDebuffHolderData.Count; i++)
         {
             GameObject displayButton = SimplePool.Spawn(dataUIPrefab, itemsDisplayer.transform.position, Quaternion.identity);
-            displayButton.transform.SetParent(itemsDisplayer.transform.GetChild(0).transform.GetChild(0));
+            displayButton.transform.SetParent(itemsDisplayer.transform);
 
             string effectName = listDebuffHolderData[i].itemName;
             int effectUnlockCond = PlayerPrefs.GetInt(effectName, 0);

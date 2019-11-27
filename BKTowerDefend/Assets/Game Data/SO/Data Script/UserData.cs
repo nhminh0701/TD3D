@@ -18,8 +18,8 @@ public class UserData : MonoBehaviour
 
     public void LoadData()
     {
-        coin = PlayerPrefs.GetInt("Coin", 0);
-        gold = PlayerPrefs.GetInt("Gold", 0);
+        coin = PlayerPrefs.GetInt("Coin", 1000);
+        gold = PlayerPrefs.GetInt("Gold", 100);
         reachableLv = PlayerPrefs.GetInt("ReachableLv", 10);
     }
 
@@ -43,8 +43,8 @@ public class UserData : MonoBehaviour
 
     public void ResetData()
     {
-        PlayerPrefs.SetInt("Coin", 0);
-        PlayerPrefs.SetInt("Gold", 0);
+        PlayerPrefs.SetInt("Coin", 1000);
+        PlayerPrefs.SetInt("Gold", 100);
         PlayerPrefs.SetInt("ReachableLv", 10);
     }
 }

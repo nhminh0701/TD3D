@@ -28,13 +28,13 @@ public class EventManager
     #region Event OnChangingSelectedItem
     public delegate void OnSelectItemEvent(string itemId);
     #region Change Turret Selection
-    public static event OnSelectItemEvent OnSelectTurretItem;
+    public static event OnSelectItemEvent OnAddingTurretItem;
 
     public static void AddTurretItem(string turretId)
     {
-        if (OnSelectTurretItem != null)
+        if (OnAddingTurretItem != null)
         {
-            OnSelectTurretItem(turretId);
+            OnAddingTurretItem(turretId);
         }
     }
 

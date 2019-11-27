@@ -25,13 +25,13 @@ public class TurretSelectionDisplayer : UISelectionDataDisplayer
 
     private void Awake()
     {
-        EventManager.OnSelectTurretItem += OnSelectingTurretEnter;
+        EventManager.OnAddingTurretItem += OnSelectingTurretEnter;
         EventManager.OnSelectDBHItem += OnSelectingDBHEnter;
     }
 
     private void OnDestroy()
     {
-        EventManager.OnSelectTurretItem -= OnSelectingTurretEnter;
+        EventManager.OnAddingTurretItem -= OnSelectingTurretEnter;
         EventManager.OnSelectDBHItem -= OnSelectingDBHEnter;
     }
 

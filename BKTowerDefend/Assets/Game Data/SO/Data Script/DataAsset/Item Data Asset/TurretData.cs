@@ -20,13 +20,13 @@ public class TurretData : ScriptableObject
     public void UnlockThisTurret()
     {
         unlockStatusCode = 4;
-        PlayerPrefs.SetInt(itemName + "LV", unlockStatusCode);
+        PlayerPrefs.SetInt(itemName, unlockStatusCode);
     }
 
     public void LvUpThisTurret()
     {
         unlockStatusCode++;
-        PlayerPrefs.SetInt(itemName + "LV", unlockStatusCode);
+        PlayerPrefs.SetInt(itemName, unlockStatusCode);
     }
 }
 

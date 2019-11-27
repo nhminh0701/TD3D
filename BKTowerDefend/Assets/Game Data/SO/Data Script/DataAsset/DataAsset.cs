@@ -40,31 +40,30 @@ public class DataAsset : ScriptableObject
     {
         if (listTurretAsset.Count == 0) return;
 
-        PreLoadTurretData();
+        // PreLoadTurretData();
 
-        if (listTurretAsset.Count == 0) Debug.LogError("Empty List");
         for (var i = 0; i < listTurretAsset.Count; i++)
         {
             if (i < defaultNumberOfTurrets)
             {
-                listTurretAsset[i].unlockStatusCode = PlayerPrefs.GetInt(listTurretAsset[i].itemName + "LV", 4);
+                listTurretAsset[i].unlockStatusCode = PlayerPrefs.GetInt(listTurretAsset[i].itemName, 4);
             }
-            else listTurretAsset[i].unlockStatusCode = PlayerPrefs.GetInt(listTurretAsset[i].itemName + "LV", 0);
+            else listTurretAsset[i].unlockStatusCode = PlayerPrefs.GetInt(listTurretAsset[i].itemName, 0);
+            // Debug.Log(listTurretAsset[i].itemName + " " + listTurretAsset[i].unlockStatusCode);
         }
     }
 
     void PreLoadTurretData()
     {
-        if (listTurretAsset.Count == 0) Debug.LogError("Empty List");
         for (var i = 0; i < listTurretAsset.Count; i++)
         {
-            if (PlayerPrefs.GetInt(listTurretAsset[i].itemName + "LV", 0) == 0)
+            if (!PlayerPrefs.HasKey(listTurretAsset[i].itemName))
             {
-                if (i < defaultNumberOfTurrets)
+                if (i <= defaultNumberOfTurrets)
                 {
-                    listTurretAsset[i].unlockStatusCode = PlayerPrefs.GetInt(listTurretAsset[i].itemName + "LV", 4);
+                    PlayerPrefs.SetInt(listTurretAsset[i].itemName, 4);
                 }
-                else listTurretAsset[i].unlockStatusCode = PlayerPrefs.GetInt(listTurretAsset[i].itemName + "LV", 0);
+                else PlayerPrefs.SetInt(listTurretAsset[i].itemName, 0);
             }
         }
     }
@@ -72,25 +71,23 @@ public class DataAsset : ScriptableObject
     void ResetTurrets()
     {
         if (listTurretAsset.Count == 0) return;
-        if (listTurretAsset.Count == 0) Debug.LogError("Empty List");
         for (var i = 0; i < listTurretAsset.Count; i++)
         {
             if (i < defaultNumberOfTurrets)
             {
-                PlayerPrefs.SetInt(listTurretAsset[i].itemName + "LV", 4);
+                PlayerPrefs.SetInt(listTurretAsset[i].itemName, 4);
             }
-            else PlayerPrefs.SetInt(listTurretAsset[i].itemName + "LV", 0);
+            else PlayerPrefs.SetInt(listTurretAsset[i].itemName, 0);
         }
     }
 
     public List<TurretData> GetAvailableTurrets()
     {
         List<TurretData> listToreturn = new List<TurretData>();
-        Debug.Log("Start Scaning");
 
         for (var i = 0; i < listTurretAsset.Count; i++)
         {
-            if (PlayerPrefs.GetInt(listTurretAsset[i].itemName + "LV") != 0) listToreturn.Add(listTurretAsset[i]);
+            if (PlayerPrefs.GetInt(listTurretAsset[i].itemName) != 0) listToreturn.Add(listTurretAsset[i]);
         }
 
         return listToreturn;
@@ -98,7 +95,8 @@ public class DataAsset : ScriptableObject
 
     public TurretData GetTurretData(string itemName)
     {
-        TurretData turretData = new TurretData();
+        // TurretData turretData = new TurretData();
+        TurretData turretData = (TurretData)CreateInstance("TurretData");
 
         for (var i = 0; i < listTurretAsset.Count; i++)
         {
@@ -136,7 +134,8 @@ public class DataAsset : ScriptableObject
 
     public DebuffHolderData GetDebuffHolderData(string itemName)
     {
-        DebuffHolderData debuffHolderData = new DebuffHolderData();
+        DebuffHolderData debuffHolderData = (DebuffHolderData)CreateInstance("DebuffHolderData");
+
         for (var i = 0; i < listDebuffHolderAssets.Count; i++)
         {
             if (listDebuffHolderAssets[i].itemName == itemName)
@@ -171,7 +170,7 @@ public class DataAsset : ScriptableObject
 
     public PlayerSkillData GetPlayerSkillData(string itemName)
     {
-        PlayerSkillData playerSkillData = new PlayerSkillData();
+        PlayerSkillData playerSkillData = (PlayerSkillData)CreateInstance("PlayerSkillData");
         for (var i = 0; i < listDebuffHolderAssets.Count; i++)
         {
             if (listPlayerSkill[i].itemName == itemName)

@@ -18,9 +18,10 @@ public abstract class ItemDataPopUpWindow : MonoBehaviour
         resourceDataAsset = dataGlobal.resourceDataAsset;
     }
 
-    public void CloseWindow()
+    public virtual void CloseWindow(Button eventedButton)
     {
         targetWindow.transform.DOScale(0, 0.1f);
+        eventedButton.onClick.RemoveAllListeners();
     }
 
     public void PopUpWindow(Transform pressedBtnTransform)

@@ -62,7 +62,7 @@ public class DataUIDisplayer : MonoBehaviour
             displayButton.transform.SetParent(listItemDataDisplayers[0].transform.GetChild(0).transform.GetChild(0));
 
             string turretName = listTurretData[i].itemName;
-            int turretUnlockCond = PlayerPrefs.GetInt(turretName + "LV", 0);
+            int turretUnlockCond = listTurretData[i].unlockStatusCode;
 
             displayButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = listTurretData[i].itemName;
 

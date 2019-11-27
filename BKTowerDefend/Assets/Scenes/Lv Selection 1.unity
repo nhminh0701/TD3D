@@ -2696,7 +2696,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c2e97276a37e434bb96a0b0578e6489, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemsDisplayer: {fileID: 52802489}
+  itemsDisplayer: {fileID: 335009065}
   itemUIPrefabId: InAppDataDisplayer
   lockedColor: {r: 0.7264151, g: 0.7264151, b: 0.7264151, a: 0.78431374}
 --- !u!114 &377026750
@@ -2711,7 +2711,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c829c7e6978481644b15440362b365d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemsDisplayer: {fileID: 416700461}
+  itemsDisplayer: {fileID: 539643561}
   itemUIPrefabId: InAppDataDisplayer
   lockedColor: {r: 0.7294118, g: 0.7294118, b: 0.7294118, a: 0.78431374}
 --- !u!114 &377026751
@@ -2726,7 +2726,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 013c7cd2ed3c94843a4da6d4a974e5e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemsDisplayer: {fileID: 1269996713}
+  itemsDisplayer: {fileID: 490076679}
   itemUIPrefabId: InAppDataDisplayer
   lockedColor: {r: 0.7294118, g: 0.7294118, b: 0.7294118, a: 0.78431374}
 --- !u!4 &377026752
@@ -5410,7 +5410,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 866051228}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &866051228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7979,8 +7990,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b33568d739d405b45b80e6e57eab17c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin: 0
-  gold: 0
+  coin: 1000
+  gold: 100
   reachableLv: 0
   listTurretIds:
   - 

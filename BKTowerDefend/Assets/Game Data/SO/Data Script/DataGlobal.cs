@@ -11,11 +11,11 @@ public class DataGlobal : MonoBehaviour
 
     private void Awake()
     {
+        LoadData();
         if (instance == null) instance = this;
         else Destroy(gameObject);
         DontDestroyOnLoad(gameObject);
 
-        LoadData();
         RegisterPurchaseEvent();
     }
 
@@ -39,22 +39,18 @@ public class DataGlobal : MonoBehaviour
         userData.LoadData();
     }
 
+    [ContextMenu("Reset")]
     public void ResetData()
     {
         dataAsset.ResetData();
         userData.ResetData();
     }
 
-    private void OnApplicationQuit()
-    {
-        // :v :v
-        ResetData();
-    }
-
-    void PurchaseTurret(string itemName)
+    public void PurchaseTurret(string itemName)
     {
         TurretData turretData = dataAsset.GetTurretData(itemName);
-        userData.ChangeCoin(-turretData.appShopPurchasePrice);
+        turretData.UnlockThisTurret();
+        userData.ChangeGold(-turretData.appShopPurchasePrice);
     }
 
     void PurchaseDBH(string itemName)

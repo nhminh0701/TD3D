@@ -24,4 +24,14 @@ public abstract class DataDsiplayer : MonoBehaviour
     }
 
     protected abstract void LoadData();
+
+    public void ResetDataDisplay()
+    {
+        for (var i = 0; i < itemsDisplayer.transform.childCount; i ++)
+        {
+            SimplePool.Despawn(itemsDisplayer.transform.GetChild(i).gameObject);
+        }
+
+        LoadData();
+    }
 }

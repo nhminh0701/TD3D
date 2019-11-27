@@ -80,11 +80,12 @@
     <Compile Include="Assets\Game Data\SO\Data Script\DataAsset\DataManagerIdea\PlayerSkillDataManager.cs" />
     <Compile Include="Assets\Game Data\SO\Data Script\DataAsset\DataManagerIdea\StageDataManager.cs" />
     <Compile Include="Assets\Game Data\SO\Data Script\DataAsset\DataManagerIdea\TurretDataManager.cs" />
-    <Compile Include="Assets\Game Data\SO\Data Script\DataAsset\DebuffHolderData.cs" />
     <Compile Include="Assets\Game Data\SO\Data Script\DataAsset\EnemyWaveData.cs" />
-    <Compile Include="Assets\Game Data\SO\Data Script\DataAsset\PlayerSkillData.cs" />
+    <Compile Include="Assets\Game Data\SO\Data Script\DataAsset\Item Data Asset\DebuffHolderData.cs" />
+    <Compile Include="Assets\Game Data\SO\Data Script\DataAsset\Item Data Asset\ItemData.cs" />
+    <Compile Include="Assets\Game Data\SO\Data Script\DataAsset\Item Data Asset\PlayerSkillData.cs" />
+    <Compile Include="Assets\Game Data\SO\Data Script\DataAsset\Item Data Asset\TurretData.cs" />
     <Compile Include="Assets\Game Data\SO\Data Script\DataAsset\StageData.cs" />
-    <Compile Include="Assets\Game Data\SO\Data Script\DataAsset\TurretData.cs" />
     <Compile Include="Assets\Game Data\SO\Data Script\DataGlobal.cs" />
     <Compile Include="Assets\Game Data\SO\Data Script\Resource Data Asset\DBHResourceAsset.cs" />
     <Compile Include="Assets\Game Data\SO\Data Script\Resource Data Asset\PlayerSkillResourceAsset.cs" />

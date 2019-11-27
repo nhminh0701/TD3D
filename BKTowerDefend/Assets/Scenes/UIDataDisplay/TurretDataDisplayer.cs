@@ -8,14 +8,12 @@ public class TurretDataDisplayer : DataDsiplayer
     List<TurretData> listTurretData;
     List<TurretResourceAsset> listTurretResourceAsset;
 
+    public static TurretDataDisplayer instance;
+
     private void Awake()
     {
-        EventManager.OnPurchaseTurret += OnPurchaseTurretEvent;
-    }
-
-    private void OnDestroy()
-    {
-        EventManager.OnPurchaseTurret -= OnPurchaseTurretEvent;
+        if (instance == null) instance = this;
+        else Destroy(gameObject);
     }
 
     void OnPurchaseTurretEvent(string itemName)
@@ -31,10 +29,10 @@ public class TurretDataDisplayer : DataDsiplayer
         for (var i = 0; i < listTurretData.Count; i++)
         {
             GameObject displayButton = SimplePool.Spawn(dataUIPrefab, itemsDisplayer.transform.position, Quaternion.identity);
-            displayButton.transform.SetParent(itemsDisplayer.transform.GetChild(0).transform.GetChild(0));
+            displayButton.transform.SetParent(itemsDisplayer.transform);
 
             string turretName = listTurretData[i].itemName;
-            int turretUnlockCond = PlayerPrefs.GetInt(turretName + "LV", 0);
+            int turretUnlockCond = dataGlobal.dataAsset.GetTurretData(turretName).unlockStatusCode;
 
             displayButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = listTurretData[i].itemName;
 
@@ -44,6 +42,7 @@ public class TurretDataDisplayer : DataDsiplayer
                 displayButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = listTurretData[i].itemName;
                 displayButton.transform.GetChild(1).GetComponent<Image>().sprite = listTurretResourceAsset[i].listTurretsAvatar[0];
                 displayButton.transform.GetChild(2).gameObject.SetActive(false);
+                displayButton.GetComponent<Image>().color = Color.white;
             }
             else
             {
@@ -53,9 +52,13 @@ public class TurretDataDisplayer : DataDsiplayer
                 displayButton.transform.GetChild(2).GetComponentInChildren<TextMeshProUGUI>().text = listTurretData[i].appShopPurchasePrice.ToString();
             }
 
-            displayButton.GetComponent<Button>().onClick.AddListener(()
-                    => TurretPopupWindow.instance.DisplayerData(displayButton.transform,
-                    dataGlobal.dataAsset.GetTurretData(turretName)));
+            displayButton.GetComponent<Button>().onClick.AddListener(()=> {
+                // Debug.Log(turretName);
+                //No Calling error
+                //TurretSelectionDisplayer.instance.OnSelectingTurretEnter(turretName);
+                TurretPopupWindow.instance.DisplayerData(displayButton.transform,
+                    dataGlobal.dataAsset.GetTurretData(turretName));
+            });
         }
     }
 }

@@ -30,17 +30,18 @@ public class TurretPopupWindow : ItemDataPopUpWindow
             turretData.description;
 
         GameObject confirmationButton = targetWindow.transform.GetChild(1).transform.GetChild(0).gameObject;
-
-        confirmationButton.GetComponent<Button>().onClick.AddListener(()
-            => VisualizeButton(turretData, confirmationButton));
+        VisualizeButton(turretData, confirmationButton);
         // Close Button
-        targetWindow.transform.GetChild(1).transform.GetChild(1).GetComponent<Button>().
-            onClick.AddListener(() => CloseWindow());
+        Button closeButton = targetWindow.transform.GetChild(1).transform.GetChild(1).GetComponent<Button>();
+        closeButton.onClick.AddListener(() => CloseWindow(closeButton));
     }
 
     void VisualizeButton(TurretData turretData, GameObject buttonObject)
     {
-        int unlockCodeStatus = PlayerPrefs.GetInt(turretData.itemName + "LV", 0);
+        int unlockCodeStatus = turretData.unlockStatusCode;
+
+        // Reset button events
+        buttonObject.GetComponent<Button>().onClick.RemoveAllListeners();
 
         if (unlockCodeStatus == 0)
         {
@@ -54,22 +55,32 @@ public class TurretPopupWindow : ItemDataPopUpWindow
 
             if (hasEnoughMoney)
             {
+
                 buttonObject.GetComponent<Button>().onClick.AddListener(()
                     => PurchaseTurret(turretData, buttonObject));
-                
             }
         }
         else
         {
-            buttonObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "Add";
-            buttonObject.GetComponent<Button>().onClick.AddListener(()
-                => EventManager.AddTurretItem(turretData.itemName));
+            buttonObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "Add/Remove";
+            // buttonObject.GetComponent<Button>().onClick.RemoveAllListeners();
+            buttonObject.GetComponent<Button>().onClick.AddListener(() =>
+            {
+                ButtonEvent(turretData, buttonObject.GetComponent<Button>());
+            });
         }
+    }
+
+    private void ButtonEvent(TurretData turretData, Button eventedButton)
+    {
+        EventManager.AddTurretItem(turretData.itemName);
+        CloseWindow(eventedButton);
     }
 
     void PurchaseTurret(TurretData turretData, GameObject buttonObject)
     {
-        EventManager.PurchaseTurretEvent(turretData.itemName);
+        DataGlobal.instance.PurchaseTurret(turretData.itemName);
+        TurretDataDisplayer.instance.ResetDataDisplay();
         VisualizeButton(turretData, buttonObject);
     }
 }
