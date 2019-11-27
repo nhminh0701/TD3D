@@ -8,6 +8,21 @@ public class TurretDataDisplayer : DataDsiplayer
     List<TurretData> listTurretData;
     List<TurretResourceAsset> listTurretResourceAsset;
 
+    private void Awake()
+    {
+        EventManager.OnPurchaseTurret += OnPurchaseTurretEvent;
+    }
+
+    private void OnDestroy()
+    {
+        EventManager.OnPurchaseTurret -= OnPurchaseTurretEvent;
+    }
+
+    void OnPurchaseTurretEvent(string itemName)
+    {
+        LoadData();
+    }
+
     protected override void LoadData()
     {
         listTurretData = dataGlobal.dataAsset.listTurretAsset;
@@ -25,8 +40,7 @@ public class TurretDataDisplayer : DataDsiplayer
 
             if (turretUnlockCond != 0)
             {
-                displayButton.GetComponent<Button>().onClick.AddListener(()
-                    => EventManager.SelectTurretItem(turretName));
+                
                 displayButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = listTurretData[i].itemName;
                 displayButton.transform.GetChild(1).GetComponent<Image>().sprite = listTurretResourceAsset[i].listTurretsAvatar[0];
                 displayButton.transform.GetChild(2).gameObject.SetActive(false);
@@ -38,6 +52,10 @@ public class TurretDataDisplayer : DataDsiplayer
                 displayButton.transform.GetChild(2).gameObject.SetActive(true);
                 displayButton.transform.GetChild(2).GetComponentInChildren<TextMeshProUGUI>().text = listTurretData[i].appShopPurchasePrice.ToString();
             }
+
+            displayButton.GetComponent<Button>().onClick.AddListener(()
+                    => TurretPopupWindow.instance.DisplayerData(displayButton.transform,
+                    dataGlobal.dataAsset.GetTurretData(turretName)));
         }
     }
 }

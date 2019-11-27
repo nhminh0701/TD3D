@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: StandardTurret
   unlockStatusCode: 4
   turretStyle: 0
-  description: 
+  description: This is a turret
   appShopPurchasePrice: 100
   listTurretLV:
   - attackParams:

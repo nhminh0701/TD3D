@@ -95,6 +95,21 @@ public class DataAsset : ScriptableObject
 
         return listToreturn;
     }
+
+    public TurretData GetTurretData(string itemName)
+    {
+        TurretData turretData = new TurretData();
+
+        for (var i = 0; i < listTurretAsset.Count; i++)
+        {
+            if (listTurretAsset[i].itemName == itemName)
+            {
+                turretData = listTurretAsset[i];
+                break;
+            }
+        }
+        return turretData;
+    }
     #endregion
 
     #region DBH Assets
@@ -118,6 +133,19 @@ public class DataAsset : ScriptableObject
             PlayerPrefs.SetInt(listDebuffHolderAssets[i].itemName, 0);
         }
     }
+
+    public DebuffHolderData GetDebuffHolderData(string itemName)
+    {
+        DebuffHolderData debuffHolderData = new DebuffHolderData();
+        for (var i = 0; i < listDebuffHolderAssets.Count; i++)
+        {
+            if (listDebuffHolderAssets[i].itemName == itemName)
+            {
+                debuffHolderData = listDebuffHolderAssets[i];
+            }
+        }
+        return debuffHolderData;
+    }
     #endregion
 
     #region PlayerSkill Assets
@@ -128,7 +156,7 @@ public class DataAsset : ScriptableObject
         if (listPlayerSkill.Count == 0) return;
         for (var i = 0; i < listPlayerSkill.Count; i++)
         {
-            listPlayerSkill[i].unlockStatusCode = PlayerPrefs.GetInt(listDebuffHolderAssets[i].itemName, 0);
+            listPlayerSkill[i].unlockStatusCode = PlayerPrefs.GetInt(listPlayerSkill[i].itemName, 0);
         }
     }
 
@@ -139,6 +167,19 @@ public class DataAsset : ScriptableObject
         {
             PlayerPrefs.SetInt(listPlayerSkill[i].itemName, 0);
         }
+    }
+
+    public PlayerSkillData GetPlayerSkillData(string itemName)
+    {
+        PlayerSkillData playerSkillData = new PlayerSkillData();
+        for (var i = 0; i < listDebuffHolderAssets.Count; i++)
+        {
+            if (listPlayerSkill[i].itemName == itemName)
+            {
+                playerSkillData = listPlayerSkill[i];
+            }
+        }
+        return playerSkillData;
     }
     #endregion
     #endregion

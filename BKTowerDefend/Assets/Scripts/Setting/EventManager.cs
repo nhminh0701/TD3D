@@ -30,12 +30,19 @@ public class EventManager
     #region Change Turret Selection
     public static event OnSelectItemEvent OnSelectTurretItem;
 
-    public static void SelectTurretItem(string turretId)
+    public static void AddTurretItem(string turretId)
     {
         if (OnSelectTurretItem != null)
         {
             OnSelectTurretItem(turretId);
         }
+    }
+
+    public static event OnSelectItemEvent OnPurchaseTurret;
+
+    public static void PurchaseTurretEvent(string itemName)
+    {
+        if (OnPurchaseTurret != null) OnPurchaseTurret(itemName);
     }
     #endregion
 
@@ -49,9 +56,16 @@ public class EventManager
             OnSelectSkillItem(skillId);
         }
     }
+
+    public static event OnSelectItemEvent OnPurchaseSkill;
+
+    public static void PurchaseSkillEvent(string itemName)
+    {
+        if (OnPurchaseSkill != null) OnPurchaseSkill(itemName);
+    }
     #endregion
 
-    #region Change Skill Selection
+    #region Change DBH Selection
     public static event OnSelectItemEvent OnSelectDBHItem;
 
     public static void SelectDBHItem(string dBHId)
@@ -60,6 +74,13 @@ public class EventManager
         {
             OnSelectDBHItem(dBHId);
         }
+    }
+
+    public static event OnSelectItemEvent OnPurchaseDBH;
+
+    public static void PurchaseDBHEvent(string itemName)
+    {
+        if (OnPurchaseDBH != null) OnPurchaseDBH(itemName);
     }
     #endregion
 

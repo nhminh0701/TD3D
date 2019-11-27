@@ -89,6 +89,10 @@ public class TurretSelectionDisplayer : UISelectionDataDisplayer
         }
     }
 
+    /// <summary>
+    /// Put turret with Id into current selected slot
+    /// </summary>
+    /// <param name="turretId"></param>
     public void OnSelectingTurretEnter(string turretId = null)
     {
         for (var i = 0; i < userData.listTurretIds.Length; i++)

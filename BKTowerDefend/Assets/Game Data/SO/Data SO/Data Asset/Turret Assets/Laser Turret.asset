@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: LaserTurret
   unlockStatusCode: 4
   turretStyle: 1
-  description: 
+  description: This is another turret
   appShopPurchasePrice: 100
   listTurretLV:
   - attackParams:

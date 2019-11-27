@@ -10,4 +10,10 @@ public class PlayerSkillData : ScriptableObject
     public int appShopPurchasePrice;
 
     public const PurchaseType purchaseType = PurchaseType.Coin;
+
+    public void UnLockThisSkill()
+    {
+        unlockStatusCode = 1;
+        PlayerPrefs.SetInt(itemName, unlockStatusCode);
+    }
 }

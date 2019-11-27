@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: MissleTurret
   unlockStatusCode: 4
   turretStyle: 0
-  description: 
+  description: Ok, another another turret
   appShopPurchasePrice: 100
   listTurretLV:
   - attackParams:
@@ -46,4 +46,4 @@ MonoBehaviour:
     health: 100
     inGamePurchasePrice: 20
     sellPrice: 20
-  equipedDebuffId: FireBallNoJutsu
+  equipedDebuffId: 
