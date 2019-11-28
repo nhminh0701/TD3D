@@ -49,8 +49,23 @@ public class DataGlobal : MonoBehaviour
     public void PurchaseTurret(string itemName)
     {
         TurretData turretData = dataAsset.GetTurretData(itemName);
-        turretData.UnlockThisTurret();
+        turretData.UnlockThisItem();
         userData.ChangeGold(-turretData.appShopPurchasePrice);
+    }
+
+    public void PurchaseItem(ItemData item)
+    {
+        item.UnlockThisItem();
+
+        switch (item.purchaseType)
+        {
+            case PurchaseType.Coin:
+                userData.ChangeCoin(-item.appShopPurchasePrice);
+                break;
+            case PurchaseType.Gold:
+                userData.ChangeGold(-item.appShopPurchasePrice);
+                break;
+        }
     }
 
     void PurchaseDBH(string itemName)

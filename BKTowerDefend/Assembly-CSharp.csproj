@@ -88,6 +88,7 @@
     <Compile Include="Assets\Game Data\SO\Data Script\DataAsset\StageData.cs" />
     <Compile Include="Assets\Game Data\SO\Data Script\DataGlobal.cs" />
     <Compile Include="Assets\Game Data\SO\Data Script\Resource Data Asset\DBHResourceAsset.cs" />
+    <Compile Include="Assets\Game Data\SO\Data Script\Resource Data Asset\ItemResource.cs" />
     <Compile Include="Assets\Game Data\SO\Data Script\Resource Data Asset\PlayerSkillResourceAsset.cs" />
     <Compile Include="Assets\Game Data\SO\Data Script\Resource Data Asset\ResourceDataAsset.cs" />
     <Compile Include="Assets\Game Data\SO\Data Script\Resource Data Asset\TurretResourceAsset.cs" />
@@ -108,8 +109,7 @@
     <Compile Include="Assets\Scenes\SelectionDataUI\UISelectionDataDisplayer.cs" />
     <Compile Include="Assets\Scenes\UIDataDisplay\DataDsiplayer.cs" />
     <Compile Include="Assets\Scenes\UIDataDisplay\DBHDataDisplayer.cs" />
-    <Compile Include="Assets\Scenes\UIDataDisplay\Item Data PopUp Window\ItemDataPopUpWindow.cs" />
-    <Compile Include="Assets\Scenes\UIDataDisplay\Item Data PopUp Window\TurretPopupWindow.cs" />
+    <Compile Include="Assets\Scenes\UIDataDisplay\ItemDataPopUpWindow.cs" />
     <Compile Include="Assets\Scenes\UIDataDisplay\SkillDataDisplayer.cs" />
     <Compile Include="Assets\Scenes\UIDataDisplay\StageDataDisplayer.cs" />
     <Compile Include="Assets\Scenes\UIDataDisplay\TurretDataDisplayer.cs" />

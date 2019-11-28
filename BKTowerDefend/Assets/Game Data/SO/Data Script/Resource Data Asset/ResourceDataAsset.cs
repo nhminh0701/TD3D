@@ -5,6 +5,26 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Turret Resources", menuName = "Data/Resource Data Asset/Resource Data Asset Controller")]
 public class ResourceDataAsset : ScriptableObject
 {
+    public ItemResource GetItemResource(ItemData itemData)
+    {
+        ItemResource itemResource = CreateInstance<ItemResource>();
+
+        switch (itemData.GetType().ToString())
+        {
+            case ("TurretData"):
+                itemResource = GetTurretResourceAsset(itemData.itemName);
+                break;
+            case ("DebuffHolderData"):
+                itemResource = GetDBHResourceAsset(itemData.itemName);
+                break;
+            case ("PlayerSkillData"):
+                itemResource = GetPlayerSkillResourceAsset(itemData.itemName);
+                break;
+        }
+        return itemResource;
+    }
+    
+
     #region TurretAsset
     public List<TurretResourceAsset> listTurretResourceAsset;
     public TurretResourceAsset GetTurretResourceAsset(string itemName)
@@ -49,7 +69,7 @@ public class ResourceDataAsset : ScriptableObject
     public List<DBHResourceAsset> listDBHResourceAssets;
     public DBHResourceAsset GetDBHResourceAsset(string itemName)
     {
-        DBHResourceAsset itemToReturn = (DBHResourceAsset)CreateInstance("GetDBHResourceAsset");
+        DBHResourceAsset itemToReturn = (DBHResourceAsset)CreateInstance("DBHResourceAsset");
 
         for (var i = 0; i < listDBHResourceAssets.Count; i++)
         {

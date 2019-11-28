@@ -23,10 +23,8 @@ public class DBHDataDisplayer : DataDsiplayer
 
             displayButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = listDebuffHolderData[i].itemName;
 
-            if (effectUnlockCond >= 0)
+            if (effectUnlockCond != 0)
             {
-                displayButton.GetComponent<Button>().onClick.AddListener(()
-                    => EventManager.SelectDBHItem(effectName));
                 displayButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = listDebuffHolderData[i].itemName;
                 displayButton.transform.GetChild(1).GetComponent<Image>().sprite = listDBHResourceAsset[i].avatar;
                 displayButton.transform.GetChild(2).gameObject.SetActive(false);
@@ -38,6 +36,14 @@ public class DBHDataDisplayer : DataDsiplayer
                 displayButton.transform.GetChild(2).gameObject.SetActive(true);
                 displayButton.transform.GetChild(2).GetComponentInChildren<TextMeshProUGUI>().text = listDebuffHolderData[i].appShopPurchasePrice.ToString();
             }
+
+            displayButton.GetComponent<Button>().onClick.AddListener(() => {
+                // Debug.Log(turretName);
+                //No Calling error
+                //TurretSelectionDisplayer.instance.OnSelectingTurretEnter(turretName);
+                ItemDataPopUpWindow.instance.DisplayerData(displayButton.transform,
+                    dataGlobal.dataAsset.GetDebuffHolderData(effectName));
+            });
         }
     }
 }

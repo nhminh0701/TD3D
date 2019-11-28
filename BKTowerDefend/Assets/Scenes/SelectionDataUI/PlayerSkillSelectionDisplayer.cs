@@ -12,12 +12,12 @@ public class PlayerSkillSelectionDisplayer : UISelectionDataDisplayer
 
     private void Awake()
     {
-        EventManager.OnSelectSkillItem += OnSelectingPlayerSkill;
+        EventManager.OnAddingSkillItem += OnSelectingPlayerSkill;
     }
 
     private void OnDestroy()
     {
-        EventManager.OnSelectSkillItem -= OnSelectingPlayerSkill;
+        EventManager.OnAddingSkillItem -= OnSelectingPlayerSkill;
     }
 
     protected override void GetGlobalData()

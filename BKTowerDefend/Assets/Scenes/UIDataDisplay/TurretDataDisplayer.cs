@@ -56,7 +56,7 @@ public class TurretDataDisplayer : DataDsiplayer
                 // Debug.Log(turretName);
                 //No Calling error
                 //TurretSelectionDisplayer.instance.OnSelectingTurretEnter(turretName);
-                TurretPopupWindow.instance.DisplayerData(displayButton.transform,
+                ItemDataPopUpWindow.instance.DisplayerData(displayButton.transform,
                     dataGlobal.dataAsset.GetTurretData(turretName));
             });
         }

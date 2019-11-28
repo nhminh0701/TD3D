@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: MissleResources
   m_EditorClassIdentifier: 
   itemName: MissleTurret
+  avatar: {fileID: 21300000, guid: 70b10e543c48e5f4fbe3ea2b3d17aa08, type: 3}
   listTurretsAvatar:
   - {fileID: 21300000, guid: 70b10e543c48e5f4fbe3ea2b3d17aa08, type: 3}
   listTurretPrefabs:

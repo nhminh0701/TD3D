@@ -27,14 +27,32 @@ public class EventManager
 
     #region Event OnChangingSelectedItem
     public delegate void OnSelectItemEvent(string itemId);
+
+    public static void AddItem(ItemData item)
+    {
+        string itemName = item.itemName;
+        
+        switch (item.GetType().ToString())
+        {
+            case "TurretData":
+                AddTurretItem(itemName);
+                break;
+            case "DebuffHolderData":
+                AddDBHItem(itemName);
+                break;
+            case "PlayerSkillData":
+                AddSkillItem(itemName);
+                break;
+        }
+    }
     #region Change Turret Selection
     public static event OnSelectItemEvent OnAddingTurretItem;
 
-    public static void AddTurretItem(string turretId)
+    public static void AddTurretItem(string itemName)
     {
         if (OnAddingTurretItem != null)
         {
-            OnAddingTurretItem(turretId);
+            OnAddingTurretItem(itemName);
         }
     }
 
@@ -47,13 +65,13 @@ public class EventManager
     #endregion
 
     #region Change Skill Selection
-    public static event OnSelectItemEvent OnSelectSkillItem;
+    public static event OnSelectItemEvent OnAddingSkillItem;
 
-    public static void SelectSkillItem(string skillId)
+    public static void AddSkillItem(string itemName)
     {
-        if (OnSelectSkillItem != null)
+        if (OnAddingSkillItem != null)
         {
-            OnSelectSkillItem(skillId);
+            OnAddingSkillItem(itemName);
         }
     }
 
@@ -66,13 +84,13 @@ public class EventManager
     #endregion
 
     #region Change DBH Selection
-    public static event OnSelectItemEvent OnSelectDBHItem;
+    public static event OnSelectItemEvent OnAddingDBHItem;
 
-    public static void SelectDBHItem(string dBHId)
+    public static void AddDBHItem(string itemName)
     {
-        if (OnSelectDBHItem != null)
+        if (OnAddingDBHItem != null)
         {
-            OnSelectDBHItem(dBHId);
+            OnAddingDBHItem(itemName);
         }
     }
 

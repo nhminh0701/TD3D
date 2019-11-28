@@ -3,23 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "DebuffHolder Data", menuName = "Data/Data Asset/DebuffHolder Data")]
-public class DebuffHolderData : ScriptableObject
+public class DebuffHolderData : ItemData
 {
-    public string itemName;
-    [TextArea(2, 5)]
-    public string description;
+    [Header("DBH Pars.")]
     public List<TurretStyle> targetStyle;
-    //[SerializeField] int defaultTurretNumber;
-    [HideInInspector]
-    public int unlockStatusCode;
-    public int appShopPurchasePrice;
-    public const PurchaseType purchaseType = PurchaseType.Gold;
-
-    public void UnLockThisDeBuff()
-    {
-        unlockStatusCode = 1;
-        PlayerPrefs.SetInt(itemName, unlockStatusCode);
-    }
 }
 
 [Serializable]

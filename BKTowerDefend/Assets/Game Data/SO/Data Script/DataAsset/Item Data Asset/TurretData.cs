@@ -3,25 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Turret Data", menuName = "Data/Data Asset/Turret Data")]
-public class TurretData : ScriptableObject
+public class TurretData : ItemData
 {
-    public string itemName;
-    // Set on PlayerPrefs
-    public int unlockStatusCode;
+    [Header("Turret Pars.")]
     public TurretStyle turretStyle;
-    [TextArea(2,5)]
-    public string description;
-    public int appShopPurchasePrice;
-    public const PurchaseType purchaseType = PurchaseType.Gold;
+    
     public List<TurretDataPerLV> listTurretLV;
 
     public string equipedDebuffId;
-
-    public void UnlockThisTurret()
-    {
-        unlockStatusCode = 4;
-        PlayerPrefs.SetInt(itemName, unlockStatusCode);
-    }
 
     public void LvUpThisTurret()
     {
