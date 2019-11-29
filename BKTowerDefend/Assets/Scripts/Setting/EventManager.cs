@@ -1,5 +1,4 @@
-﻿
-public class EventManager
+﻿public class EventManager
 {
     #region InGame Event OnPlayerStat Change
     public delegate void GameEventInt(int par);

@@ -17,7 +17,7 @@ public abstract class DataDsiplayer : MonoBehaviour
         List<OtherPrefabAsset> listOtherPrefabAsset = dataGlobal.resourceDataAsset.listUIPrefabAssets;
         for (var i = 0; i < listOtherPrefabAsset.Count; i++)
         {
-            if (listOtherPrefabAsset[i].itemName == itemUIPrefabId) { dataUIPrefab = listOtherPrefabAsset[i].prefab; }
+            if (listOtherPrefabAsset[i].itemName == itemUIPrefabId)  dataUIPrefab = listOtherPrefabAsset[i].prefab; 
         }
 
         LoadData();

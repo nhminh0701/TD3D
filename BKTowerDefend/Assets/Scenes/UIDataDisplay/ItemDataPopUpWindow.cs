@@ -8,16 +8,18 @@ public class ItemDataPopUpWindow : MonoBehaviour
 {
     public static ItemDataPopUpWindow instance;
 
-    [SerializeField] protected GameObject targetWindow;
+    [SerializeField] GameObject targetWindow;
+    [SerializeField] GameObject confirmationButton;
 
-    protected UserData userData;
-    protected ResourceDataAsset resourceDataAsset;
+    UserData userData;
+    ResourceDataAsset resourceDataAsset;
 
     private void Awake()
     {
         if (instance == null) instance = this;
         else Destroy(gameObject);
 
+        targetWindow.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0, targetWindow.transform.localScale.z);
         targetWindow.transform.localScale = new Vector3(0, 0, targetWindow.transform.localScale.z);
     }
 
@@ -38,7 +40,7 @@ public class ItemDataPopUpWindow : MonoBehaviour
     public void PopUpWindow(Transform pressedBtnTransform)
     {
         targetWindow.transform.position = pressedBtnTransform.position;
-        targetWindow.transform.DOMove(new Vector3(Screen.width / 2, Screen.height / 2, targetWindow.transform.position.z), 0.1f);
+        targetWindow.GetComponent<RectTransform>().DOAnchorPos(Vector2.zero, 0.1f);
         targetWindow.transform.DOScale(1, 0.1f);
     }
 
@@ -70,7 +72,6 @@ public class ItemDataPopUpWindow : MonoBehaviour
         itemDataContent.transform.GetChild(2).transform.GetChild(1).GetComponent<TextMeshProUGUI>().text =
             itemData.description;
 
-        GameObject confirmationButton = targetWindow.transform.GetChild(1).transform.GetChild(0).gameObject;
         VisualizeButton(itemData, confirmationButton);
         // Close Button
         Button closeButton = targetWindow.transform.GetChild(1).transform.GetChild(1).GetComponent<Button>();
@@ -88,22 +89,16 @@ public class ItemDataPopUpWindow : MonoBehaviour
         {
             buttonObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text =
                 itemData.appShopPurchasePrice.ToString();
-
             bool hasEnoughMoney = HasEnoughMoney(itemData);
             buttonObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>().color =
                 hasEnoughMoney ? Color.black : Color.red;
             buttonObject.GetComponent<Button>().interactable = hasEnoughMoney;
 
-            if (hasEnoughMoney)
-            {
-                buttonObject.GetComponent<Button>().onClick.AddListener(()
-                    => PurchaseTurret(itemData, buttonObject));
-            }
+            if (hasEnoughMoney) buttonObject.GetComponent<Button>().onClick.AddListener(() => PurchaseItem(itemData, buttonObject));
         }
         else
         {
             buttonObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "Add/Remove";
-            // buttonObject.GetComponent<Button>().onClick.RemoveAllListeners();
             buttonObject.GetComponent<Button>().onClick.AddListener(() =>
             {
                 ItemAddingEvent(itemData, buttonObject.GetComponent<Button>());
@@ -113,15 +108,67 @@ public class ItemDataPopUpWindow : MonoBehaviour
 
     private void ItemAddingEvent(ItemData itemData, Button eventedButton)
     {
-        // EventManager.AddTurretItem(turretData.itemName);
-        EventManager.AddItem(itemData);
+        AddItem(itemData);
         CloseWindow(eventedButton);
     }
 
-    void PurchaseTurret(ItemData itemData, GameObject buttonObject)
+    void PurchaseItem(ItemData itemData, GameObject buttonObject)
     {
         DataGlobal.instance.PurchaseItem(itemData);
-        TurretDataDisplayer.instance.ResetDataDisplay();
+        CloseEvent();
         VisualizeButton(itemData, buttonObject);
     }
+
+    #region Event OnChangingSelectedItem
+    public delegate void OnSelectItemEvent(string itemId);
+    void AddItem(ItemData item)
+    {
+        string itemName = item.itemName;
+
+        switch (item.GetType().ToString())
+        {
+            case "TurretData":
+                AddTurretItem(itemName);
+                break;
+            case "DebuffHolderData":
+                AddDBHItem(itemName);
+                break;
+            case "PlayerSkillData":
+                AddSkillItem(itemName);
+                break;
+        }
+    }
+    #region Change Turret Selection
+    public static event OnSelectItemEvent OnAddingTurretItem;
+    void AddTurretItem(string itemName)
+    {
+        if (OnAddingTurretItem != null) OnAddingTurretItem(itemName);
+    }
+    #endregion
+
+    #region Change Skill Selection
+    public static event OnSelectItemEvent OnAddingSkillItem;
+    void AddSkillItem(string itemName)
+    {
+        if (OnAddingSkillItem != null) OnAddingSkillItem(itemName);
+    }
+    #endregion
+
+    #region Change DBH Selection
+    public static event OnSelectItemEvent OnAddingDBHItem;
+    void AddDBHItem(string itemName)
+    {
+        if (OnAddingDBHItem != null) OnAddingDBHItem(itemName);
+    }
+    #endregion
+
+    public delegate void OnButtonExitEvent();
+    public static event OnButtonExitEvent OnWindowExit;
+    void CloseEvent()
+    {
+        if (OnWindowExit != null) OnWindowExit();
+    }
+
+    public static bool IsExitEventNull() { return OnWindowExit == null; }
+    #endregion
 }

@@ -12,12 +12,12 @@ public class PlayerSkillSelectionDisplayer : UISelectionDataDisplayer
 
     private void Awake()
     {
-        EventManager.OnAddingSkillItem += OnSelectingPlayerSkill;
+        ItemDataPopUpWindow.OnAddingSkillItem += OnSelectingPlayerSkill;
     }
 
     private void OnDestroy()
     {
-        EventManager.OnAddingSkillItem -= OnSelectingPlayerSkill;
+        ItemDataPopUpWindow.OnAddingSkillItem -= OnSelectingPlayerSkill;
     }
 
     protected override void GetGlobalData()
@@ -48,12 +48,9 @@ public class PlayerSkillSelectionDisplayer : UISelectionDataDisplayer
         string skillId = userData.listSkillIds[slotIndex];
 
         if (string.IsNullOrEmpty(skillId))
-        {
             selectedSlot.transform.GetChild(0).GetComponent<Image>().sprite = empyIcon;
-        }
         else
         {
-            // Get avatar
             for (var j = 0; j < listPlayerSkillResourceAsset.Count; j++)
             {
                 if (listPlayerSkillResourceAsset[j].itemName == skillId)
@@ -63,7 +60,6 @@ public class PlayerSkillSelectionDisplayer : UISelectionDataDisplayer
                     break;
                 }
             }
-            // Asign new value
             selectedSlot.transform.GetChild(0).GetComponent<Image>().sprite = playerSkillResourceAsset.avatar;
         }
     }

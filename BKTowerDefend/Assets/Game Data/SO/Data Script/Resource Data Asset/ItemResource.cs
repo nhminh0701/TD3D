@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemResource : ScriptableObject
+public abstract class ItemResource : ScriptableObject
 {
     public string itemName;
 

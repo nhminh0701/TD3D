@@ -13,7 +13,7 @@ public class TurretSelectionDisplayer : UISelectionDataDisplayer
     #endregion
 
     #region DBH variables
-    [Space(20)]
+    [Space(10)]
     [Header("Turret Equipment Data _DBH")]
     [SerializeField] GameObject[] listSelectingEquipment;
 
@@ -25,14 +25,14 @@ public class TurretSelectionDisplayer : UISelectionDataDisplayer
 
     private void Awake()
     {
-        EventManager.OnAddingTurretItem += OnSelectingTurretEnter;
-        EventManager.OnAddingDBHItem += OnSelectingDBHEnter;
+        ItemDataPopUpWindow.OnAddingTurretItem += OnSelectingTurretEnter;
+        ItemDataPopUpWindow.OnAddingDBHItem += OnSelectingDBHEnter;
     }
 
     private void OnDestroy()
     {
-        EventManager.OnAddingTurretItem -= OnSelectingTurretEnter;
-        EventManager.OnAddingDBHItem -= OnSelectingDBHEnter;
+        ItemDataPopUpWindow.OnAddingTurretItem -= OnSelectingTurretEnter;
+        ItemDataPopUpWindow.OnAddingDBHItem -= OnSelectingDBHEnter;
     }
 
     protected override void GetGlobalData()
@@ -84,7 +84,6 @@ public class TurretSelectionDisplayer : UISelectionDataDisplayer
             }
             // Asign new value
             selectedSlot.transform.GetChild(0).GetComponent<Image>().sprite = turretResourceAsset.listTurretsAvatar[0];
-
             DisplayUserEquipedTurretEffect(slotIndex);
         }
     }

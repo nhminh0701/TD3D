@@ -47,4 +47,10 @@ public class UserData : MonoBehaviour
         PlayerPrefs.SetInt("Gold", 100);
         PlayerPrefs.SetInt("ReachableLv", 10);
     }
+
+    public bool GetRequiredEquipment()
+    {
+        int numberAvailableTurret = DataGlobal.instance.dataAsset.GetAvailableTurrets().Count;
+        return listTurretIds.Length <= numberAvailableTurret;
+    }
 }

@@ -7,21 +7,16 @@ public class ResourceDataAsset : ScriptableObject
 {
     public ItemResource GetItemResource(ItemData itemData)
     {
-        ItemResource itemResource = CreateInstance<ItemResource>();
-
         switch (itemData.GetType().ToString())
         {
             case ("TurretData"):
-                itemResource = GetTurretResourceAsset(itemData.itemName);
-                break;
+                return GetTurretResourceAsset(itemData.itemName);
             case ("DebuffHolderData"):
-                itemResource = GetDBHResourceAsset(itemData.itemName);
-                break;
+                return GetDBHResourceAsset(itemData.itemName);
             case ("PlayerSkillData"):
-                itemResource = GetPlayerSkillResourceAsset(itemData.itemName);
-                break;
+                return GetPlayerSkillResourceAsset(itemData.itemName);
         }
-        return itemResource;
+        return null;
     }
     
 
