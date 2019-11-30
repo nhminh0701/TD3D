@@ -31,8 +31,9 @@ public class StageDataDisplayer : DataDsiplayer
 
             if (stageUnLockCond >= 0)
             {
+                int stageIndex = i;
                 displayButton.GetComponent<Button>().onClick.AddListener(()
-                    => sceneFader.FadeTo(listStageData[i].stageId));
+                    => sceneFader.FadeTo(listStageData[stageIndex].stageId.ToString()));
                 displayButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = listStageData[i].stageId;
             }
             else

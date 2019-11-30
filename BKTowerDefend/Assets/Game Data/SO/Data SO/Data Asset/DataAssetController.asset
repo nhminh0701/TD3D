@@ -26,7 +26,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c0c5737985961c240ad814828295faba, type: 2}
   - {fileID: 11400000, guid: 16b6eaec2ffbc9240908f6b31e354481, type: 2}
   - {fileID: 11400000, guid: c82eb14980af88a4f95ae59aebcf374a, type: 2}
-  defaultNumberOfTurrets: 2
+  defaultNumberOfTurrets: 0
   listDebuffHolderAssets:
   - {fileID: 11400000, guid: fdb79c22931c81b48ab37e28d666b864, type: 2}
   listPlayerSkill:

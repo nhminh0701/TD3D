@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: FireBall No Jutsu
   m_EditorClassIdentifier: 
   itemName: FireBallNoJutsu
-  unlockStatusCode: 0
+  unlockStatusCode: 4
   description: Test Skill
   appShopPurchasePrice: 90
-  purchaseType: 0
+  purchaseType: 1
   targetStyle: 00000000

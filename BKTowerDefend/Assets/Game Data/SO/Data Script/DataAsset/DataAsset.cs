@@ -40,8 +40,6 @@ public class DataAsset : ScriptableObject
     {
         if (listTurretAsset.Count == 0) return;
 
-        // PreLoadTurretData();
-
         for (var i = 0; i < listTurretAsset.Count; i++)
         {
             if (i < defaultNumberOfTurrets)
@@ -49,7 +47,6 @@ public class DataAsset : ScriptableObject
                 listTurretAsset[i].unlockStatusCode = PlayerPrefs.GetInt(listTurretAsset[i].itemName, 4);
             }
             else listTurretAsset[i].unlockStatusCode = PlayerPrefs.GetInt(listTurretAsset[i].itemName, 0);
-            // Debug.Log(listTurretAsset[i].itemName + " " + listTurretAsset[i].unlockStatusCode);
         }
     }
 
@@ -87,7 +84,7 @@ public class DataAsset : ScriptableObject
 
         for (var i = 0; i < listTurretAsset.Count; i++)
         {
-            if (PlayerPrefs.GetInt(listTurretAsset[i].itemName) != 0) listToreturn.Add(listTurretAsset[i]);
+            if (listTurretAsset[i].unlockStatusCode != 0) listToreturn.Add(listTurretAsset[i]);
         }
 
         return listToreturn;
@@ -95,7 +92,6 @@ public class DataAsset : ScriptableObject
 
     public TurretData GetTurretData(string itemName)
     {
-        // TurretData turretData = new TurretData();
         TurretData turretData = (TurretData)CreateInstance("TurretData");
 
         for (var i = 0; i < listTurretAsset.Count; i++)

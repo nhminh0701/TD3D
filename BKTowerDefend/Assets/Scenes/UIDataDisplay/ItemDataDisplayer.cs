@@ -4,6 +4,9 @@ using UnityEngine;
 using TMPro;
 using System;
 
+/// <summary>
+/// Displayer ItemData element into UI using corresponding resources
+/// </summary>
 public class ItemDataDisplayer : DataDsiplayer
 {
     [SerializeField] ItemType itemType;
@@ -16,7 +19,10 @@ public class ItemDataDisplayer : DataDsiplayer
         GetData();
         base.Start();
     }
-
+    
+    /// <summary>
+    /// Use listItemData information to display data interferance buttons
+    /// </summary>
     protected override void LoadData()
     {
         ResetEventRegistration();
@@ -42,6 +48,7 @@ public class ItemDataDisplayer : DataDsiplayer
             {
                 displayButton.GetComponent<Image>().color = lockedColor;
                 displayButton.transform.GetChild(2).gameObject.SetActive(true);
+                displayButton.transform.GetChild(2).GetChild(0).GetComponent<Image>().sprite = GetCurrencySprite(itemData);
                 displayButton.transform.GetChild(2).GetComponentInChildren<TextMeshProUGUI>().text = listItemData[i].appShopPurchasePrice.ToString();
             }
 
@@ -63,6 +70,11 @@ public class ItemDataDisplayer : DataDsiplayer
         if (ItemDataPopUpWindow.IsExitEventNull()) ResetEventRegistration();
     }
 
+    /// <summary>
+    /// Get ItemData with itemName and type filtered with ItemType
+    /// </summary>
+    /// <param name="itemName"></param>
+    /// <returns></returns>
     ItemData GetItemData(string itemName)
     {
         switch (itemType)
@@ -77,6 +89,10 @@ public class ItemDataDisplayer : DataDsiplayer
         return null;
     }
 
+
+    /// <summary>
+    /// Initiate listItemData and lisItemResource based on ItemType filter
+    /// </summary>
     void GetData()
     {
         if (dataGlobal == null) dataGlobal = DataGlobal.instance;
@@ -126,8 +142,29 @@ public class ItemDataDisplayer : DataDsiplayer
                 break;
         }
     }
+
+    /// <summary>
+    /// Return currency sprite based on purchaseType of itemData
+    /// </summary>
+    /// <param name="itemdata"></param>
+    /// <returns></returns>
+    Sprite GetCurrencySprite(ItemData itemdata)
+    {
+        ResourceDataAsset resourceDataAsset = dataGlobal.resourceDataAsset;
+        switch (itemdata.purchaseType)
+        {
+            case (PurchaseType.Gold):
+                return resourceDataAsset.GetOtherSpriteAsset("Gold Currency").sprite;
+            case (PurchaseType.Coin):
+                return resourceDataAsset.GetOtherSpriteAsset("Coin Currency").sprite;
+        }
+        return null;
+    }
 }
 
+/// <summary>
+/// Filter ItemData specific type from abstract type ItemData
+/// </summary>
 public enum ItemType
 {
     Turret,

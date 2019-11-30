@@ -1,4 +1,4 @@
-﻿using System;
+﻿using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class DataGlobal : MonoBehaviour
@@ -28,8 +28,22 @@ public class DataGlobal : MonoBehaviour
     {
         dataAsset.ResetData();
         userData.ResetData();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        LoadData();
     }
 
+    public bool IsEnoughItem()
+    {
+        int numberOfTurret = dataAsset.GetAvailableTurrets().Count;
+        int noEquipedTurret = 0;
+        for (var i = 0; i < userData.listTurretIds.Length;i++)
+        {
+            if (!string.IsNullOrWhiteSpace(userData.listTurretIds[i])) noEquipedTurret++;
+        }
+
+        if (numberOfTurret <= userData.listTurretIds.Length) { return noEquipedTurret == numberOfTurret; }
+        else return noEquipedTurret == userData.listTurretIds.Length;
+    }
 
     public void PurchaseItem(ItemData item)
     {

@@ -23,6 +23,10 @@ public abstract class DataDsiplayer : MonoBehaviour
         LoadData();
     }
 
+    /// <summary>
+    /// Extract data in the list and using corresponding resource to display in itemDisplayer
+    /// of abstract class
+    /// </summary>
     protected abstract void LoadData();
 
     public void ResetDataDisplay()

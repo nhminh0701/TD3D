@@ -117,6 +117,18 @@ public class ResourceDataAsset : ScriptableObject
 
         return itemToReturn;
     }
+
+    public Sprite GetCurrencySprite(ItemData itemdata)
+    {
+        switch (itemdata.purchaseType)
+        {
+            case (PurchaseType.Gold):
+                return GetOtherSpriteAsset("Gold Currency").sprite;
+            case (PurchaseType.Coin):
+                return GetOtherSpriteAsset("Coin Currency").sprite;
+        }
+        return null;
+    }
     #endregion
 }
 

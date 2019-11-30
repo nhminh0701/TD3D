@@ -89,6 +89,8 @@ public class ItemDataPopUpWindow : MonoBehaviour
         {
             buttonObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text =
                 itemData.appShopPurchasePrice.ToString();
+            buttonObject.transform.GetChild(0).GetComponent<Image>().sprite =
+                resourceDataAsset.GetCurrencySprite(itemData);
             bool hasEnoughMoney = HasEnoughMoney(itemData);
             buttonObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>().color =
                 hasEnoughMoney ? Color.black : Color.red;

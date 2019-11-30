@@ -30,3 +30,7 @@ MonoBehaviour:
   listOtherSpriteAssets:
   - itemName: Empy Icon
     sprite: {fileID: 21300000, guid: 27bd1b2ed94f720429b8696c9bca0655, type: 3}
+  - itemName: Coin Currency
+    sprite: {fileID: 21300000, guid: 1a819321861a6424e8f4f474e5c7d5a1, type: 3}
+  - itemName: Gold Currency
+    sprite: {fileID: 21300000, guid: af88a36464dfa0e4395dd25f33118806, type: 3}

@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections.Generic;
 
 public class UserData : MonoBehaviour
 {
@@ -7,8 +6,23 @@ public class UserData : MonoBehaviour
     public int gold;
     public int reachableLv;
 
+    [Header("Equipment")]
     public string[] listTurretIds;
     public string[] listSkillIds;
+
+    public delegate void OnCurrencyChange(int changeAmount);
+    public static event OnCurrencyChange OnCoinChangeEvent;
+    public static event OnCurrencyChange OnGoldChangeEvent;
+
+    void CoiChangeEvent(int changeAmount)
+    {
+        if (OnCoinChangeEvent != null) OnCoinChangeEvent(changeAmount);
+    }
+
+    void GoldChangeEvent(int changeAmount)
+    {
+        if (OnGoldChangeEvent != null) OnGoldChangeEvent(changeAmount);
+    }
 
     public void Awake()
     {
@@ -27,12 +41,14 @@ public class UserData : MonoBehaviour
     {
         coin += amount;
         PlayerPrefs.SetInt("Coin", coin);
+        CoiChangeEvent(amount);
     }
 
     public void ChangeGold(int amount)
     {
         gold += amount;
         PlayerPrefs.SetInt("Gold", gold);
+        GoldChangeEvent(amount);
     }
 
     public void UnLockNewLevel()
@@ -44,7 +60,7 @@ public class UserData : MonoBehaviour
     public void ResetData()
     {
         PlayerPrefs.SetInt("Coin", 1000);
-        PlayerPrefs.SetInt("Gold", 100);
+        PlayerPrefs.SetInt("Gold", 500);
         PlayerPrefs.SetInt("ReachableLv", 10);
     }
 

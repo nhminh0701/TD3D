@@ -103,7 +103,6 @@
     <Compile Include="Assets\RainMaker\Prefab\RainScript.cs" />
     <Compile Include="Assets\RainMaker\Prefab\RainScript2D.cs" />
     <Compile Include="Assets\Scenes\DataUIDisplayer.cs" />
-    <Compile Include="Assets\Scenes\LobbySceneManager.cs" />
     <Compile Include="Assets\Scenes\SelectedDataUIDisplayer.cs" />
     <Compile Include="Assets\Scenes\SelectionDataUI\PlayerSkillSelectionDisplayer.cs" />
     <Compile Include="Assets\Scenes\SelectionDataUI\TurretSelectionDisplayer.cs" />
@@ -113,6 +112,11 @@
     <Compile Include="Assets\Scenes\UIDataDisplay\ItemDataDisplayer.cs" />
     <Compile Include="Assets\Scenes\UIDataDisplay\ItemDataPopUpWindow.cs" />
     <Compile Include="Assets\Scenes\UIDataDisplay\StageDataDisplayer.cs" />
+    <Compile Include="Assets\Scenes\WindowUiTweener\HomeMenuTweener.cs" />
+    <Compile Include="Assets\Scenes\WindowUiTweener\ItemSelectionTweener.cs" />
+    <Compile Include="Assets\Scenes\WindowUiTweener\LobbySceneManager.cs" />
+    <Compile Include="Assets\Scenes\WindowUiTweener\StageSelectionTweener.cs" />
+    <Compile Include="Assets\Scenes\WindowUiTweener\WindowTweener.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyMovement.cs" />
     <Compile Include="Assets\Scripts\Enemy\Health.cs" />
@@ -145,6 +149,7 @@
     <Compile Include="Assets\Scripts\UI\StageClearUI.cs" />
     <Compile Include="Assets\Scripts\UI\UI Animation\TabScrollMenuManager.cs" />
     <Compile Include="Assets\Scripts\UI\UIManager.cs" />
+    <Compile Include="Assets\Scripts\UI\UserCurrencyUI.cs" />
     <None Include="Assets\DynamicFog\Resources\Shaders\DFOOrthogonal.shader" />
     <None Include="Assets\DynamicFog\Resources\Shaders\DFMUnlit.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />

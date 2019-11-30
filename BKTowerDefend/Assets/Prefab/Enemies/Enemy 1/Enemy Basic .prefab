@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6463580614880008271}
   - component: {fileID: 6540702911944581219}
   - component: {fileID: 3216586201931201952}
-  - component: {fileID: 3479887692621752313}
   m_Layer: 9
   m_Name: 'Enemy Basic '
   m_TagString: Enemy
@@ -50,6 +49,7 @@ MonoBehaviour:
   startSpeed: 10
   speed: 7
   worth: 5
+  damage: 3
   startHealth: 100
   health: {fileID: 3216586201931201952}
 --- !u!114 &6540702911944581219
@@ -82,18 +82,6 @@ MonoBehaviour:
   healthUIPrefab: {fileID: 6657875395264776444, guid: 45a135256b4ead24589ef12b43c8aba0,
     type: 3}
   isDeath: 0
---- !u!114 &3479887692621752313
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3452674065778686027}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3dd7cebb8ca64e54ca2a2ef620a1ddb0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6050962833857145181
 GameObject:
   m_ObjectHideFlags: 0

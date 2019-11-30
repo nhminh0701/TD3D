@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Rasengan
   m_EditorClassIdentifier: 
   itemName: Rasengan
+  unlockStatusCode: 4
   description: Dap phat chet luon
-  unlockStatusCode: 0
-  appShopPurchasePrice: 0
+  appShopPurchasePrice: 20
+  purchaseType: 1
