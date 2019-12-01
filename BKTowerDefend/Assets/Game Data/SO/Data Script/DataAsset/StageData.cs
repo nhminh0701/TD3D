@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Stage Data", menuName = "Data/Data Asset/Stage Data")]
 public class StageData : ScriptableObject
 {
-    public string stageId;
+    public string stageName;
     public int stageUnlockStatus;
     public PlayerStatsData playerStatsData;
     public List<EnemyWaveData> listEnemyWaveData;
@@ -19,6 +19,12 @@ public class StageData : ScriptableObject
     }
 
     public List<string> listEnemyId;
+
+    public void UnLockThisStage()
+    {
+        stageUnlockStatus = 4;
+        PlayerPrefs.SetInt(stageName, stageUnlockStatus);
+    }
 }
 
 [System.Serializable] 

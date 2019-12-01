@@ -8,7 +8,7 @@ public class TurretSelectionDisplayer : UISelectionDataDisplayer
     #region Turret variables
     List<TurretResourceAsset> listTurretResourceAsset;
     TurretResourceAsset turretResourceAsset;
-    List<TurretData> listTurretData;
+    TurretData[] listTurretData;
     TurretData turretData;
     #endregion
 
@@ -105,7 +105,7 @@ public class TurretSelectionDisplayer : UISelectionDataDisplayer
         }
 
         // Reset Turret Equipment
-        for (var i = 0; i < listTurretData.Count; i++)
+        for (var i = 0; i < listTurretData.Length; i++)
         {
             if (listTurretData[i].itemName == turretId)
             {
@@ -124,7 +124,7 @@ public class TurretSelectionDisplayer : UISelectionDataDisplayer
         string equipedTurret = userData.listTurretIds[slotIndex];
         string dBHId = null;
 
-        for (var i = 0; i < listTurretData.Count; i++)
+        for (var i = 0; i < listTurretData.Length; i++)
         {
             if (listTurretData[i].itemName == equipedTurret)
             {
@@ -158,7 +158,7 @@ public class TurretSelectionDisplayer : UISelectionDataDisplayer
     public void OnSelectingDBHEnter(string dBHId = null)
     {
         // Get Turret of the same Slot
-        for (var i = 0; i < listTurretData.Count; i++)
+        for (var i = 0; i < listTurretData.Length; i++)
         {
             if (listTurretData[i].itemName == userData.listTurretIds[selectingSlotIndex])
             {

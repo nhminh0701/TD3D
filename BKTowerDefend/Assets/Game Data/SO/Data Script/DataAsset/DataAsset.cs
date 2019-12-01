@@ -2,45 +2,69 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Managing all dataAsset in the game, i.e loading, storing, reseting, accessing
+/// </summary>
 [CreateAssetMenu(fileName = "Data Asset", menuName = "Data/Data Asset/Data Asset Controller")]
 public class DataAsset : ScriptableObject
 {
     #region Game Data Manager
     #region Stage Assets
-    public List<StageData> listStageData;
+    public StageData[] listStageData;
 
     void LoadStages()
     {
-        if (listStageData.Count == 0) return;
-        listStageData[0].stageUnlockStatus = PlayerPrefs.GetInt(listStageData[0].stageId, 1);
+        if (listStageData.Length == 0) return;
+        listStageData[0].stageUnlockStatus = PlayerPrefs.GetInt(listStageData[0].stageName, 1);
 
-        for (var i = 1; i < listStageData.Count; i++)
+        for (var i = 1; i < listStageData.Length; i++)
         {
-            listStageData[i].stageUnlockStatus = PlayerPrefs.GetInt(listStageData[i].stageId, 0);
+            listStageData[i].stageUnlockStatus = PlayerPrefs.GetInt(listStageData[i].stageName, 0);
         }
     }
 
     void ResetStages()
     {
-        if (listStageData.Count == 0) return;
-        PlayerPrefs.SetInt(listStageData[0].stageId, 1);
+        if (listStageData.Length == 0) return;
+        PlayerPrefs.SetInt(listStageData[0].stageName, 1);
 
-        for (var i = 1; i < listStageData.Count; i++)
+        for (var i = 1; i < listStageData.Length; i++)
         {
-            PlayerPrefs.SetInt(listStageData[i].stageId, 0);
+            PlayerPrefs.SetInt(listStageData[i].stageName, 0);
         }
+    }
+
+    public void CheckOrUnlockStage(string currentStage)
+    {
+        StageData stageToCheck = (StageData)CreateInstance("StageData");
+
+        for (var i = 0; i < listStageData.Length - 1; i++)
+        {
+            if (listStageData[i].stageName == currentStage) stageToCheck = listStageData[i + 1];
+        }
+
+        if (stageToCheck.stageUnlockStatus == 0) stageToCheck.UnLockThisStage();
+    }
+
+    public StageData GetStageData(string stageName)
+    {
+        for (var i = 0; i < listStageData.Length;i++)
+        {
+            if (listStageData[i].stageName == stageName) return listStageData[i];
+        }
+        return null;
     }
     #endregion
 
     #region Turret Assets
-    public List<TurretData> listTurretAsset;
+    public TurretData[] listTurretAsset;
     public int defaultNumberOfTurrets;
 
     void LoadTurrets()
     {
-        if (listTurretAsset.Count == 0) return;
+        if (listTurretAsset.Length == 0) return;
 
-        for (var i = 0; i < listTurretAsset.Count; i++)
+        for (var i = 0; i < listTurretAsset.Length; i++)
         {
             if (i < defaultNumberOfTurrets)
             {
@@ -52,7 +76,7 @@ public class DataAsset : ScriptableObject
 
     void PreLoadTurretData()
     {
-        for (var i = 0; i < listTurretAsset.Count; i++)
+        for (var i = 0; i < listTurretAsset.Length; i++)
         {
             if (!PlayerPrefs.HasKey(listTurretAsset[i].itemName))
             {
@@ -67,8 +91,8 @@ public class DataAsset : ScriptableObject
 
     void ResetTurrets()
     {
-        if (listTurretAsset.Count == 0) return;
-        for (var i = 0; i < listTurretAsset.Count; i++)
+        if (listTurretAsset.Length == 0) return;
+        for (var i = 0; i < listTurretAsset.Length; i++)
         {
             if (i < defaultNumberOfTurrets)
             {
@@ -78,11 +102,15 @@ public class DataAsset : ScriptableObject
         }
     }
 
+    /// <summary>
+    /// Get unlocked Turret as List of TurretData
+    /// </summary>
+    /// <returns></returns>
     public List<TurretData> GetAvailableTurrets()
     {
         List<TurretData> listToreturn = new List<TurretData>();
 
-        for (var i = 0; i < listTurretAsset.Count; i++)
+        for (var i = 0; i < listTurretAsset.Length; i++)
         {
             if (listTurretAsset[i].unlockStatusCode != 0) listToreturn.Add(listTurretAsset[i]);
         }
@@ -90,11 +118,16 @@ public class DataAsset : ScriptableObject
         return listToreturn;
     }
 
+    /// <summary>
+    /// Get TurretData by itemName
+    /// </summary>
+    /// <param name="itemName"></param>
+    /// <returns></returns>
     public TurretData GetTurretData(string itemName)
     {
         TurretData turretData = (TurretData)CreateInstance("TurretData");
 
-        for (var i = 0; i < listTurretAsset.Count; i++)
+        for (var i = 0; i < listTurretAsset.Length; i++)
         {
             if (listTurretAsset[i].itemName == itemName)
             {
@@ -128,6 +161,11 @@ public class DataAsset : ScriptableObject
         }
     }
 
+    /// <summary>
+    /// Get DBH data by itemName
+    /// </summary>
+    /// <param name="itemName"></param>
+    /// <returns></returns>
     public DebuffHolderData GetDebuffHolderData(string itemName)
     {
         DebuffHolderData debuffHolderData = (DebuffHolderData)CreateInstance("DebuffHolderData");
@@ -164,6 +202,11 @@ public class DataAsset : ScriptableObject
         }
     }
 
+    /// <summary>
+    /// Get SKillData by itemName
+    /// </summary>
+    /// <param name="itemName"></param>
+    /// <returns></returns>
     public PlayerSkillData GetPlayerSkillData(string itemName)
     {
         PlayerSkillData playerSkillData = (PlayerSkillData)CreateInstance("PlayerSkillData");
@@ -182,6 +225,9 @@ public class DataAsset : ScriptableObject
 
 
     #region public Methods
+    /// <summary>
+    /// Load PlayerPrefs storing data in term of unlockstatus
+    /// </summary>
     public void LoadData()
     {
         LoadStages();
@@ -190,6 +236,9 @@ public class DataAsset : ScriptableObject
         LoadPlayerSKills();
     }
 
+    /// <summary>
+    /// Reset PlayerPrefs storing data in term of unlockstatus
+    /// </summary>
     public void ResetData()
     {
         ResetStages();

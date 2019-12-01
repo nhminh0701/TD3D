@@ -21,7 +21,7 @@ public class SelectedDataUIDisplayer : MonoBehaviour
     #region Turret Data
     List<TurretResourceAsset> listTurretResourceAsset;
     TurretResourceAsset turretResourceAsset;
-    List<TurretData> listTurretData;
+    TurretData[] listTurretData;
     TurretData turretData;
     #endregion
     string equipedArtName;
@@ -125,7 +125,7 @@ public class SelectedDataUIDisplayer : MonoBehaviour
         string equipedTurret = userData.listTurretIds[slotIndex];
         string dBHId = null;
 
-        for (var i = 0; i < listTurretData.Count; i++)
+        for (var i = 0; i < listTurretData.Length; i++)
         {
             if (listTurretData[i].itemName == equipedTurret)
             {
@@ -170,7 +170,7 @@ public class SelectedDataUIDisplayer : MonoBehaviour
         }
 
         // Reset Turret Equipment
-        for (var i = 0; i < listTurretData.Count; i++)
+        for (var i = 0; i < listTurretData.Length; i++)
         {
             if (listTurretData[i].itemName == turretId)
             {
@@ -188,7 +188,7 @@ public class SelectedDataUIDisplayer : MonoBehaviour
     public void OnDBHSelectionSlotEnter(int slotIndex, string dBHId = null)
     {
         // Get Turret of the same Slot
-        for (var i = 0; i < listTurretData.Count; i++)
+        for (var i = 0; i < listTurretData.Length; i++)
         {
             if (listTurretData[i].itemName == userData.listTurretIds[slotIndex])
             {

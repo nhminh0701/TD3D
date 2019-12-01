@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class StageDataDisplayer : DataDsiplayer
 {
     SceneFader sceneFader;
-    List<StageData> listStageData;
+    StageData[] listStageData;
 
     // Start is called before the first frame update
     protected override void Start()
@@ -19,22 +19,25 @@ public class StageDataDisplayer : DataDsiplayer
     {
         listStageData = dataGlobal.dataAsset.listStageData;
 
-        for (var i = 0; i < listStageData.Count; i++)
+        for (var i = 0; i < listStageData.Length; i++)
         {
             GameObject displayButton = SimplePool.Spawn(dataUIPrefab, itemsDisplayer.transform.position, Quaternion.identity);
             displayButton.transform.SetParent(itemsDisplayer.transform);
 
-            string stageId = listStageData[i].stageId;
+            string stageId = listStageData[i].stageName;
             int stageUnLockCond = PlayerPrefs.GetInt(stageId, 0);
 
-            displayButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = listStageData[i].stageId;
+            displayButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = listStageData[i].stageName;
 
             if (stageUnLockCond >= 0)
             {
                 int stageIndex = i;
-                displayButton.GetComponent<Button>().onClick.AddListener(()
-                    => sceneFader.FadeTo(listStageData[stageIndex].stageId.ToString()));
-                displayButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = listStageData[i].stageId;
+                displayButton.GetComponent<Button>().onClick.AddListener(()=>
+                {
+                    sceneFader.FadeTo(listStageData[stageIndex].stageName.ToString());
+                    dataGlobal.currentStageName = listStageData[stageIndex].stageName;
+                });
+                displayButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = listStageData[i].stageName;
             }
             else
             {

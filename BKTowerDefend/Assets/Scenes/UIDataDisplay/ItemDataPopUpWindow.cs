@@ -96,7 +96,9 @@ public class ItemDataPopUpWindow : MonoBehaviour
                 hasEnoughMoney ? Color.black : Color.red;
             buttonObject.GetComponent<Button>().interactable = hasEnoughMoney;
 
-            if (hasEnoughMoney) buttonObject.GetComponent<Button>().onClick.AddListener(() => PurchaseItem(itemData, buttonObject));
+            if (hasEnoughMoney) buttonObject.GetComponent<Button>().onClick.AddListener(() => {
+                PurchaseItem(itemData, buttonObject);
+            });
         }
         else
         {
@@ -164,13 +166,17 @@ public class ItemDataPopUpWindow : MonoBehaviour
     }
     #endregion
 
+    /// <summary>
+    /// Failed to manage events => use delegate
+    /// </summary>
     public delegate void OnButtonExitEvent();
-    public static event OnButtonExitEvent OnWindowExit;
+    public static OnButtonExitEvent OnWindowExit;
     void CloseEvent()
     {
-        if (OnWindowExit != null) OnWindowExit();
+        if (OnWindowExit != null)
+        {
+            OnWindowExit();
+        }
     }
-
-    public static bool IsExitEventNull() { return OnWindowExit == null; }
     #endregion
 }

@@ -44,7 +44,7 @@ public class DataUIDisplayer : MonoBehaviour
     }
 
     #region Turret DataUI transfer
-    List<TurretData> listTurretData;
+    TurretData[] listTurretData;
     List<TurretResourceAsset> listTurretResourceAsset;
     //[HideInInspector]
     public int slotIndexToChangeTurretData;
@@ -56,7 +56,7 @@ public class DataUIDisplayer : MonoBehaviour
         listTurretData = dataGlobal.dataAsset.listTurretAsset;
         listTurretResourceAsset = dataGlobal.resourceDataAsset.listTurretResourceAsset;
 
-        for (var i = 0; i < listTurretData.Count; i++)
+        for (var i = 0; i < listTurretData.Length; i++)
         {
             GameObject displayButton = SimplePool.Spawn(dataUIPrefab, listItemDataDisplayers[0].transform.position, Quaternion.identity);
             displayButton.transform.SetParent(listItemDataDisplayers[0].transform.GetChild(0).transform.GetChild(0));

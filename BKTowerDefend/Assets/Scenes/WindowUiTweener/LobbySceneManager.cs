@@ -23,10 +23,7 @@ public class LobbySceneManager : MonoBehaviour
     public void ToStageWindow()
     {
         if (!dataGlobal.IsEnoughItem()) TweenWarningText();
-        else
-        {
-            SwitchWindow(stageSelectionTweener);
-        }
+        else SwitchWindow(stageSelectionTweener);
     }
 
     public void ToItemWindow() { SwitchWindow(itemSelectionTweener); } 

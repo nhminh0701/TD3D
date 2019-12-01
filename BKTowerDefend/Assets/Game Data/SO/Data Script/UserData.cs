@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// Holding information about player's currency, listing items, ect
+/// </summary>
 public class UserData : MonoBehaviour
 {
     public int coin;
@@ -25,6 +28,11 @@ public class UserData : MonoBehaviour
     }
 
     public void Awake()
+    {
+        ResetItemSlot();   
+    }
+
+    private void ResetItemSlot()
     {
         listTurretIds = new string[3];
         listSkillIds = new string[3];
@@ -62,6 +70,7 @@ public class UserData : MonoBehaviour
         PlayerPrefs.SetInt("Coin", 1000);
         PlayerPrefs.SetInt("Gold", 500);
         PlayerPrefs.SetInt("ReachableLv", 10);
+        ResetItemSlot();
     }
 
     public bool GetRequiredEquipment()

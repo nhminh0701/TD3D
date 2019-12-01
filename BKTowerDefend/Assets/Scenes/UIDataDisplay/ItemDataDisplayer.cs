@@ -53,7 +53,7 @@ public class ItemDataDisplayer : DataDsiplayer
             }
 
             displayButton.GetComponent<Button>().onClick.AddListener(() => {
-                ItemDataPopUpWindow.OnWindowExit += ResetDataDisplay;
+                ItemDataPopUpWindow.OnWindowExit = ResetDataDisplay;
                 // All button reloaded so no need to unregister
                 ItemDataPopUpWindow.instance.DisplayerData(displayButton.transform, itemData);
             });
@@ -62,12 +62,12 @@ public class ItemDataDisplayer : DataDsiplayer
 
     private void ResetEventRegistration()
     {
-        ItemDataPopUpWindow.OnWindowExit -= ResetDataDisplay;
+        ItemDataPopUpWindow.OnWindowExit = null;
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
-        if (ItemDataPopUpWindow.IsExitEventNull()) ResetEventRegistration();
+        if (!(ItemDataPopUpWindow.OnWindowExit == null)) ResetEventRegistration();
     }
 
     /// <summary>
@@ -102,10 +102,10 @@ public class ItemDataDisplayer : DataDsiplayer
         switch (itemType)
         {
             case (ItemType.Turret):
-                List<TurretData> listTurretData = dataGlobal.dataAsset.listTurretAsset;
+                TurretData[] listTurretData = dataGlobal.dataAsset.listTurretAsset;
                 List<TurretResourceAsset> listTurretResourceAssets = dataGlobal.resourceDataAsset.listTurretResourceAsset;
                 
-                for (var i = 0; i < listTurretData.Count; i++)
+                for (var i = 0; i < listTurretData.Length; i++)
                 {
                     listItemData.Add(listTurretData[i]);
                 }
