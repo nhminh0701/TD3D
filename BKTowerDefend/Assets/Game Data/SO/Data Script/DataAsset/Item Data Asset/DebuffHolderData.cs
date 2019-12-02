@@ -7,6 +7,7 @@ public class DebuffHolderData : ItemData
 {
     [Header("DBH Pars.")]
     public List<TurretStyle> targetStyle;
+    public List<Debuff> listDebuff;
 }
 
 [Serializable]

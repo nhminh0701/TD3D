@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a92d06248fb062649a0e7725232bf416, type: 3}
+  m_Name: LaserTurret
+  m_EditorClassIdentifier: 
+  itemName: LaserTurret
+  avatar: {fileID: 21300000, guid: 72a3cedab1c8d024c97ae48f4fb8da92, type: 3}
+  prefab: {fileID: 7608260973000731591, guid: c583ef222686125439ef97ab9cb0db5a, type: 3}
+  buildEffect: {fileID: 4079970260764637963, guid: 17e015123b442394d8a584a9304e28d6,
+    type: 3}
+  mainMaterial: {fileID: 2100000, guid: 154149a841117d64f9f2e37d3104f0df, type: 2}
+  listDesignPerLevel:
+  - scaleSize: 0.75
+    materialColor: {r: 1, g: 0.78329635, b: 0.2216981, a: 1}
+  - scaleSize: 0.75
+    materialColor: {r: 0.25442857, g: 1, b: 0.1462264, a: 1}
+  - scaleSize: 0.75
+    materialColor: {r: 0.19339621, g: 0.75088173, b: 1, a: 1}
+  - scaleSize: 0.75
+    materialColor: {r: 1, g: 0.23860957, b: 0.20392156, a: 1}

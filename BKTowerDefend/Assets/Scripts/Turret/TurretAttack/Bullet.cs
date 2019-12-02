@@ -1,16 +1,28 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] float speed = 70f;
+    [SerializeField] readonly float speed = 70f;
+    [SerializeField] Color color;
     public GameObject impactEffect;
-    [SerializeField] float explosionRadius;
+    float damageRange;
     float damage = 20;
     Transform target;
 
-    public void SetBulletDamage(float value = 20)
+    #region Bullet Skillart
+    Sprite skillAvatar;
+    DebuffHolderData debuffHolderData;
+    // Effect Updated factory
+    DBHResourceAsset dBHResourceAsset;
+    #endregion
+
+    public void SetBulletPars(float _damage = 20, float exploR = 0, DebuffHolderData turretArtData = null, DBHResourceAsset _dBHResourceAsset = null)
     {
-        damage = value;
+        damage = _damage;
+        damageRange = exploR;
+        debuffHolderData = turretArtData;
+        dBHResourceAsset = _dBHResourceAsset;
     }
 
     public void Seek(Transform _target)
@@ -45,7 +57,7 @@ public class Bullet : MonoBehaviour
         GameObject effIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
         Destroy(effIns, 5f);
 
-        if (explosionRadius > 0f)
+        if (damageRange > 0f)
         {
             Explore();
         } else
@@ -70,7 +82,7 @@ public class Bullet : MonoBehaviour
 
     void Explore()
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, damageRange);
         foreach(Collider collider in colliders)
         {
                 Damage(collider.transform);
@@ -80,6 +92,6 @@ public class Bullet : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, explosionRadius);
+        Gizmos.DrawWireSphere(transform.position, damageRange);
     }
 }

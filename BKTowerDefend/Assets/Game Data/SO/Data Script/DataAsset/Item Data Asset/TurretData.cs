@@ -30,10 +30,14 @@ public class TurretDataPerLV
     public int sellPrice;
 }
 
+/// <summary>
+/// Hold parameters needed for turret attacking, i.e damage, damageRange, fireRate
+/// </summary>
 [Serializable]
 public class AttackParams
 {
     public float damage;
+    public float damageRange;
     public float fireRate;
 }
 

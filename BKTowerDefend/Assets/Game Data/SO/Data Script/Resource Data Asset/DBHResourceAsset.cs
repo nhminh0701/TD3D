@@ -3,4 +3,14 @@
 [CreateAssetMenu(fileName = "DBH Resources", menuName = "Data/Resource Data Asset/Resource DBH Asset")]
 public class DBHResourceAsset : ItemResource
 {
+
+    public void UpdateProjectile()
+    {
+
+    }
+
+    public void UpdateLaser()
+    {
+
+    }
 }

@@ -23,7 +23,7 @@ public class TurretAttackLaser : TurretAttack
             TurnOnLaser();
         }
 
-        targetEnemy.health.TakeDamage(damage * Time.deltaTime);
+        targetEnemy.health.TakeDamage(attackParams.damage * Time.deltaTime);
         targetEnemy.Slow(slowPct);
 
         lineRenderer.SetPosition(0, firePoint.position);

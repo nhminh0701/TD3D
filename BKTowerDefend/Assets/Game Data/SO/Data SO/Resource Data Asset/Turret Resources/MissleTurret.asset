@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a92d06248fb062649a0e7725232bf416, type: 3}
+  m_Name: MissleTurret
+  m_EditorClassIdentifier: 
+  itemName: MissleTurret
+  avatar: {fileID: 21300000, guid: 70b10e543c48e5f4fbe3ea2b3d17aa08, type: 3}
+  prefab: {fileID: 1297637452271815517, guid: dbd0cb0706009124a98a75bfbc617bf1, type: 3}
+  buildEffect: {fileID: 4608559949470165840, guid: 8887c52eef6ffe544920ba4b6c08d6d0,
+    type: 3}
+  mainMaterial: {fileID: 2100000, guid: b135de4ae0479a54a930f8ba1d2facc1, type: 2}
+  listDesignPerLevel:
+  - scaleSize: 0.75
+    materialColor: {r: 1, g: 0.16021687, b: 0.11792451, a: 1}
+  - scaleSize: 0.75
+    materialColor: {r: 1, g: 0.16470587, b: 0.54795384, a: 1}
+  - scaleSize: 0.75
+    materialColor: {r: 0.8544845, g: 0.21226418, b: 1, a: 1}
+  - scaleSize: 0.75
+    materialColor: {r: 0.55452484, g: 0.11764705, b: 1, a: 1}

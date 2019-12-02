@@ -102,21 +102,6 @@
     <Compile Include="Assets\RainMaker\Prefab\RainCollision.cs" />
     <Compile Include="Assets\RainMaker\Prefab\RainScript.cs" />
     <Compile Include="Assets\RainMaker\Prefab\RainScript2D.cs" />
-    <Compile Include="Assets\Scenes\DataUIDisplayer.cs" />
-    <Compile Include="Assets\Scenes\SelectedDataUIDisplayer.cs" />
-    <Compile Include="Assets\Scenes\SelectionDataUI\PlayerSkillSelectionDisplayer.cs" />
-    <Compile Include="Assets\Scenes\SelectionDataUI\TurretSelectionDisplayer.cs" />
-    <Compile Include="Assets\Scenes\SelectionDataUI\UISelectionDataDisplayer.cs" />
-    <Compile Include="Assets\Scenes\TestPos.cs" />
-    <Compile Include="Assets\Scenes\UIDataDisplay\DataDsiplayer.cs" />
-    <Compile Include="Assets\Scenes\UIDataDisplay\ItemDataDisplayer.cs" />
-    <Compile Include="Assets\Scenes\UIDataDisplay\ItemDataPopUpWindow.cs" />
-    <Compile Include="Assets\Scenes\UIDataDisplay\StageDataDisplayer.cs" />
-    <Compile Include="Assets\Scenes\WindowUiTweener\HomeMenuTweener.cs" />
-    <Compile Include="Assets\Scenes\WindowUiTweener\ItemSelectionTweener.cs" />
-    <Compile Include="Assets\Scenes\WindowUiTweener\LobbySceneManager.cs" />
-    <Compile Include="Assets\Scenes\WindowUiTweener\StageSelectionTweener.cs" />
-    <Compile Include="Assets\Scenes\WindowUiTweener\WindowTweener.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyMovement.cs" />
     <Compile Include="Assets\Scripts\Enemy\Health.cs" />
@@ -135,7 +120,7 @@
     <Compile Include="Assets\Scripts\Turret\TurretAttack\Bullet.cs" />
     <Compile Include="Assets\Scripts\Turret\TurretAttack\TurretAttack.cs" />
     <Compile Include="Assets\Scripts\Turret\TurretAttack\TurretAttackLaser.cs" />
-    <Compile Include="Assets\Scripts\Turret\TurretAttack\TurretAttackShootBullet.cs" />
+    <Compile Include="Assets\Scripts\Turret\TurretAttack\TurretAttackShooting.cs" />
     <Compile Include="Assets\Scripts\Turret\TurretMovement.cs" />
     <Compile Include="Assets\Scripts\UI\GameOver.cs" />
     <Compile Include="Assets\Scripts\UI\HealthUI.cs" />
@@ -148,6 +133,21 @@
     <Compile Include="Assets\Scripts\UI\Shop.cs" />
     <Compile Include="Assets\Scripts\UI\StageClearUI.cs" />
     <Compile Include="Assets\Scripts\UI\UI Animation\TabScrollMenuManager.cs" />
+    <Compile Include="Assets\Scripts\UI\UI-Data Associated\DataUIDisplayer.cs" />
+    <Compile Include="Assets\Scripts\UI\UI-Data Associated\SelectedDataUIDisplayer.cs" />
+    <Compile Include="Assets\Scripts\UI\UI-Data Associated\SelectionDataUI\PlayerSkillSelectionDisplayer.cs" />
+    <Compile Include="Assets\Scripts\UI\UI-Data Associated\SelectionDataUI\TurretSelectionDisplayer.cs" />
+    <Compile Include="Assets\Scripts\UI\UI-Data Associated\SelectionDataUI\UISelectionDataDisplayer.cs" />
+    <Compile Include="Assets\Scripts\UI\UI-Data Associated\TestPos.cs" />
+    <Compile Include="Assets\Scripts\UI\UI-Data Associated\UIDataDisplay\DataDsiplayer.cs" />
+    <Compile Include="Assets\Scripts\UI\UI-Data Associated\UIDataDisplay\ItemDataDisplayer.cs" />
+    <Compile Include="Assets\Scripts\UI\UI-Data Associated\UIDataDisplay\ItemDataPopUpWindow.cs" />
+    <Compile Include="Assets\Scripts\UI\UI-Data Associated\UIDataDisplay\StageDataDisplayer.cs" />
+    <Compile Include="Assets\Scripts\UI\UI-Data Associated\WindowUiTweener\HomeMenuTweener.cs" />
+    <Compile Include="Assets\Scripts\UI\UI-Data Associated\WindowUiTweener\ItemSelectionTweener.cs" />
+    <Compile Include="Assets\Scripts\UI\UI-Data Associated\WindowUiTweener\LobbySceneManager.cs" />
+    <Compile Include="Assets\Scripts\UI\UI-Data Associated\WindowUiTweener\StageSelectionTweener.cs" />
+    <Compile Include="Assets\Scripts\UI\UI-Data Associated\WindowUiTweener\WindowTweener.cs" />
     <Compile Include="Assets\Scripts\UI\UIManager.cs" />
     <Compile Include="Assets\Scripts\UI\UserCurrencyUI.cs" />
     <None Include="Assets\DynamicFog\Resources\Shaders\DFOOrthogonal.shader" />
@@ -182,7 +182,6 @@
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\DynamicFog\Resources\Shaders\DFODesktopPlusOrthogonal.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
-    <None Include="Assets\JsonDotNet\link.xml" />
     <None Include="Assets\Demigiant\DOTween\readme.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\DynamicFog\Resources\Shaders\DFODesktopPlus.shader" />
@@ -410,9 +409,6 @@
     </Reference>
     <Reference Include="DOTween">
       <HintPath>D:/Unity_Project/Youtube test/Brackey/BKTowerDefend/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>D:/Unity_Project/Youtube test/Brackey/BKTowerDefend/Assets/JsonDotNet/Assemblies/Standalone/Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>

@@ -43,7 +43,6 @@ public class Node : MonoBehaviour
         // reachMaxLV = turretBlueprint.level == maxLv - 1;
         rend = GetComponent<Renderer>();
         startColor = rend.material.color;
-
         buildManager = BuildManager.instance;
     }
 
@@ -85,7 +84,8 @@ public class Node : MonoBehaviour
 
         EventManager.ChangePlayerInStageMoney(-currentTurretLv.inGamePurchasePrice);
 
-        InstantiateNewTurret();
+        //InstantiateNewTurret(turretAsset);
+        turret = currentTurretResource.CreateTurret(currentTurretClass, currentLv, GetBuildPosition());
 
         maxLv = currentTurretClass.unlockStatusCode;
 
@@ -138,7 +138,7 @@ public class Node : MonoBehaviour
         SimplePool.Despawn(turret);
 
         // Building new turret
-        InstantiateNewTurret();
+        turret = currentTurretResource.CreateTurret(currentTurretClass, currentLv, GetBuildPosition());
     }
 
     public void SellTurret()
@@ -183,28 +183,5 @@ public class Node : MonoBehaviour
     public Vector3 GetBuildPosition()
     {
         return transform.position + positionOffset;
-    }
-
-    void InstantiateNewTurret()
-    {
-        GameObject _turret = (GameObject)SimplePool.Spawn(currentTurretResource.listTurretPrefabs[currentLv - 1], GetBuildPosition(), Quaternion.identity);
-
-        _turret.GetComponent<Turret>().turretAttackStyle = currentTurretClass.turretStyle;
-
-        TurretAttack turretAttack = _turret.GetComponent<TurretAttack>();
-        if (turretAttack != null)
-        {
-            turretAttack.attackParams = currentTurretLv.attackParams;
-            turretAttack.InitiateTurret();
-        }
-
-        TurretMovement turretMovement = _turret.GetComponent<TurretMovement>();
-        if (turretMovement != null) turretMovement.range = currentTurretLv.range;
-
-        turret = _turret;
-
-        GameObject buildEffect = (GameObject)Instantiate(currentTurretResource.listTurretBuildEffect[currentLv - 1], GetBuildPosition(), Quaternion.identity);
-
-        Destroy(buildEffect, 3f);
     }
 }

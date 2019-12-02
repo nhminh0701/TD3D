@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Resource Controller
   m_EditorClassIdentifier: 
   listTurretResourceAsset:
-  - {fileID: 11400000, guid: 277cafc8f0cff364a99789821bcdf12e, type: 2}
-  - {fileID: 11400000, guid: a194ed0ea4321ee4d9b7a408841f50cc, type: 2}
-  - {fileID: 11400000, guid: d636dd99c6d4c55439dc3ebfcebbb8a1, type: 2}
+  - {fileID: 11400000, guid: ffdb38ccf39cbaf409c05b55db0eb061, type: 2}
+  - {fileID: 11400000, guid: 9430dc5dcc90955449bcf56b3d0e2673, type: 2}
+  - {fileID: 11400000, guid: 22e9582e71bb43549a50e85b11ab6f5f, type: 2}
   listPlayerSkillResourceAsset:
   - {fileID: 11400000, guid: a67c8cf24720e5445a0350b8aee3190a, type: 2}
   listDBHResourceAssets:

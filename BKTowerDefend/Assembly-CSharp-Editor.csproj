@@ -69,7 +69,9 @@
     <Compile Include="Assets\DynamicFog\Editor\DynamicFogManagerEditor.cs" />
     <Compile Include="Assets\DynamicFog\Editor\DynamicFogProfileEditor.cs" />
     <Compile Include="Assets\DynamicFog\Editor\FogVolumeExtensions.cs" />
+    <Compile Include="Assets\Editor\BuildReportInspector\BuildReportInspector.cs" />
     <Compile Include="Assets\RainMaker\Editor\RainMakerEditor.cs" />
+    <None Include="Assets\Editor\BuildReportInspector\README.txt" />
     <Reference Include="UnityEditor.TestRunner">
       <HintPath>D:/Unity_Project/Youtube test/Brackey/BKTowerDefend/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
     </Reference>
@@ -309,9 +311,6 @@
     </Reference>
     <Reference Include="DOTweenEditor">
       <HintPath>D:/Unity_Project/Youtube test/Brackey/BKTowerDefend/Assets/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>D:/Unity_Project/Youtube test/Brackey/BKTowerDefend/Assets/JsonDotNet/Assemblies/Standalone/Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>D:/Unity_Project/Youtube test/Brackey/BKTowerDefend/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
