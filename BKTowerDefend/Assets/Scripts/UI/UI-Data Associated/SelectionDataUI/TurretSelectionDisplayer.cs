@@ -189,7 +189,7 @@ public class TurretSelectionDisplayer : UISelectionDataDisplayer
         else
         {
             // Check Equip Condition, return if not stastify
-            if (!debuffHolderData.targetStyle.Contains(turretData.turretStyle))
+            if (!debuffHolderData.targetEquipStyle.Contains(turretData.turretStyle))
             {
                 Debug.Log("Mismatch style");
                 return;

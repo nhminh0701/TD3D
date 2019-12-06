@@ -27,13 +27,13 @@ public abstract class TurretAttack : MonoBehaviour
         dataGlobal = DataGlobal.instance;
     }
 
-    public void InitiatePars(AttackParams _attackParams, string dBHName = null)
+    public virtual void InitiatePars(AttackParams _attackParams, string dBHName = null)
     {
         attackParams = _attackParams;
 
         if (string.IsNullOrEmpty(dBHName)) return;
-        debufHolderData = dataGlobal.dataAsset.GetDebuffHolderData(dBHName);
-        dBHResourceAsset = dataGlobal.resourceDataAsset.GetDBHResourceAsset(dBHName);
+        debufHolderData = DataGlobal.instance.dataAsset.GetDebuffHolderData(dBHName);
+        dBHResourceAsset = DataGlobal.instance.resourceDataAsset.GetDBHResourceAsset(dBHName);
     }
 
     public void SetTargetEnemy(Enemy _targetEnemy)

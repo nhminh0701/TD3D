@@ -49,6 +49,7 @@ MonoBehaviour:
   startSpeed: 10
   speed: 7
   worth: 5
+  startDamage: 3
   damage: 3
   startHealth: 100
   health: {fileID: 3216586201931201952}
@@ -81,6 +82,7 @@ MonoBehaviour:
     type: 3}
   healthUIPrefab: {fileID: 6657875395264776444, guid: 45a135256b4ead24589ef12b43c8aba0,
     type: 3}
+  damageRedPerct: 0
   isDeath: 0
 --- !u!1 &6050962833857145181
 GameObject:

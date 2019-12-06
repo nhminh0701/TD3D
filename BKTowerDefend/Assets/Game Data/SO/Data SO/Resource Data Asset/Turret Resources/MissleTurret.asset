@@ -24,6 +24,6 @@ MonoBehaviour:
   - scaleSize: 0.75
     materialColor: {r: 1, g: 0.16470587, b: 0.54795384, a: 1}
   - scaleSize: 0.75
-    materialColor: {r: 0.8544845, g: 0.21226418, b: 1, a: 1}
+    materialColor: {r: 0.71988964, g: 0.2117647, b: 1, a: 1}
   - scaleSize: 0.75
-    materialColor: {r: 0.55452484, g: 0.11764705, b: 1, a: 1}
+    materialColor: {r: 0.11764705, g: 0.33476797, b: 1, a: 1}

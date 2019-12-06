@@ -17,7 +17,6 @@ public class EnemyMovement : MonoBehaviour
         enemy = GetComponent<Enemy>();
     }
 
-
     // Update is called once per frame
     void Update()
     {
@@ -29,9 +28,6 @@ public class EnemyMovement : MonoBehaviour
         if (dir.magnitude < 0.3f) {
             GetNextWayPoint();
         }
-
-        // Reset Speed so after slow effect the speed remained
-        enemy.speed = enemy.startSpeed;
     }
     #region Movement 
     private void GetNextWayPoint()

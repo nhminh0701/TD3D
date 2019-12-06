@@ -14,12 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: MissleTurret
   unlockStatusCode: 4
-  turretStyle: 0
   description: Ok, another another turret
   appShopPurchasePrice: 70
+  purchaseType: 0
+  turretStyle: 0
   listTurretLV:
   - attackParams:
       damage: 40
+      damageRange: 5
       fireRate: 1
     range: 120
     health: 100
@@ -27,6 +29,7 @@ MonoBehaviour:
     sellPrice: 20
   - attackParams:
       damage: 40
+      damageRange: 5
       fireRate: 2
     range: 120
     health: 100
@@ -34,6 +37,7 @@ MonoBehaviour:
     sellPrice: 20
   - attackParams:
       damage: 40
+      damageRange: 5
       fireRate: 2
     range: 120
     health: 100
@@ -41,6 +45,7 @@ MonoBehaviour:
     sellPrice: 20
   - attackParams:
       damage: 40
+      damageRange: 5
       fireRate: 2
     range: 120
     health: 100

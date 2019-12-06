@@ -220,7 +220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   firePoint: {fileID: 7632849317182899212}
-  bulletPrefab: {fileID: 358721016313062420, guid: 86cbc5d69e9d753478c598944d8c6a2c,
+  bulletPrefab: {fileID: 1941228782519899130, guid: bb41905c30f553d4e80d83acbd3256f8,
     type: 3}
   fireRate: 1
 --- !u!1 &9045652921547323912

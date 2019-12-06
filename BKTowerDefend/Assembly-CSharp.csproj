@@ -94,6 +94,8 @@
     <Compile Include="Assets\Game Data\SO\Data Script\Resource Data Asset\TurretResourceAsset.cs" />
     <Compile Include="Assets\Game Data\SO\Data Script\UserData.cs" />
     <Compile Include="Assets\Game Data\SO\Data SO\Resource Data Asset\Test.cs" />
+    <Compile Include="Assets\Game Data\SO\Factories\DBH Factories\VFX Factories\BulletArtFactory.cs" />
+    <Compile Include="Assets\Game Data\SO\Factories\DBH Factories\VFX Factories\DBHVFXFactory.cs" />
     <Compile Include="Assets\Game Data\SO\Wave.cs" />
     <Compile Include="Assets\RainMaker\Demo\DemoScript.cs" />
     <Compile Include="Assets\RainMaker\Demo\DemoScript2D.cs" />
@@ -118,6 +120,7 @@
     <Compile Include="Assets\Scripts\Turret\Node.cs" />
     <Compile Include="Assets\Scripts\Turret\Turret.cs" />
     <Compile Include="Assets\Scripts\Turret\TurretAttack\Bullet.cs" />
+    <Compile Include="Assets\Scripts\Turret\TurretAttack\ExplosionVFX.cs" />
     <Compile Include="Assets\Scripts\Turret\TurretAttack\TurretAttack.cs" />
     <Compile Include="Assets\Scripts\Turret\TurretAttack\TurretAttackLaser.cs" />
     <Compile Include="Assets\Scripts\Turret\TurretAttack\TurretAttackShooting.cs" />

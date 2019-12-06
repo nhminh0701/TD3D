@@ -17,4 +17,21 @@ MonoBehaviour:
   description: Test Skill
   appShopPurchasePrice: 90
   purchaseType: 1
-  targetStyle: 00000000
+  targetEquipStyle: 00000000
+  duration: 3
+  listDebuff:
+  - debuffType: 0
+    debuffParams:
+      damagePerSeconds: 0
+      msSlowPer: 0.5
+      damageRedPer: 0
+  - debuffType: 1
+    debuffParams:
+      damagePerSeconds: 10
+      msSlowPer: 0
+      damageRedPer: 0
+  - debuffType: 4
+    debuffParams:
+      damagePerSeconds: 0
+      msSlowPer: 0
+      damageRedPer: 1

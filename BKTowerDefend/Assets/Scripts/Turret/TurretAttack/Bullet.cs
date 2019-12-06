@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
     [SerializeField] readonly float speed = 70f;
-    [SerializeField] Color color;
+    [SerializeField] ExplosionVFX explosionVFX;
     public GameObject impactEffect;
     float damageRange;
     float damage = 20;
@@ -54,6 +55,12 @@ public class Bullet : MonoBehaviour
 
     private void HitTarget()
     {
+        if (explosionVFX != null)
+        {
+            GameObject exploreVFX = (GameObject)SimplePool.Spawn(explosionVFX.gameObject, transform.position, Quaternion.identity);
+            exploreVFX.GetComponent<ExplosionVFX>().ActivateVFX(damageRange);
+        }
+
         GameObject effIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
         Destroy(effIns, 5f);
 
@@ -71,21 +78,20 @@ public class Bullet : MonoBehaviour
 
     void Damage(Transform enemy)
     {
-
-
         IHealth e = enemy.GetComponentInParent<IHealth>();
-
-        if (e != null) { e.TakeDamage(damage); }
-
-        
+        Enemy enemyComponent = enemy.GetComponent<Enemy>();
+        if (e == null) return;
+        e.TakeDamage(damage);
+        if (debuffHolderData != null) enemyComponent.TriggerEffect(debuffHolderData);
     }
 
     void Explore()
     {
+
         Collider[] colliders = Physics.OverlapSphere(transform.position, damageRange);
         foreach(Collider collider in colliders)
         {
-                Damage(collider.transform);
+            Damage(collider.transform);
         }
     }
 

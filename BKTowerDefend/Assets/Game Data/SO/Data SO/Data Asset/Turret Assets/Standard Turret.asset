@@ -14,12 +14,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: StandardTurret
   unlockStatusCode: 4
-  turretStyle: 0
   description: This is a turret
   appShopPurchasePrice: 50
+  purchaseType: 0
+  turretStyle: 0
   listTurretLV:
   - attackParams:
+      damage: 10
+      damageRange: 0
+      fireRate: 1
+    range: 120
+    health: 100
+    inGamePurchasePrice: 30
+    sellPrice: 30
+  - attackParams:
       damage: 40
+      damageRange: 0
       fireRate: 2
     range: 120
     health: 100
@@ -27,6 +37,7 @@ MonoBehaviour:
     sellPrice: 30
   - attackParams:
       damage: 40
+      damageRange: 0
       fireRate: 2
     range: 120
     health: 100
@@ -34,16 +45,10 @@ MonoBehaviour:
     sellPrice: 30
   - attackParams:
       damage: 40
+      damageRange: 0
       fireRate: 2
     range: 120
     health: 100
     inGamePurchasePrice: 30
     sellPrice: 30
-  - attackParams:
-      damage: 40
-      fireRate: 2
-    range: 120
-    health: 100
-    inGamePurchasePrice: 30
-    sellPrice: 30
-  equipedDebuffId: 
+  equipedDebuffId: FireBallNoJutsu

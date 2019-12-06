@@ -12,6 +12,15 @@ public class TurretAttackShooting : TurretAttack
     // Fire Cycle = 1/fireRate
     float fireCountdown = 0f;
 
+    [SerializeField] Color defaultColor;
+    public BulletArtFactory bulletArtFactory;
+
+    public override void InitiatePars(AttackParams _attackParams, string dBHName = null)
+    {
+        base.InitiatePars(_attackParams, dBHName);
+        if (!(dBHResourceAsset == null)) bulletArtFactory = (BulletArtFactory)dBHResourceAsset.dBHFactory;
+    }
+
     public override void AttackEnemy()
     {
         if (fireCountdown <= 0f)
@@ -29,6 +38,10 @@ public class TurretAttackShooting : TurretAttack
     {
         //GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         GameObject bulletGO = (GameObject)SimplePool.Spawn(bulletPrefab, firePoint.position, Quaternion.identity);
+        MeshRenderer bulletMeshRenderer = bulletGO.transform.GetChild(0).GetComponent<MeshRenderer>();
+        if (bulletArtFactory == null) bulletMeshRenderer.material.color = defaultColor;
+        else bulletArtFactory.UpdateBullet(bulletMeshRenderer);
+
         Bullet bullet = bulletGO.GetComponent<Bullet>();
         bullet.SetBulletPars(attackParams.damage, attackParams.damageRange, debufHolderData, dBHResourceAsset);
         bullet.Seek(targetEnemy.transform);

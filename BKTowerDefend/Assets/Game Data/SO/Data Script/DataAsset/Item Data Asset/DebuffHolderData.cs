@@ -6,8 +6,9 @@ using UnityEngine;
 public class DebuffHolderData : ItemData
 {
     [Header("DBH Pars.")]
-    public List<TurretStyle> targetStyle;
-    public List<Debuff> listDebuff;
+    public List<TurretStyle> targetEquipStyle;
+    public int duration;
+    public Debuff[] listDebuff;
 }
 
 [Serializable]
@@ -29,7 +30,7 @@ public enum DebuffType
 [Serializable]
 public class DebuffParams
 {
-    public float duration;
+    
     public float damagePerSeconds;
     [Range(0, 1)]
     public float msSlowPer;

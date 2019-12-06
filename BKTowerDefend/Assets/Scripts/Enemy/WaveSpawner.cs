@@ -64,7 +64,6 @@ public class WaveSpawner : MonoBehaviour
 
     IEnumerator SpawnWave()
     {
-        Debug.Log(numberAliveEnemies);
         currentWave = waveTemplates[waveIndex];
 
         SetupWavePath();

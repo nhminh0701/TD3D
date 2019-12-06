@@ -10,6 +10,8 @@ public class Health : MonoBehaviour, IHealth
 
     float maxHealth;
     float currentHealth;
+    [HideInInspector]
+    public float damageRedPerct = 0;
     Enemy enemyComponent;
 
     public bool isDeath;
@@ -43,6 +45,7 @@ public class Health : MonoBehaviour, IHealth
 
     public void TakeDamage(float damage)
     {
+        damage *= (1 - damageRedPerct);
         currentHealth -= damage;
         thisHealthUI.ChangeBarVal(-damage);
 
